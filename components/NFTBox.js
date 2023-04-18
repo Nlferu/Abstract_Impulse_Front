@@ -19,12 +19,7 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-
-
-
 export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingModalOpen, tokenId, auctionTimer }) {
-
-
 
     const { isWeb3Enabled, account } = useMoralis()
     const [imageURI, setImageURI] = useState("")
@@ -35,8 +30,6 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
     const handlePlaceBid = () => {
         isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
     }
-
-
 
     async function updateUI() {
         const tokenURI = setTokenURI.uri
@@ -57,8 +50,6 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
             updateUI()
         }
     }, [setTokenURI])
-
-
 
     return (
         <div className={`${styles.container} ${styles.card}`}>
