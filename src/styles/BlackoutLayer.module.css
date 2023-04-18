@@ -1,0 +1,66 @@
+.blackoutLayer {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 99999;
+}
+
+.blackoutText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.spinner {
+    border: 6px solid rgba(139, 139, 139, 0.1);
+    border-top-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 3vh;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.dotAnimation {
+    opacity: 0;
+    animation: dotPulse 2s infinite;
+}
+
+
+@keyframes dotPulse {
+    0% {
+        opacity: 0.2;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

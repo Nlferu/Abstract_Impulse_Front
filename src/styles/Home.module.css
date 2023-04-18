@@ -1,0 +1,165 @@
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.arrow.left {
+  left: 2%;
+}
+
+.arrow.right {
+  right: 2%;
+}
+
+.bulletsContainer {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  position: absolute;
+  bottom: 3.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+}
+
+
+.bullet {
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: gray;
+  cursor: pointer;
+  margin-left: 1vw;
+}
+
+.bullet.active {
+  background-color: white;
+}
+
+
+
+.loadingPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: x-large;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+.content {
+  width: 100vw;
+  padding-left: 5vw;
+  display: flex;
+  align-items: center;
+}
+
+.imageContainer {
+  height: 100vh;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  position: absolute;
+  /* try fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 86vh;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+  /* try fixed - delete limitations */
+  object-fit: contain;
+}
+
+.description {
+  margin-left: 1vw;
+  margin-bottom: 1vw;
+  margin-right: 5vw;
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  width: 26vw;
+  font-size: 1.5vw;
+  line-height: 3.5vh;
+}
+
+.card {
+  animation: slide-in 1s ease-in-out forwards;
+}
+
+.cardTwo {
+  animation: slide-in 1.2s ease-in-out forwards;
+}
+
+.cardThree {
+  animation: slide-in 1.4s ease-in-out forwards;
+  margin-top: 3vh;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.button {
+  display: flex;
+  margin: 0 auto;
+  float: left;
+  margin-bottom: 1vw;
+  margin-top: 3vh;
+  margin-left: 1vh;
+  /* add this line */
+  padding: 1vh 2vw;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
