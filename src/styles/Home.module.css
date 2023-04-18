@@ -133,9 +133,10 @@
   display: flex;
   margin: 0 auto;
   float: left;
-  margin-bottom: 1vw;
+  margin-bottom: 3vw;
   margin-top: 3vh;
   margin-left: 1vh;
+  margin-right: 13vw;
   /* add this line */
   padding: 1vh 2vw;
   border: 2px solid white;

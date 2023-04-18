@@ -34,23 +34,39 @@ export default function Home() {
     />
   )) : null
 
-  const nftBidPlaceds = data.nftBidPlaceds;
+  const nftBidPlaceds = data.nftBidPlaceds
+  const nftAuctionTimeUpdateds = data.nftAuctionTimeUpdateds
 
-  const highestBids = {};
+  const highestBids = {}
+  const highestBlockTimestamp = {}
 
   nftBidPlaceds.forEach((bid) => {
-    const tokenId = bid.tokenId;
-    const amount = Number(bid.amount);
-    const bidder = bid.bidder;
+    const tokenId = bid.tokenId
+    const amount = Number(bid.amount)
+    const bidder = bid.bidder
 
     if (!highestBids[tokenId] || amount > highestBids[tokenId].amount) {
-      highestBids[tokenId] = { amount, bidder };
+      highestBids[tokenId] = { amount, bidder }
     }
-  });
+  })
 
-  const result = Object.entries(highestBids)
+  nftAuctionTimeUpdateds.forEach((timer) => {
+    const tokenId = timer.tokenId
+    const time = timer.time
+    const blockTimestamp = timer.blockTimestamp
+
+    if (!highestBlockTimestamp[tokenId] || blockTimestamp > highestBlockTimestamp[tokenId].blockTimestamp) {
+      highestBlockTimestamp[tokenId] = { blockTimestamp, time }
+    }
+  })
+
+  const resultBid = Object.entries(highestBids)
     .sort((a, b) => a[0] - b[0])
-    .map((entry) => ({ tokenId: entry[0], amount: entry[1].amount, bidder: entry[1].bidder }));
+    .map((entry) => ({ tokenId: entry[0], amount: entry[1].amount, bidder: entry[1].bidder }))
+
+  const resultTime = Object.entries(highestBlockTimestamp)
+    .sort((a, b) => a[0] - b[0])
+    .map((entry) => ({ tokenId: entry[0], blockTimestamp: entry[1].blockTimestamp, time: entry[1].time }))
 
   return (
     <div className={styles.container}>
@@ -62,7 +78,7 @@ export default function Home() {
             tokenId={data.nftMinteds[currentCardIndex].tokenId}
             setTokenURI={data.nftSetTokenURIs[currentCardIndex]}
             bidPlaced={highestBids[currentCardIndex]}
-            prolongation={data.nftAuctionExtendeds[currentCardIndex]}
+            auctionTimer={highestBlockTimestamp[currentCardIndex]}
             isBiddingModalOpen={setIsBiddingModalOpen}
           />
           {isTransactionOpen && (<BlackoutLayer />)}

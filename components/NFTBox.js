@@ -19,16 +19,24 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingModalOpen, tokenId }) {
 
-    const { isWeb3Enabled } = useMoralis()
+
+
+export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingModalOpen, tokenId, auctionTimer }) {
+
+
+
+    const { isWeb3Enabled, account } = useMoralis()
     const [imageURI, setImageURI] = useState("")
     const [tokenName, setTokenName] = useState("")
     const [tokenDescription, setTokenDescription] = useState("")
+    const [isBidRejected, setIsBidRejected] = useState(true)
 
     const handlePlaceBid = () => {
-        isBiddingModalOpen(true); // call the isBiddingModalOpen function to update the state
-    };
+        isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
+    }
+
+
 
     async function updateUI() {
         const tokenURI = setTokenURI.uri
@@ -49,6 +57,8 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
             updateUI()
         }
     }, [setTokenURI])
+
+
 
     return (
         <div className={`${styles.container} ${styles.card}`}>
@@ -72,7 +82,7 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                     </div>
                     <div className={`${styles.description} ${styles.cardTwo}`}>
                         <h1>AUCTION DETAILS</h1>
-                        <p>Auction ends in {formatAge(mintedItem.blockTimestamp * 1000 + 604800000 - Date.now())}</p>
+                        <p>Auction ends in {formatAge(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now())}</p>
                         {bidPlaced ? (
                             <div>
                                 <p>Leading Bidder: {truncateStr(bidPlaced.bidder, 15)}</p>
@@ -88,6 +98,7 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                         ) : (
                             <p className={styles.cardThree}>*** Connect your wallet to place bid ***</p>
                         )}
+                        {isBidRejected ? (<p>You are no longer a leading bidder. Place the new highest bid or withdraw your rejected bid here.</p>) : ("")}
                     </div>
                 </div>
             </div>

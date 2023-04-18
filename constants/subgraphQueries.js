@@ -11,7 +11,8 @@ const GET_ACTIVE_ITEMS = gql`
   nftSetTokenURIs(orderBy: tokenId) {
     uri
   }
-  nftAuctionExtendeds(orderBy: tokenId) {
+  nftAuctionTimeUpdateds(orderBy: tokenId) {
+    tokenId
     time
     blockTimestamp
   }
