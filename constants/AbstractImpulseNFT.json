@@ -11,6 +11,11 @@
     },
     {
         "type": "error",
+        "name": "Abstract__AuctionDurationTooShort",
+        "inputs": []
+    },
+    {
+        "type": "error",
         "name": "Abstract__AuctionFinishedForThisNFT",
         "inputs": []
     },
@@ -327,6 +332,11 @@
             {
                 "type": "bool",
                 "name": "transfer",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
+                "name": "tokenId",
                 "indexed": true
             }
         ]
