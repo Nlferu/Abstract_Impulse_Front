@@ -68,6 +68,8 @@ export default function Home() {
     .sort((a, b) => a[0] - b[0])
     .map((entry) => ({ tokenId: entry[0], blockTimestamp: entry[1].blockTimestamp, time: entry[1].time }))
 
+  console.log(highestBids)
+
   return (
     <div className={styles.container}>
       {hasNFTs ? (

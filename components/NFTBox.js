@@ -35,22 +35,20 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
         auctionTimerValue = 0
     }
 
-    if (bidPlaced.bidder !== account && auctionTimerValue != 0) {
+    if (bidPlaced && bidPlaced.bidder !== account && auctionTimerValue != 0) {
         // if ()
         setIsBidRejected(true)
     }
 
-    if (bidPlaced.bidder !== account && auctionTimerValue == 0) {
+    if (bidPlaced && bidPlaced.bidder !== account && auctionTimerValue == 0) {
         // if ()
         setIsNoWinClosed(true)
     }
 
-    if (bidPlaced.bidder === account && auctionTimerValue == 0) {
+    if (bidPlaced && bidPlaced.bidder === account && auctionTimerValue == 0) {
         // if ()
         setIsWinClosed(true)
     }
-
-    console.log(isBidRejected)
 
     async function updateUI() {
         const tokenURI = setTokenURI.uri

@@ -36,7 +36,7 @@ export function formatAge(milliseconds) {
     if (minutes) {
         parts.push(`${minutes}m `)
     }
-    if (seconds) {
+    if (seconds || milliseconds === 0) {
         parts.push(`${seconds}s `)
     }
     return parts
