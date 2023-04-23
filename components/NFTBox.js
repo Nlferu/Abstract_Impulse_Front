@@ -28,27 +28,9 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
     const [isBidRejected, setIsBidRejected] = useState(false)
     const [isNoWinClosed, setIsNoWinClosed] = useState(false)
     const [isWinClosed, setIsWinClosed] = useState(false)
+    const [isAuctionTimerZero, setIsAuctionTimerZero] = useState(Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0))
 
-    let auctionTimerValue = auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now()
-
-    if (auctionTimerValue <= 0) {
-        auctionTimerValue = 0
-    }
-
-    if (bidPlaced && bidPlaced.bidder !== account && auctionTimerValue != 0) {
-        // if ()
-        setIsBidRejected(true)
-    }
-
-    if (bidPlaced && bidPlaced.bidder !== account && auctionTimerValue == 0) {
-        // if ()
-        setIsNoWinClosed(true)
-    }
-
-    if (bidPlaced && bidPlaced.bidder === account && auctionTimerValue == 0) {
-        // if ()
-        setIsWinClosed(true)
-    }
+    let displayedAuctionTimer = Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0)
 
     async function updateUI() {
         const tokenURI = setTokenURI.uri
@@ -69,6 +51,19 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
             updateUI()
         }
     }, [setTokenURI])
+
+
+    useEffect(() => {
+        if (bidPlaced) {
+            if (bidPlaced.bidder !== account && isAuctionTimerZero != 0) {
+                setIsBidRejected(true)
+            } else if (bidPlaced.bidder !== account && isAuctionTimerZero == 0) {
+                setIsNoWinClosed(true)
+            } else if (bidPlaced.bidder === account && isAuctionTimerZero == 0) {
+                setIsWinClosed(true)
+            }
+        }
+    }, [bidPlaced, account, isAuctionTimerZero])
 
     const handlePlaceBid = () => {
         isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
@@ -96,15 +91,25 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                     </div>
                     <div className={`${styles.description} ${styles.cardTwo}`}>
                         <h1>AUCTION DETAILS</h1>
-                        <p>Auction ends in {formatAge(auctionTimerValue)}</p>
-                        {bidPlaced ? (
+                        {isAuctionTimerZero == 0 ? (
                             <div>
-                                <p>Leading Bidder: {truncateStr(bidPlaced.bidder, 15)}</p>
-                                <p>Highest Bid: {bidPlaced.amount / 10 ** 18}</p>
+                                <p>Duration:</p>
+                                <p>Auction for this NFT has ended</p>
                             </div>
                         ) : (
                             <div>
-                                <p>No bids placed yet!</p>
+                                <p>Duration:</p>
+                                <p>Auction ends in {formatAge(displayedAuctionTimer)}</p>
+                            </div>
+                        )}
+                        {bidPlaced ? (
+                            <div>
+                                <p>Leading Bidder: {truncateStr(bidPlaced.bidder, 15)}</p>
+                                <p>Highest Bid: ETH {bidPlaced.amount / 10 ** 18}</p>
+                            </div>
+                        ) : (
+                            <div>
+                                <p>No bids were placed yet</p>
                             </div>
                         )}
                         {isWeb3Enabled ? (
@@ -112,10 +117,24 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                         ) : (
                             <p className={styles.cardThree}>*** Connect your wallet to place bid ***</p>
                         )}
-                        {isBidRejected ? (<p>You are no longer the leading bidder. Withdraw your rejected bid in the withdrawal section and place the new highest bid.</p>) : ("")}
-                        {isNoWinClosed ? (<p>Looks like you didn't win this auction. Withdraw your rejected bid in the withdrawal section and participate in another one! </p>) : ("")}
-                        {/* {isNoWinBidClosed ? (<p>Auction for this NFT has ended. You can participate in another one! </p>) : ("")} */}
-                        {isWinClosed ? (<p>Congratulations! Looks like you won the auction! You will be able to withdraw your NFT in the withdrawal section within 48h max.</p>) : ("")}
+                        {isBidRejected ? (
+                            <div>
+                                <p>You are not the leading bidder.</p>
+                                <p>Place the new highest bid or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
+                            </div>
+                        ) : null}
+                        {isNoWinClosed ? (
+                            <div>
+                                <p>Looks like you didn't win this auction.</p>
+                                <p>Participate in another one or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
+                            </div>
+                        ) : null}
+                        {isWinClosed ? (
+                            <div>
+                                <p>Congratulations! Looks like you won this auction!</p>
+                                <p>You will be able to withdraw your NFT in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a> within 48h.</p>
+                            </div>
+                        ) : null}
                     </div>
                 </div>
             </div>

@@ -164,3 +164,8 @@
     transform: scale(1);
   }
 }
+
+.hyperlinkWithdrawal {
+  color: rgb(58, 160, 255);
+  text-decoration: underline;
+}
