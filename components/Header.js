@@ -13,8 +13,11 @@ export default function Header() {
                     <Link href="/" className={styles.homeButton}>
                         HOME
                     </Link>
-                    <Link href="/buy-nft" className={styles.homeButton}>
-                        Buy NFT
+                    <Link href="/withdrawal" className={styles.homeButton}>
+                        Withdrawal
+                    </Link>
+                    <Link href="/about" className={styles.homeButton}>
+                        About
                     </Link>
                     <div className={styles.connButton}>
                         <ConnectButton moralisAuth={false} />

@@ -133,9 +133,9 @@
   display: flex;
   margin: 0 auto;
   float: left;
-  margin-bottom: 3vw;
+  margin-bottom: 3vh;
   margin-top: 3vh;
-  margin-left: 1vh;
+  margin-left: 1vw;
   margin-right: 13vw;
   /* add this line */
   padding: 1vh 2vw;
@@ -168,4 +168,22 @@
 .hyperlinkWithdrawal {
   color: rgb(58, 160, 255);
   text-decoration: underline;
+}
+
+.disabledButton {
+  display: flex;
+  margin: 0 auto;
+  float: left;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+  margin-left: 1vh;
+  margin-right: 13vw;
+  /* add this line */
+  padding: 1vh 2vw;
+  border: 2px solid rgb(97, 93, 93);
+  background-color: transparent;
+  color: rgb(53, 48, 48);
+  text-align: center;
+  cursor: pointer;
+  animation: none;
 }

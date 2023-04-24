@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client"
 import styles from '@/styles/Home.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NFTBox from "../../components/NFTBox"
 import BlockingLayer from "../../components/BlockingLayer"
 import BlackoutLayer from "../../components/BlackoutLayer"
@@ -13,6 +13,19 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
+
+  useEffect(() => {
+    // retrieve the current index from localStorage if it exists
+    const savedIndex = localStorage.getItem('currentCardIndex')
+    if (savedIndex !== null) {
+      setCurrentCardIndex(Number(savedIndex))
+    }
+  }, [])
+
+  useEffect(() => {
+    // save the current index to localStorage
+    localStorage.setItem('currentCardIndex', currentCardIndex)
+  }, [currentCardIndex])
 
   if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
   if (error) return `Error! ${error.message}`

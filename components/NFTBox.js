@@ -94,7 +94,7 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                         {isAuctionTimerZero == 0 ? (
                             <div>
                                 <p>Duration:</p>
-                                <p>Auction for this NFT has ended</p>
+                                <p>Auction for this NFT has ended!</p>
                             </div>
                         ) : (
                             <div>
@@ -113,23 +113,23 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                             </div>
                         )}
                         {isWeb3Enabled ? (
-                            <button className={styles.button} onClick={handlePlaceBid}>PLACE BID</button>
+                            <button className={`${styles.button} ${isNoWinClosed || isWinClosed ? styles.disabledButton : ''}`} onClick={handlePlaceBid} disabled={isNoWinClosed || isWinClosed}>PLACE BID</button>
                         ) : (
                             <p className={styles.cardThree}>*** Connect your wallet to place bid ***</p>
                         )}
-                        {isBidRejected ? (
+                        {isWeb3Enabled && isBidRejected ? (
                             <div>
                                 <p>You are not the leading bidder.</p>
                                 <p>Place the new highest bid or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
                             </div>
                         ) : null}
-                        {isNoWinClosed ? (
+                        {isWeb3Enabled && isNoWinClosed ? (
                             <div>
                                 <p>Looks like you didn't win this auction.</p>
                                 <p>Participate in another one or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
                             </div>
                         ) : null}
-                        {isWinClosed ? (
+                        {isWeb3Enabled && isWinClosed ? (
                             <div>
                                 <p>Congratulations!</p>
                                 <p>Looks like you won this auction!</p>
