@@ -131,7 +131,8 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                         ) : null}
                         {isWinClosed ? (
                             <div>
-                                <p>Congratulations! Looks like you won this auction!</p>
+                                <p>Congratulations!</p>
+                                <p>Looks like you won this auction!</p>
                                 <p>You will be able to withdraw your NFT in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a> within 48h.</p>
                             </div>
                         ) : null}
