@@ -12,19 +12,21 @@ export default function Home() {
   const { loading, error, data } = useQuery(GET_ACTIVE_ITEMS)
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
-  const [currentCardIndex, setCurrentCardIndex] = useState(0)
-
-  useEffect(() => {
+  const [currentCardIndex, setCurrentCardIndex] = useState(() => {
     // retrieve the current index from localStorage if it exists
-    const savedIndex = localStorage.getItem('currentCardIndex')
-    if (savedIndex !== null) {
-      setCurrentCardIndex(Number(savedIndex))
+    if (typeof window !== 'undefined') {
+      const savedIndex = localStorage.getItem('currentCardIndex')
+      return savedIndex !== null ? Number(savedIndex) : 0
+    } else {
+      return 0
     }
-  }, [])
+  })
 
   useEffect(() => {
     // save the current index to localStorage
-    localStorage.setItem('currentCardIndex', currentCardIndex)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('currentCardIndex', currentCardIndex)
+    }
   }, [currentCardIndex])
 
   if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
