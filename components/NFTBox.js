@@ -25,9 +25,7 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
     const [imageURI, setImageURI] = useState("")
     const [tokenName, setTokenName] = useState("")
     const [tokenDescription, setTokenDescription] = useState("")
-    const [isBidRejected, setIsBidRejected] = useState(false)
-    const [isNoWinClosed, setIsNoWinClosed] = useState(false)
-    const [isWinClosed, setIsWinClosed] = useState(false)
+    const [status, setStatus] = useState('');
     const [isAuctionTimerZero, setIsAuctionTimerZero] = useState(Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0))
 
     let displayedAuctionTimer = Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0)
@@ -56,14 +54,14 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
     useEffect(() => {
         if (bidPlaced) {
             if (bidPlaced.bidder !== account && isAuctionTimerZero != 0) {
-                setIsBidRejected(true)
+                setStatus('rejected');
             } else if (bidPlaced.bidder !== account && isAuctionTimerZero == 0) {
-                setIsNoWinClosed(true)
+                setStatus('noWinClosed');
             } else if (bidPlaced.bidder === account && isAuctionTimerZero == 0) {
-                setIsWinClosed(true)
+                setStatus('winClosed');
             }
         }
-    }, [bidPlaced, account, isAuctionTimerZero])
+    }, [bidPlaced, account, isAuctionTimerZero]);
 
     const handlePlaceBid = () => {
         isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
@@ -85,20 +83,18 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                 </div>
                 <div>
                     <div className={`${styles.description} ${styles.card}`}>
-                        <h1>NFT DETAILS</h1>
+                        <h1 className={styles.blockTitle}>NFT DETAILS</h1>
                         <p>#{tokenId} "{tokenName}"</p>
                         <p>{tokenDescription}</p>
                     </div>
                     <div className={`${styles.description} ${styles.cardTwo}`}>
-                        <h1>AUCTION DETAILS</h1>
+                        <h1 className={styles.blockTitle}>AUCTION DETAILS</h1>
                         {isAuctionTimerZero == 0 ? (
                             <div>
-                                <p>Duration:</p>
                                 <p>Auction for this NFT has ended!</p>
                             </div>
                         ) : (
                             <div>
-                                <p>Duration:</p>
                                 <p>Auction ends in {formatAge(displayedAuctionTimer)}</p>
                             </div>
                         )}
@@ -113,30 +109,38 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                             </div>
                         )}
                         {isWeb3Enabled ? (
-                            <p className={styles.cardThree}><button className={`${styles.button} ${isNoWinClosed || isWinClosed ? styles.disabledButton : ''} `} onClick={handlePlaceBid} disabled={isNoWinClosed || isWinClosed}>PLACE BID</button></p>
-
+                            <>
+                                <p className={styles.cardThree}>
+                                    <button className={`${styles.button} ${status ? styles.disabledButton : ''} `} onClick={handlePlaceBid} disabled={status}>
+                                        PLACE BID
+                                    </button>
+                                </p>
+                                {status === 'rejected' && (
+                                    <div className={styles.cardFour}>
+                                        <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
+                                        <p>You are not the leading bidder.</p>
+                                        <p>Place the new highest bid or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
+                                    </div>
+                                )}
+                                {status === 'noWinClosed' && (
+                                    <div className={styles.cardFour}>
+                                        <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
+                                        <p>Looks like you didn't win this auction.</p>
+                                        <p>Participate in another one or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
+                                    </div>
+                                )}
+                                {status === 'winClosed' && (
+                                    <div className={styles.cardFour}>
+                                        <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
+                                        <p>Congratulations!</p>
+                                        <p>Looks like you won this auction!</p>
+                                        <p>You will be able to withdraw your NFT in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a> within 48h.</p>
+                                    </div>
+                                )}
+                            </>
                         ) : (
                             <p className={styles.cardThree}>*** Connect your wallet to place bid ***</p>
                         )}
-                        {isWeb3Enabled && isBidRejected ? (
-                            <div className={styles.cardFour}>
-                                <p>You are not the leading bidder.</p>
-                                <p>Place the new highest bid or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
-                            </div>
-                        ) : null}
-                        {isWeb3Enabled && isNoWinClosed ? (
-                            <div className={styles.cardFour}>
-                                <p>Looks like you didn't win this auction.</p>
-                                <p>Participate in another one or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
-                            </div>
-                        ) : null}
-                        {isWeb3Enabled && isWinClosed ? (
-                            <div className={styles.cardFour}>
-                                <p>Congratulations!</p>
-                                <p>Looks like you won this auction!</p>
-                                <p>You will be able to withdraw your NFT in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a> within 48h.</p>
-                            </div>
-                        ) : null}
                     </div>
                 </div>
             </div>
