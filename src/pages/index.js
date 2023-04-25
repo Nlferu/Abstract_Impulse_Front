@@ -13,7 +13,6 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
   const [currentCardIndex, setCurrentCardIndex] = useState(() => {
-    // retrieve the current index from localStorage if it exists
     if (typeof window !== 'undefined') {
       const savedIndex = localStorage.getItem('currentCardIndex')
       return savedIndex !== null ? Number(savedIndex) : 0
@@ -23,7 +22,6 @@ export default function Home() {
   })
 
   useEffect(() => {
-    // save the current index to localStorage
     if (typeof window !== 'undefined') {
       localStorage.setItem('currentCardIndex', currentCardIndex)
     }

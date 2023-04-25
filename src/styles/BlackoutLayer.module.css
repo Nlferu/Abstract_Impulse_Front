@@ -44,23 +44,71 @@
     }
 }
 
-
-.dotAnimation {
+.dotAnimation1 {
     opacity: 0;
     animation: dotPulse 2s infinite;
 }
 
+.dotAnimation2 {
+    opacity: 0;
+    animation: dotPulse1 2s infinite;
+}
+
+.dotAnimation3 {
+    opacity: 0;
+    animation: dotPulse2 2s infinite;
+}
 
 @keyframes dotPulse {
     0% {
-        opacity: 0.2;
+        opacity: 0;
     }
 
-    20% {
-        opacity: 0.5;
+    33% {
+        opacity: 0.33;
+    }
+
+    66% {
+        opacity: 0.66;
     }
 
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes dotPulse1 {
+    0% {
+        opacity: 0;
+    }
+
+    33% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes dotPulse2 {
+    0% {
+        opacity: 0;
+    }
+
+    33% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.66;
     }
 }
