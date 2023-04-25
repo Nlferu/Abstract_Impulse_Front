@@ -113,24 +113,25 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                             </div>
                         )}
                         {isWeb3Enabled ? (
-                            <button className={`${styles.button} ${isNoWinClosed || isWinClosed ? styles.disabledButton : ''}`} onClick={handlePlaceBid} disabled={isNoWinClosed || isWinClosed}>PLACE BID</button>
+                            <p className={styles.cardThree}><button className={`${styles.button} ${isNoWinClosed || isWinClosed ? styles.disabledButton : ''} `} onClick={handlePlaceBid} disabled={isNoWinClosed || isWinClosed}>PLACE BID</button></p>
+
                         ) : (
                             <p className={styles.cardThree}>*** Connect your wallet to place bid ***</p>
                         )}
                         {isWeb3Enabled && isBidRejected ? (
-                            <div>
+                            <div className={styles.cardFour}>
                                 <p>You are not the leading bidder.</p>
                                 <p>Place the new highest bid or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
                             </div>
                         ) : null}
                         {isWeb3Enabled && isNoWinClosed ? (
-                            <div>
+                            <div className={styles.cardFour}>
                                 <p>Looks like you didn't win this auction.</p>
                                 <p>Participate in another one or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a>.</p>
                             </div>
                         ) : null}
                         {isWeb3Enabled && isWinClosed ? (
-                            <div>
+                            <div className={styles.cardFour}>
                                 <p>Congratulations!</p>
                                 <p>Looks like you won this auction!</p>
                                 <p>You will be able to withdraw your NFT in the <a className={styles.hyperlinkWithdrawal} href="/withdrawal">withdrawal section</a> within 48h.</p>
