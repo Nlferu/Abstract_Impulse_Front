@@ -126,7 +126,7 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                                     <div>
                                         <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
                                         <p>Looks like you didn't win this auction.</p>
-                                        <p>Participate in another one or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawals">withdrawals</a> section.</p>
+                                        <p>Withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawals">withdrawals</a> section. You can still try your luck in another auction.</p>
                                     </div>
                                 )}
                                 {status === 'winClosed' && (
