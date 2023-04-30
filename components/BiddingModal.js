@@ -8,7 +8,7 @@ import { useNotification } from "web3uikit"
 
 export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactionOpen }) {
     const { chainId } = useMoralis()
-    const chainString = parseInt(chainId).toString()
+    const chainString = chainId ? parseInt(chainId).toString() : null
     const absImpAddress = networkMapping[chainString].AbstractImpulseNFT[0]
     const currTokenId = tokenId
     const dispatch = useNotification()

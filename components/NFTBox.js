@@ -67,6 +67,10 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
         isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
     }
 
+    const withdrawNFT = () => {
+        isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
+    }
+
     return (
         <div className={`${styles.container} ${styles.card}`}>
 
@@ -104,14 +108,22 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                                 <p>Highest Bid: ETH {bidPlaced.amount / 10 ** 18}</p>
                             </div>
                         ) : (
-                            <div>
-                                <p>No bids were placed yet</p>
-                            </div>
+                            isAuctionTimerZero == 0 ? (
+                                <div>
+                                    <p>No bid placed - renewal possible</p>
+                                    <p>Reach out to the Team</p>
+                                </div>
+                            ) : (
+                                <div>
+                                    <p>No bids were placed yet</p>
+                                    <p>Be the first one!</p>
+                                </div>
+                            )
                         )}
                         {isWeb3Enabled ? (
                             <div className={styles.cardThree}>
                                 <div>
-                                    <button className={`${styles.button} ${status === 'noWinClosed' || status === 'winClosed' ? styles.disabledButton : ''} `} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed'}>
+                                    <button className={`${styles.button} ${status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0 ? styles.disabledButton : ''} `} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0}>
                                         PLACE BID
                                     </button>
                                 </div>
@@ -141,6 +153,11 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                         ) : (
                             <p className={styles.cardThree}>*Connect your wallet to place bid*</p>
                         )}
+                        <div>
+                            <button className={styles.button} onClick={handlePlaceBid}>
+                                CLAIM NFT
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
