@@ -3,12 +3,11 @@ import { useWeb3Contract, useMoralis } from "react-moralis"
 import { useState } from 'react'
 import networkMapping from "../constants/networkMapping.json"
 import absImpAbi from "../constants/AbstractImpulseNFT.json"
-import React from 'react'
 import { useNotification } from "web3uikit"
 
 export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactionOpen }) {
     const { chainId } = useMoralis()
-    const chainString = chainId ? parseInt(chainId).toString() : null
+    const chainString = chainId ? parseInt(chainId).toString() : ''
     const absImpAddress = networkMapping[chainString].AbstractImpulseNFT[0]
     const currTokenId = tokenId
     const dispatch = useNotification()
@@ -85,7 +84,7 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
 
     return (
         <div className={styles.modal}>
-            <h1 className={styles.blockTitle}>BIDDING INTERFACE</h1>
+            <h1 className={styles.blockTitle}>AUCTION BIDDING</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Bid Amount (ETH):

@@ -19,7 +19,7 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingModalOpen, tokenId, auctionTimer }) {
+export default function NFTBox({ tokenId, setTokenURI, auctionTimer, bidPlaced, isBiddingModalOpen, isClaimingModalOpen }) {
 
     const { isWeb3Enabled, account } = useMoralis()
     const [imageURI, setImageURI] = useState("")
@@ -64,11 +64,11 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
     }, [bidPlaced, account, isAuctionTimerZero]);
 
     const handlePlaceBid = () => {
-        isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
+        isBiddingModalOpen(true)
     }
 
-    const withdrawNFT = () => {
-        isBiddingModalOpen(true) // call the isBiddingModalOpen function to update the state
+    const handleClaimNFT = () => {
+        isClaimingModalOpen(true)
     }
 
     return (
@@ -110,13 +110,11 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                         ) : (
                             isAuctionTimerZero == 0 ? (
                                 <div>
-                                    <p>No bid placed - renewal possible</p>
-                                    <p>Reach out to the Team</p>
+                                    <p>No bid placed - auction renewal possible</p>
                                 </div>
                             ) : (
                                 <div>
                                     <p>No bids were placed yet</p>
-                                    <p>Be the first one!</p>
                                 </div>
                             )
                         )}
@@ -154,7 +152,7 @@ export default function NFTBox({ mintedItem, setTokenURI, bidPlaced, isBiddingMo
                             <p className={styles.cardThree}>*Connect your wallet to place bid*</p>
                         )}
                         <div>
-                            <button className={styles.button} onClick={handlePlaceBid}>
+                            <button className={styles.button} onClick={handleClaimNFT}>
                                 CLAIM NFT
                             </button>
                         </div>

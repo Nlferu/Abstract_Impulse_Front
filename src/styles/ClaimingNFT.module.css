@@ -1,0 +1,67 @@
+.modal {
+    /* width: 60vw;
+    height: 60vh; */
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    position: fixed;
+    border: 1px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    padding: 2vh;
+    box-shadow: 0 0 100px black;
+    backdrop-filter: blur(10px);
+    z-index: 3;
+    font-size: 3vh;
+}
+
+.inputBidding {
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    width: auto;
+    font-size: 2.5vh;
+    margin-left: 1vh;
+    text-align: center;
+}
+
+.inputBidding::-webkit-inner-spin-button {
+    background-color: transparent;
+    color: black;
+    padding: 0.4vh 0.4vw;
+}
+
+.acceptButton {
+    border: 1px solid white;
+    margin: 1vw;
+    margin-top: 2vw;
+    padding: 0.4vh 0.8vw;
+    float: left;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    font-size: 2.5vh;
+}
+
+.cancelButton {
+    border: 1px solid white;
+    margin: 1vw;
+    margin-top: 2vw;
+    padding: 0.4vh 0.8vw;
+    float: right;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    font-size: 2.5vh;
+}
+
+.blockTitle {
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    margin-bottom: 2.5vh;
+    font-size: 3vh;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    margin: 1vh;
+}
