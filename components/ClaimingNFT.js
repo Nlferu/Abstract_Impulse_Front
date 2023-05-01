@@ -41,7 +41,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
         const safeTransferFrom = {
             abi: absImpAbi,
             contractAddress: absImpAddress,
-            functionName: "safeTransferFrom",
+            functionName: "safeTransferFrom(address,address,uint256)",
             params: {
                 from: mintedItem.minter,
                 to: newOwnerAddress || winningBidder,
@@ -61,8 +61,8 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
     async function handleNFTWithdrawalSuccess() {
         dispatch({
             type: "success",
-            message: "NFT claimed!",
-            title: "NFT has been withdrawn to your account",
+            message: "NFT has been withdrawn to your account",
+            title: "NFT claimed!",
             position: "bottomR",
         })
         setTimeout(() => {
@@ -76,8 +76,8 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
     async function handleNFTWithdrawalError() {
         dispatch({
             type: "error",
-            message: "NFT not claimed!",
-            title: "Selected NFT cannot be withdrawn",
+            message: "Selected NFT cannot be withdrawn",
+            title: "NFT not claimed!",
             position: "bottomR",
         })
     }

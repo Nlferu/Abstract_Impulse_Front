@@ -129,14 +129,15 @@ export default function NFTBox({ tokenId, setTokenURI, auctionTimer, bidPlaced, 
                                     <div>
                                         <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
                                         <p>You are not the leading bidder.</p>
-                                        <p>Place the new highest bid or withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawals">withdrawals</a> section.</p>
+                                        <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
                                     </div>
                                 )}
                                 {status === 'noWinClosed' && (
                                     <div>
                                         <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
                                         <p>Looks like you didn't win this auction.</p>
-                                        <p>Withdraw your rejected bids in the <a className={styles.hyperlinkWithdrawal} href="/withdrawals">withdrawals</a> section. You can still try your luck in another auction.</p>
+                                        <p>Withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
+                                        <p>You can still try your luck in another auction.</p>
                                     </div>
                                 )}
                                 {status === 'winClosed' && (
@@ -147,12 +148,12 @@ export default function NFTBox({ tokenId, setTokenURI, auctionTimer, bidPlaced, 
                                         <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
                                         <p>Congratulations!</p>
                                         <p>Looks like you won this auction!</p>
-                                        <p>You will be able to withdraw your NFT in the <a className={styles.hyperlinkWithdrawal} href="/withdrawals">withdrawals</a> section within 48h.</p>
+                                        <p>You will be able to claim your NFT within 48h, a claim button will be enabled.</p>
                                     </div>
                                 )}
                             </div>
                         ) : (
-                            <p className={styles.cardThree}>*Connect your wallet to place bid*</p>
+                            <p className={styles.cardThree}>*Connect your wallet to place BID*</p>
                         )}
                     </div>
                 </div>
