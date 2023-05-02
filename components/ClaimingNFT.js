@@ -61,7 +61,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
     async function handleNFTWithdrawalSuccess() {
         dispatch({
             type: "success",
-            message: "NFT has been withdrawn to your account",
+            message: "NFT will be shortly withdrawn to your account",
             title: "NFT claimed!",
             position: "bottomR",
         })
@@ -96,7 +96,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
                 <label>
                     New owner's address*:
                     <input
-                        className={styles.inputBidding}
+                        className={styles.inputClaiming}
                         placeholder=" (optional) "
                         value={newOwnerAddress}
                         onChange={handleAddressChange}

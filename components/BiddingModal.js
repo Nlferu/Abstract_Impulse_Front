@@ -60,8 +60,8 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
     async function handleBidSuccess() {
         dispatch({
             type: "success",
-            message: "BID accepted!",
-            title: "Bid placed for chosen NFT",
+            message: "Bid will be shortly placed for the chosen NFT",
+            title: "BID accepted!",
             position: "bottomR",
         })
         setTimeout(() => {
@@ -76,8 +76,8 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
     async function handleBidError() {
         dispatch({
             type: "error",
-            message: "BID not accepted!",
-            title: "Bid not placed for chosen NFT",
+            message: "Bid has not been placed for chosen NFT",
+            title: "BID not accepted!",
             position: "bottomR",
         })
     }

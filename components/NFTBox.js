@@ -71,6 +71,8 @@ export default function NFTBox({ tokenId, setTokenURI, auctionTimer, bidPlaced, 
         isClaimingModalOpen(true)
     }
 
+
+
     return (
         <div className={`${styles.container} ${styles.card}`}>
 
@@ -130,14 +132,16 @@ export default function NFTBox({ tokenId, setTokenURI, auctionTimer, bidPlaced, 
                                         <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
                                         <p>You are not the leading bidder.</p>
                                         <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
+                                        {/* not working */}
                                     </div>
                                 )}
                                 {status === 'noWinClosed' && (
                                     <div>
                                         <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
                                         <p>Looks like you didn't win this auction.</p>
-                                        <p>Withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
+                                        <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
                                         <p>You can still try your luck in another auction.</p>
+                                        {/* not working */}
                                     </div>
                                 )}
                                 {status === 'winClosed' && (

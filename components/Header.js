@@ -13,8 +13,8 @@ export default function Header() {
                     <Link href="/" className={styles.homeButton}>
                         HOME
                     </Link>
-                    <Link href="/withdrawal" className={styles.homeButton}>
-                        Withdrawal
+                    <Link href="/withdraw" className={styles.homeButton}>
+                        Withdraw
                     </Link>
                     <Link href="/about" className={styles.homeButton}>
                         About
