@@ -10,7 +10,7 @@ export default function WithdrawModal(isTransactionOpen) {
 
     const { chainId } = useMoralis()
     const chainString = chainId ? parseInt(chainId).toString() : ''
-    const absImpAddress = networkMapping[chainString].AbstractImpulseNFT[0]
+    const absImpAddress = chainString ? networkMapping[chainString].AbstractImpulseNFT[0] : ''
     const dispatch = useNotification()
     const { runContractFunction } = useWeb3Contract()
 

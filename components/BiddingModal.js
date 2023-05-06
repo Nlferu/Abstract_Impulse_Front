@@ -6,9 +6,10 @@ import absImpAbi from "../constants/AbstractImpulseNFT.json"
 import { useNotification } from "web3uikit"
 
 export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactionOpen }) {
+
     const { chainId } = useMoralis()
     const chainString = chainId ? parseInt(chainId).toString() : ''
-    const absImpAddress = networkMapping[chainString].AbstractImpulseNFT[0]
+    const absImpAddress = chainString ? networkMapping[chainString].AbstractImpulseNFT[0] : ''
     const currTokenId = tokenId
     const dispatch = useNotification()
     const { runContractFunction } = useWeb3Contract()
