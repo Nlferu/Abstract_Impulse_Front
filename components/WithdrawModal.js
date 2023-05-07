@@ -6,7 +6,7 @@ import absImpAbi from "../constants/AbstractImpulseNFT.json"
 import React from 'react'
 import { useNotification } from "web3uikit"
 
-export default function WithdrawModal(isTransactionOpen) {
+export default function WithdrawModal({ isTransactionOpen }) {
 
     const { chainId } = useMoralis()
     const chainString = chainId ? parseInt(chainId).toString() : ''
@@ -31,7 +31,6 @@ export default function WithdrawModal(isTransactionOpen) {
         })
 
     }
-
 
     async function handleBIDWithdrawSuccess() {
         dispatch({
@@ -62,7 +61,6 @@ export default function WithdrawModal(isTransactionOpen) {
         event.preventDefault()
         withdrawRejectedBids()
     }
-
 
     return (
         <div className={styles.modal}>

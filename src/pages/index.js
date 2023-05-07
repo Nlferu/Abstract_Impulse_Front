@@ -83,6 +83,18 @@ export default function Home() {
     .sort((a, b) => a[0] - b[0])
     .map((entry) => ({ tokenId: entry[0], blockTimestamp: entry[1].blockTimestamp, time: entry[1].time }))
 
+  const approvedNfts = data.nftWithdrawCompleteds.reduce((acc, nft) => {
+    acc[nft.tokenId] = true;
+    return acc;
+  }, []);
+  if (approvedNfts[currentCardIndex]) { } else { approvedNfts[currentCardIndex] = false }
+
+  const claimedNfts = data.transfers.reduce((acc, nft) => {
+    acc[nft.tokenId] = true;
+    return acc;
+  }, []);
+  if (claimedNfts[currentCardIndex]) { } else { claimedNfts[currentCardIndex] = false }
+
   return (
     <div className={styles.container}>
       {hasNFTs ? (
@@ -93,6 +105,8 @@ export default function Home() {
             tokenId={data.nftMinteds[currentCardIndex].tokenId}
             setTokenURI={data.nftSetTokenURIs[currentCardIndex]}
             bidPlaced={highestBids[currentCardIndex]}
+            claimedNfts={claimedNfts[currentCardIndex]}
+            approvedNfts={approvedNfts[currentCardIndex]}
             auctionTimer={highestBlockTimestamp[currentCardIndex]}
             isBiddingModalOpen={setIsBiddingModalOpen}
             isClaimingModalOpen={setIsClaimingModalOpen}

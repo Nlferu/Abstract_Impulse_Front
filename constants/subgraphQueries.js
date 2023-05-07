@@ -21,8 +21,16 @@ const GET_ACTIVE_ITEMS = gql`
     amount
     tokenId
   }
+  transfers(
+    orderBy: tokenId
+    where: {from_not_contains: "0x0000000000000000000000000000000000000000"}
+  ) {
+    tokenId
+  }
+  nftWithdrawCompleteds(orderBy: tokenId) {
+    tokenId
+  }
 }
-
 `
 
 export default GET_ACTIVE_ITEMS

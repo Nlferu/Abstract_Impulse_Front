@@ -19,7 +19,7 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-export default function NFTBox({ tokenId, setTokenURI, auctionTimer, bidPlaced, isBiddingModalOpen, isClaimingModalOpen }) {
+export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI, auctionTimer, bidPlaced, isBiddingModalOpen, isClaimingModalOpen }) {
 
     const { isWeb3Enabled, account } = useMoralis()
     const [imageURI, setImageURI] = useState("")
@@ -146,13 +146,21 @@ export default function NFTBox({ tokenId, setTokenURI, auctionTimer, bidPlaced, 
                                 )}
                                 {status === 'winClosed' && (
                                     <div>
-                                        <button className={styles.button} onClick={handleClaimNFT} visible={status === 'winClosed'}>
+                                        <button className={approvedNfts && !claimedNfts ? styles.button : styles.disabledButton} onClick={handleClaimNFT} disabled={!approvedNfts || claimedNfts}>
                                             CLAIM NFT
                                         </button>
                                         <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
                                         <p>Congratulations!</p>
                                         <p>Looks like you won this auction!</p>
-                                        <p>You will be able to claim your NFT within 48h, a claim button will be enabled.</p>
+                                        {approvedNfts && !claimedNfts && (
+                                            <p>Now you are able to claim your NFT.</p>
+                                        )}
+                                        {!approvedNfts && !claimedNfts && (
+                                            <p>You will be able to claim your NFT within 48h.</p>
+                                        )}
+                                        {approvedNfts && claimedNfts && (
+                                            <p>You have already claimed your NFT.</p>
+                                        )}
                                     </div>
                                 )}
                             </div>
