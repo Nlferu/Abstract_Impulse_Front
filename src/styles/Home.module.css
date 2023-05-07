@@ -78,6 +78,15 @@
   overflow: hidden;
 }
 
+.imageContainerSoldOut {
+  height: 100vh;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
 .imageContainer img {
   position: absolute;
   /* try fixed */

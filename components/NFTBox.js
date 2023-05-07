@@ -3,6 +3,7 @@ import { useMoralis } from "react-moralis"
 import { useState, useEffect } from 'react'
 import Image from "next/image"
 import { formatAge } from './AuctionTimer'
+import brush from '../public/BRUSH2.png'
 
 const truncateStr = (fullStr, strLen) => {
     if (fullStr.length <= strLen) return fullStr
@@ -71,7 +72,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
         isClaimingModalOpen(true)
     }
 
-
+    console.log(status)
 
     return (
         <div className={`${styles.container} ${styles.card}`}>
@@ -86,6 +87,16 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         objectFit="contain"
                         alt="minted NFT"
                     />
+                    {(status === 'winClosed' || status === 'noWinClosed') && (
+                        <Image
+                            src={brush}
+                            width={1200}
+                            height={1200}
+                            objectFit="cover"
+                            alt="minted NFT"
+                        />
+                    )}
+
                 </div>
                 <div>
                     <div className={`${styles.description} ${styles.card}`}>
