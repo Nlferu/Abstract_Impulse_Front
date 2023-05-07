@@ -64,6 +64,7 @@
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     font-size: 2.5vh;
+    box-shadow: inset 0 0 20px rgb(28, 202, 57), 0 0 10px rgb(36, 196, 148), 0 0 10px rgb(6, 155, 13);
 }
 
 .cancelButton {
@@ -75,6 +76,7 @@
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     font-size: 2.5vh;
+    box-shadow: inset 0 0 20px rgb(255, 21, 21), 0 0 10px rgb(184, 50, 50), 0 0 10px rgb(155, 6, 6);
 }
 
 .blockTitle {

@@ -3,7 +3,7 @@ import { useMoralis } from "react-moralis"
 import { useState, useEffect } from 'react'
 import Image from "next/image"
 import { formatAge } from './AuctionTimer'
-import brush from '../public/BRUSH2.png'
+import brush from '../public/BRUSH3.png'
 
 const truncateStr = (fullStr, strLen) => {
     if (fullStr.length <= strLen) return fullStr
