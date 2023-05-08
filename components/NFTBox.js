@@ -134,7 +134,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         {isWeb3Enabled ? (
                             <div className={styles.cardThree}>
                                 {status !== 'winClosed' && (
-                                    <button className={`${styles.button} ${status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0 ? styles.disabledButton : ''} `} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0}>
+                                    <button className={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0 ? styles.disabledButton : styles.button} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0}>
                                         PLACE BID
                                     </button>
                                 )}
