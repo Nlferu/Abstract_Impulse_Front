@@ -106,7 +106,6 @@
 
 .blockTitle {
   font-family: 'Chakra Petch', sans-serif;
-  font-style: italic;
 }
 
 .description {
@@ -211,4 +210,8 @@
   text-align: center;
   cursor: pointer;
   animation: none;
+}
+
+.glowTextEffect {
+  text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877), 0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255), 0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
 }

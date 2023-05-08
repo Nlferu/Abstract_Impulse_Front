@@ -64,7 +64,7 @@ export default function WithdrawModal({ isTransactionOpen }) {
 
     return (
         <div className={styles.modal}>
-            <h1 className={styles.blockTitle}>WITHDRAW BID</h1>
+            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>WITHDRAW BID</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Withdraw your rejected bids now?

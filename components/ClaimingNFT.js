@@ -91,7 +91,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
 
     return (
         <div className={styles.modal}>
-            <h1 className={styles.blockTitle}>CLAIMING NFT</h1>
+            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>CLAIMING NFT</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     New owner's address*:

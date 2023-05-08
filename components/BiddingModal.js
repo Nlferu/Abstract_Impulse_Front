@@ -85,7 +85,7 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
 
     return (
         <div className={styles.modal}>
-            <h1 className={styles.blockTitle}>AUCTION BIDDING</h1>
+            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>AUCTION BIDDING</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Bid Amount (ETH):

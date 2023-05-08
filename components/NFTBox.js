@@ -100,12 +100,12 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                 </div>
                 <div>
                     <div className={`${styles.description} ${styles.card}`}>
-                        <h1 className={styles.blockTitle}>NFT DETAILS</h1>
+                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>NFT DETAILS</h1>
                         <p>#{tokenId} "{tokenName}"</p>
                         <p>{tokenDescription}</p>
                     </div>
                     <div className={`${styles.description} ${styles.cardTwo}`}>
-                        <h1 className={styles.blockTitle}>AUCTION DETAILS</h1>
+                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>AUCTION DETAILS</h1>
                         {isAuctionTimerZero == 0 ? (
                             <div>
                                 <p>Auction for this NFT has ended!</p>
@@ -140,7 +140,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                 )}
                                 {status === 'rejected' && (
                                     <div>
-                                        <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
+                                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
                                         <p>You are not the leading bidder.</p>
                                         <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
                                         {/* not working */}
@@ -148,7 +148,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                 )}
                                 {status === 'noWinClosed' && (
                                     <div>
-                                        <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
+                                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
                                         <p>Looks like you didn't win this auction.</p>
                                         <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
                                         <p>You can still try your luck in another auction.</p>
@@ -160,7 +160,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                         <button className={approvedNfts && !claimedNfts ? styles.button : styles.disabledButton} onClick={handleClaimNFT} disabled={!approvedNfts || claimedNfts}>
                                             CLAIM NFT
                                         </button>
-                                        <h1 className={styles.blockTitle}>STATUS UPDATE</h1>
+                                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
                                         <p>Congratulations!</p>
                                         <p>Looks like you won this auction!</p>
                                         {approvedNfts && !claimedNfts && (
