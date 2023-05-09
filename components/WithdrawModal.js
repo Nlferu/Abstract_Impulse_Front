@@ -6,6 +6,7 @@ import absImpAbi from "../constants/AbstractImpulseNFT.json"
 import React from 'react'
 import { useNotification } from "web3uikit"
 
+
 export default function WithdrawModal({ isTransactionOpen }) {
 
     const { chainId } = useMoralis()
@@ -43,8 +44,8 @@ export default function WithdrawModal({ isTransactionOpen }) {
             isTransactionOpen(true)
         }, 5000)
         setTimeout(() => {
-            location.reload()
-        }, 35000)
+            window.location.href = "/"
+        }, 35000);
     }
 
     async function handleBIDWithdrawError() {
