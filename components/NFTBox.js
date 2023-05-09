@@ -87,15 +87,17 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         objectFit="contain"
                         alt="minted NFT"
                     />
-                    {(status === 'winClosed' || status === 'noWinClosed') && (
-                        <Image
-                            src={brush}
-                            width={1200}
-                            height={1200}
-                            objectFit="cover"
-                            alt="minted NFT"
-                        />
-                    )}
+                    <div className={styles.soldOutContainer}>
+                        {(status === 'winClosed' || status === 'noWinClosed') && (
+                            <Image
+                                src={brush}
+                                width={1200}
+                                height={1200}
+                                objectFit="cover"
+                                alt="minted NFT"
+                            />
+                        )}
+                    </div>
 
                 </div>
                 <div>
@@ -143,7 +145,6 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                         <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
                                         <p>You are not the leading bidder.</p>
                                         <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
-                                        {/* not working */}
                                     </div>
                                 )}
                                 {status === 'noWinClosed' && (
@@ -152,7 +153,6 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                         <p>Looks like you didn't win this auction.</p>
                                         <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
                                         <p>You can still try your luck in another auction.</p>
-                                        {/* not working */}
                                     </div>
                                 )}
                                 {status === 'winClosed' && (

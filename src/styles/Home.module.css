@@ -80,13 +80,14 @@
 
 }
 
-.imageContainerSoldOut {
+.soldOutContainer {
   height: 100vh;
   flex: 1;
   position: relative;
   overflow: hidden;
-  z-index: 1;
+
 }
+
 
 
 .imageContainer img {
@@ -103,6 +104,22 @@
   object-fit: contain;
 
 }
+
+.soldOutContainer img {
+  position: absolute;
+  /* try fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+  /* try fixed - delete limitations */
+  object-fit: contain;
+
+}
+
 
 .blockTitle {
   font-family: 'Chakra Petch', sans-serif;
@@ -170,6 +187,11 @@
   font-weight: bold;
   box-shadow: inset 0 0 50px rgb(11, 73, 241), 0 0 20px rgb(33, 80, 167), 0 0 20px rgb(21, 19, 139);
 }
+
+.button:hover {
+  animation-play-state: paused;
+}
+
 
 
 @keyframes pulse {
