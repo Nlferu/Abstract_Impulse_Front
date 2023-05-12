@@ -26,7 +26,6 @@
   padding: 15px;
 }
 
-
 .bullet {
   width: 10px;
   height: 10px;
@@ -41,8 +40,6 @@
   background-color: white;
 }
 
-
-
 .loadingPage {
   position: fixed;
   top: 0;
@@ -55,6 +52,26 @@
   background-color: black;
   color: white;
   font-size: x-large;
+}
+
+.smartphoneVersion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: 3.5vw;
+}
+
+.msgTxt {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .container {
@@ -88,8 +105,6 @@
 
 }
 
-
-
 .imageContainer img {
   position: absolute;
   /* try fixed */
@@ -102,7 +117,6 @@
   padding-bottom: 7vh;
   /* try fixed - delete limitations */
   object-fit: contain;
-
 }
 
 .soldOutContainer img {

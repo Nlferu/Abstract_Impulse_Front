@@ -1,6 +1,7 @@
 import { ConnectButton } from "web3uikit"
 import Link from "next/link"
 import styles from '@/styles/Header.module.css'
+import { useState } from "react"
 
 
 export default function Header() {

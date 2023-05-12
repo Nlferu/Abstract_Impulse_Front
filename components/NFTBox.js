@@ -181,4 +181,5 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
             </div>
         </div >
     )
+
 }

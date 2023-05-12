@@ -14,6 +14,7 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isClaimingModalOpen, setIsClaimingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [currentCardIndex, setCurrentCardIndex] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedIndex = localStorage.getItem('currentCardIndex')
@@ -29,7 +30,28 @@ export default function Home() {
     }
   }, [currentCardIndex])
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
+  if (windowWidth <= 900) {
+    return (
+      <div className={styles.smartphoneVersion}>
+        <p className={styles.msgTxt}>Desktop version only due to its web3 dependencies.</p>
+        <p className={styles.msgTxt}>Please use a maximized desktop or laptop view.</p>
+        <p className={styles.msgTxt}>Thank you for your understanding.</p>
+      </div>
+    );
+  }
   if (error) return `Error! ${error.message}`
 
   const hasNFTs = data.nftMinteds.length > 0
