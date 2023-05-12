@@ -79,6 +79,14 @@
     text-align: center;
     color: red;
     margin: 1vh;
+    font-size: 2vh;
+}
+
+.errorTop {
+    text-align: center;
+    color: red;
+    margin-top: 2vh;
+    font-size: 2vh;
 }
 
 .glowTextEffect {

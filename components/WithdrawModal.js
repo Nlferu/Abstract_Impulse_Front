@@ -3,7 +3,7 @@ import styles from '@/styles/Withdraw.module.css'
 import { useWeb3Contract, useMoralis } from "react-moralis"
 import networkMapping from "../constants/networkMapping.json"
 import absImpAbi from "../constants/AbstractImpulseNFT.json"
-import React from 'react'
+import React, { useState } from 'react'
 import { useNotification } from "web3uikit"
 
 
@@ -14,6 +14,7 @@ export default function WithdrawModal({ isTransactionOpen }) {
     const absImpAddress = chainString ? networkMapping[chainString].AbstractImpulseNFT[0] : ''
     const dispatch = useNotification()
     const { runContractFunction } = useWeb3Contract()
+    const { failedWithdrawal, setFailedWithdrawal } = useState(true)
 
     async function withdrawRejectedBids() {
 
@@ -28,7 +29,7 @@ export default function WithdrawModal({ isTransactionOpen }) {
             params: withdrawPending,
             onError: () => handleBIDWithdrawError(),
             onSuccess: () => handleBIDWithdrawSuccess(),
-            onError: (error) => console.log(error),
+            onError: (error) => setFailedWithdrawal(true),
         })
 
     }
@@ -70,6 +71,7 @@ export default function WithdrawModal({ isTransactionOpen }) {
                 <label>
                     Withdraw your rejected bids now?
                 </label>
+                {failedWithdrawal && <p className={styles.error}>Your wallet has no rejected bids to withdraw.</p>}
                 <div className={styles.buttonContainer}>
                     <button className={styles.acceptButton} type="submit" >Accept</button>
                     <button className={styles.cancelButton} type="button" onClick={() => window.location.href = "/"}>Cancel</button>

@@ -72,8 +72,6 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
         isClaimingModalOpen(true)
     }
 
-    console.log(status)
-
     return (
         <div className={`${styles.container} ${styles.card}`}>
 

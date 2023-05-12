@@ -15,6 +15,7 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
     const { runContractFunction } = useWeb3Contract()
     const [bidAmount, setBidAmount] = useState('')
     const [invalidBidAmount, setInvalidBidAmount] = useState(false)
+    const [bidTooSmall, setBidTooSmall] = useState(false)
 
     const handleCancel = () => {
         isBiddingModalOpen(false)
@@ -48,7 +49,7 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
             params: placeBid,
             onError: () => handleBidError(),
             onSuccess: () => handleBidSuccess(),
-            onError: (error) => console.log(error),
+            onError: (error) => setBidTooSmall(true),
         })
 
     }
@@ -91,12 +92,19 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
                     Bid Amount (ETH):
                     <input className={styles.inputBidding} type="number" step="0.01" min="0.1" placeholder=" min. 0.1 " value={bidAmount} onChange={handleBidAmountChange} />
                 </label>
-                {invalidBidAmount && <p className={styles.error}>Please enter a valid bid amount.</p>}
+                {invalidBidAmount && <p className={styles.errorTop}>Error: Invalid bid entered.</p>}
+                {bidTooSmall && (
+                    < div >
+                        <p className={styles.errorTop}>Transaction failed.</p>
+                        <p className={styles.error}>Your bid amount may be insufficient.</p>
+                        <p className={styles.error}>Please check the highest bid and try again.</p>
+                    </div>
+                )}
                 <div className={styles.buttonContainer}>
                     <button className={styles.acceptButton} type="submit" >Accept</button>
                     <button className={styles.cancelButton} type="button" onClick={handleCancel}>Cancel</button>
                 </div>
-            </form>
-        </div>
+            </form >
+        </div >
     )
 }

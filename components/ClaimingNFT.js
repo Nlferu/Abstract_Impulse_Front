@@ -17,6 +17,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
     const [invalidAddress, setInvalidAddress] = useState(false)
     const dispatch = useNotification()
     const { runContractFunction } = useWeb3Contract()
+    const { wrongAddress, setWrongAddress } = useState(false)
 
 
     const handleCancel = () => {
@@ -53,7 +54,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
             params: safeTransferFrom,
             onError: () => handleNFTWithdrawalError(),
             onSuccess: () => handleNFTWithdrawalSuccess(),
-            onError: (error) => console.log(error),
+            onError: (error) => setWrongAddress(true),
         })
 
     }
@@ -103,6 +104,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
                     />
                 </label>
                 {invalidAddress && <p className={styles.error}>Please enter a valid ETH network address.</p>}
+                {wrongAddress && <p className={styles.error}>Transaction failed - please check winning address.</p>}
                 <p> *Enter only if different from your wallet</p>
                 <div className={styles.buttonContainer}>
                     <button className={styles.acceptButton} type="submit" >Accept</button>
