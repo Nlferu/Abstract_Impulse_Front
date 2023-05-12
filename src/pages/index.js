@@ -14,7 +14,7 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isClaimingModalOpen, setIsClaimingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isDesktopView, setIsDesktopView] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedIndex = localStorage.getItem('currentCardIndex')
@@ -31,19 +31,22 @@ export default function Home() {
   }, [currentCardIndex])
 
   useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
+    const handleResize = () => {
+      setIsDesktopView(window.innerWidth > 768);
     };
+
+    if (typeof window !== 'undefined') {
+      setIsDesktopView(window.innerWidth > 768);
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
   }, []);
 
   if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
-  if (windowWidth <= 900) {
+  if (!isDesktopView) {
     return (
       <div className={styles.smartphoneVersion}>
         <p className={styles.msgTxt}>Desktop version only due to its web3 dependencies.</p>
