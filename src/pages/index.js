@@ -32,11 +32,11 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktopView(window.innerWidth > 768);
+      setIsDesktopView(window.innerWidth > 900);
     };
 
     if (typeof window !== 'undefined') {
-      setIsDesktopView(window.innerWidth > 768);
+      setIsDesktopView(window.innerWidth > 900);
       window.addEventListener('resize', handleResize);
 
       return () => {
@@ -49,8 +49,8 @@ export default function Home() {
   if (!isDesktopView) {
     return (
       <div className={styles.smartphoneVersion}>
-        <p className={styles.msgTxt}>Desktop version only due to its web3 dependencies.</p>
-        <p className={styles.msgTxt}>Please use a maximized desktop or laptop view.</p>
+        <p className={styles.msgTxtTitle}>Desktop version only, due to web3 dependencies</p>
+        <p className={styles.msgTxt}>Please a use wider desktop or laptop view.</p>
         <p className={styles.msgTxt}>Thank you for your understanding.</p>
       </div>
     );

@@ -74,6 +74,12 @@
   margin-right: 5%;
 }
 
+.msgTxtTitle {
+  margin-left: 5%;
+  margin-right: 5%;
+  font-weight: bold;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -164,6 +170,7 @@
 .cardThree {
   animation: slide-in 2s ease-in-out forwards;
   margin-top: 3vh;
+  font-weight: bold;
 }
 
 .cardFour {

@@ -174,7 +174,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                 )}
                             </div>
                         ) : (
-                            <p className={styles.cardThree}>*Connect your wallet to place BID*</p>
+                            <p className={styles.cardThree}>Connect your wallet to place BID</p>
                         )}
                     </div>
                 </div>
