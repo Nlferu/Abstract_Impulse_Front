@@ -49,8 +49,8 @@ export default function Home() {
   if (!isDesktopView) {
     return (
       <div className={styles.smartphoneVersion}>
-        <p className={styles.msgTxtTitle}>Desktop version only, due to web3 dependencies</p>
-        <p className={styles.msgTxt}>Please a use wider desktop or laptop view.</p>
+        <p className={styles.msgTxtTitle}>Desktop version only, due to web3 dependencies.</p>
+        <p className={styles.msgTxt}>Please use a wider desktop or a laptop view.</p>
         <p className={styles.msgTxt}>Thank you for your understanding.</p>
       </div>
     );
