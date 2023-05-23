@@ -12,13 +12,13 @@ export default function Header() {
                 <h1 className={styles.headerOne}>ABSTRACT IMPULSE NFT</h1>
                 <div className={styles.navObj}>
                     <Link href="/" className={styles.homeButton}>
-                        HOME
+                        <span><i></i><i2></i2>HOME</span>
                     </Link>
                     <Link href="/withdraw" className={styles.homeButton}>
-                        Withdraw
+                        <span><i></i><i2></i2>Withdraw</span>
                     </Link>
                     <Link href="/about" className={styles.homeButton}>
-                        About
+                        <span><i></i><i2></i2>About</span>
                     </Link>
                     <div className={styles.connButton}>
                         <ConnectButton moralisAuth={false} />
