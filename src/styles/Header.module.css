@@ -4,7 +4,7 @@
     width: 100%;
     height: 5vh;
     /* Example height */
-    color: white;
+    color: #F0F8FF;
     background-color: transparent;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .connButton button span {
-    color: white !important;
+    color: #F0F8FF !important;
     font-weight: normal !important;
     font-size: 2vh !important;
     font-family: 'Gruppo', cursive !important;

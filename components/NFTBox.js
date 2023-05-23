@@ -9,8 +9,8 @@ const truncateStr = (fullStr, strLen) => {
     if (fullStr.length <= strLen) return fullStr
 
     const separator = "..."
-    const seperatorLength = separator.length
-    const charsToShow = strLen - seperatorLength
+    const separatorLength = separator.length
+    const charsToShow = strLen - separatorLength
     const frontChars = Math.ceil(charsToShow / 2)
     const backChars = Math.floor(charsToShow / 2)
     return (
@@ -54,11 +54,11 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
 
     useEffect(() => {
         if (bidPlaced) {
-            if (bidPlaced.bidder !== account && isAuctionTimerZero != 0) {
+            if (bidPlaced.bidder !== account && isAuctionTimerZero !== 0) {
                 setStatus('rejected');
-            } else if (bidPlaced.bidder !== account && isAuctionTimerZero == 0) {
+            } else if (bidPlaced.bidder !== account && isAuctionTimerZero === 0) {
                 setStatus('noWinClosed');
-            } else if (bidPlaced.bidder === account && isAuctionTimerZero == 0) {
+            } else if (bidPlaced.bidder === account && isAuctionTimerZero === 0) {
                 setStatus('winClosed');
             }
         }
@@ -96,7 +96,6 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                             />
                         )}
                     </div>
-
                 </div>
                 <div>
                     <div className={`${styles.description} ${styles.card}`}>
@@ -134,7 +133,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         {isWeb3Enabled ? (
                             <div className={styles.cardThree}>
                                 {status !== 'winClosed' && (
-                                    <button className={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0 ? styles.disabledButton : styles.button} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero == 0}>
+                                    <button className={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0 ? styles.disabledButton : styles.button} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0}>
                                         PLACE BID
                                     </button>
                                 )}
@@ -179,7 +178,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     )
 
 }

@@ -3,7 +3,7 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 24px;
-  color: white;
+  color: #F0F8FF;
   cursor: pointer;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .bullet.active {
-  background-color: white;
+  background-color: #F0F8FF;
 }
 
 .loadingPage {
@@ -50,7 +50,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  color: white;
+  color: #F0F8FF;
   font-size: x-large;
 }
 
@@ -65,7 +65,7 @@
   justify-content: center;
   align-items: center;
   background-color: black;
-  color: white;
+  color: #F0F8FF;
   font-size: 3.5vw;
 }
 
@@ -83,9 +83,8 @@
 .container {
   display: flex;
   align-items: center;
-  background-color: black;
-
-  color: white;
+  background: linear-gradient(to right bottom, #00003d 1%, #000000 60%, #23003d 99%);
+  color: #F0F8FF;
 }
 
 .content {
@@ -100,7 +99,6 @@
   flex: 1;
   position: relative;
   overflow: hidden;
-
 }
 
 .soldOutContainer {
@@ -108,26 +106,24 @@
   flex: 1;
   position: relative;
   overflow: hidden;
-
 }
 
 .imageContainer img {
   position: absolute;
-  /* try fixed */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100vw;
-  height: 86vh;
-  padding-top: 7vh;
-  padding-bottom: 7vh;
-  /* try fixed - delete limitations */
+  height: 80vh;
   object-fit: contain;
+  padding: 1vh;
+
 }
+
+
 
 .soldOutContainer img {
   position: absolute;
-  /* try fixed */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -135,9 +131,7 @@
   height: 100vh;
   padding-top: 7vh;
   padding-bottom: 7vh;
-  /* try fixed - delete limitations */
   object-fit: contain;
-
 }
 
 
@@ -199,9 +193,9 @@
   margin-right: 13vw;
   /* add this line */
   padding: 1vh 2vw;
-  border: 2px solid white;
+  border: 2px solid #F0F8FF;
   background-color: transparent;
-  color: white;
+  color: #F0F8FF;
   text-align: center;
   cursor: pointer;
   animation: pulse 2s infinite;
