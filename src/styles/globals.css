@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.sc-kDDrLX {
+    background: linear-gradient(to right bottom, #00003dea 1%, #000000ea 60%, #23003dea 99%) !important;
+    box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255) !important;
+}
+
+.sc-iqcoie {
+    color: #F0F8FF !important;
+    font-weight: normal !important;
+    font-family: 'Gruppo', cursive !important;
+    font-weight: bold !important;
+}
+
+.sc-crXcEl svg {
+    fill: #F0F8FF;
+}
+
+
+
+.sc-breuTD {
+    color: #F0F8FF !important;
+    font-weight: normal !important;
+    font-size: 2vh !important;
+    font-family: 'Gruppo', cursive !important;
+    font-weight: bold !important;
+}
+
+.sc-breuTD span {
+    color: #F0F8FF !important;
+    font-weight: normal !important;
+    font-family: 'Gruppo', cursive !important;
+    font-weight: bold !important;
+}
+
+div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.bsXekn:hover {
+    background: black !important;
+}
