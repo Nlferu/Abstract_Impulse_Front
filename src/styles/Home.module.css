@@ -101,6 +101,7 @@
   overflow: hidden;
 }
 
+
 .soldOutContainer {
   height: 100vh;
   flex: 1;
@@ -191,18 +192,21 @@
   margin-right: 13vw;
   /* add this line */
   padding: 1vh 2vw;
-  border: 2px solid #F0F8FF;
-  background-color: transparent;
+  border: 2px solid transparent;
   color: #F0F8FF;
   text-align: center;
   cursor: pointer;
   animation: pulse 2s infinite;
   font-weight: bold;
-  box-shadow: inset 0 0 50px rgb(11, 73, 241), 0 0 20px rgb(33, 80, 167), 0 0 20px rgb(21, 19, 139);
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255);
+  color: #F0F8FF
+    /* box-shadow: inset 0 0 50px rgb(11, 73, 241), 0 0 20px rgb(33, 80, 167), 0 0 20px rgb(21, 19, 139); */
 }
 
 .button:hover {
   animation-play-state: paused;
+  border: 2px solid #F0F8FF;
 }
 
 

@@ -52,7 +52,7 @@
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     font-size: 2.5vh;
-    box-shadow: inset 0 0 20px rgb(255, 21, 21), 0 0 10px rgb(184, 50, 50), 0 0 10px rgb(155, 6, 6);
+    box-shadow: inset 0 0 20px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212);
 }
 
 .acceptButton:hover {

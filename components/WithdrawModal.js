@@ -68,15 +68,25 @@ export default function WithdrawModal({ isTransactionOpen }) {
         <div className={styles.modal}>
             <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>WITHDRAW BID</h1>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Withdraw your rejected bids now?
-                </label>
+                <div>
+                    <label className={styles.blockLabel}>
+                        Would you like to withdraw your rejected bids now?
+                    </label>
+                    <label className={styles.blockLabel}>
+                        Your current unclaimed ETH balance is:
+                    </label>
+                </div>
+                <div className={styles.rhombus}>
+                </div>
+                <div className={styles.rhombus2}>
+                </div>
                 {failedWithdrawal && <p className={styles.error}>Your wallet has no rejected bids to withdraw.</p>}
                 <div className={styles.buttonContainer}>
                     <button className={styles.acceptButton} type="submit" >Accept</button>
                     <button className={styles.cancelButton} type="button" onClick={() => window.location.href = "/"}>Cancel</button>
                 </div>
             </form>
+
         </div>
     )
 }

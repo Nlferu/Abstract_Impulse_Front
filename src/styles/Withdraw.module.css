@@ -5,6 +5,7 @@
     color: white;
     height: 100vh;
     width: 100vw;
+    background: linear-gradient(to right bottom, #00003d 1%, #000000 60%, #23003d 99%);
 }
 
 .loadingPage {
@@ -27,56 +28,49 @@
     height: 60vh; */
     font-family: 'Sofia Sans Condensed', sans-serif;
     position: fixed;
-    border: 1px solid white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: transparent;
     padding: 2vh;
-    box-shadow: 0 0 100px black;
-    backdrop-filter: blur(10px);
-    z-index: 3;
     font-size: 3vh;
-}
-
-.inputWithdraw {
-    border: 1px solid white;
-    background-color: transparent;
-    color: white;
-    width: auto;
-    font-size: 2.5vh;
-    margin-left: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-.inputWithdraw::-webkit-inner-spin-button {
-    background-color: transparent;
-    color: black;
-    padding: 0.4vh 0.4vw;
+.blockLabel {
+    display: block;
+    margin-bottom: 10px;
 }
 
 .acceptButton {
-    border: 1px solid white;
+    border: 1px solid rgb(0, 4, 255);
     margin: 1vw;
+    margin-left: 7vw;
     margin-top: 2vw;
     padding: 0.4vh 0.8vw;
     float: left;
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     font-size: 2.5vh;
-    box-shadow: inset 0 0 20px rgb(28, 202, 57), 0 0 10px rgb(36, 196, 148), 0 0 10px rgb(6, 155, 13);
+    box-shadow: inset 0 0 20px rgb(0, 4, 255), 0 0 10px rgb(0, 4, 255), 0 0 10px rgb(0, 4, 255);
 }
 
 .cancelButton {
-    border: 1px solid white;
+    border: 1px solid rgb(135, 0, 212);
     margin: 1vw;
+    margin-right: 7vw;
     margin-top: 2vw;
     padding: 0.4vh 0.8vw;
     float: right;
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     font-size: 2.5vh;
-    box-shadow: inset 0 0 20px rgb(255, 21, 21), 0 0 10px rgb(184, 50, 50), 0 0 10px rgb(155, 6, 6);
+    box-shadow: inset 0 0 20px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212);
+
 }
 
 .acceptButton:hover {
@@ -109,4 +103,159 @@
 
 .glowTextEffect {
     text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877), 0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255), 0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
+}
+
+.rhombus {
+    position: relative;
+    z-index: 1;
+    width: 3vw;
+    height: 7vh;
+    min-width: 35px;
+    min-height: 40px;
+    background-color: transparent;
+    /* Replace with your desired color */
+    clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+    display: block;
+    animation: rotateRhombus 2s infinite;
+    margin-left: 10vw;
+    margin-top: 3.5vh;
+}
+
+.rhombus::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    /* background-image: linear-gradient(white, rgb(0, 4, 255)); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    animation: rhombusColor 2s infinite;
+}
+
+.rhombus2 {
+    position: relative;
+    z-index: 2;
+    top: -1.2vh;
+    /* Adjust the vertical position as needed */
+    width: 3vw;
+    height: 7vh;
+    min-width: 35px;
+    min-height: 40px;
+    background-color: transparent;
+    /* Replace with your desired color */
+    clip-path: polygon(50% 70%, 100% 0%, 50% 30%, 0% 0%);
+    display: block;
+    animation: rotateRhombus2 2s infinite;
+    margin-left: 10vw;
+}
+
+.rhombus2::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    /* background-image: linear-gradient(rgb(135, 0, 212), white); */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    animation: rhombusColor2 2s infinite;
+}
+
+@keyframes rotateRhombus {
+
+    0%,
+    20% {
+        clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
+    }
+
+    30% {
+        clip-path: polygon(50% 15%, 95% 70%, 50% 100%, 5% 70%);
+    }
+
+
+    50% {
+        clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
+    }
+
+    75% {
+        clip-path: polygon(50% 15%, 95% 70%, 50% 100%, 5% 70%);
+    }
+
+    100% {
+        clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
+    }
+}
+
+@keyframes rotateRhombus2 {
+
+    0%,
+    20% {
+        clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
+    }
+
+    30% {
+        clip-path: polygon(50% 65%, 95% 0%, 50% 30%, 5% 0%);
+    }
+
+    50% {
+        clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
+    }
+
+    75% {
+        clip-path: polygon(50% 65%, 95% 0%, 50% 30%, 5% 0%);
+    }
+
+    100% {
+        clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
+    }
+}
+
+
+@keyframes rhombusColor {
+
+    0%,
+    20% {
+        background-image: linear-gradient(white, rgb(0, 4, 255));
+    }
+
+    30% {
+        background-image: linear-gradient(rgb(0, 4, 255), white);
+    }
+
+    50% {
+        background-image: linear-gradient(rgb(0, 4, 255), rgb(180, 167, 252));
+    }
+
+    75% {
+        background-image: linear-gradient(rgb(0, 4, 255), rgb(57, 23, 247));
+    }
+
+    100% {
+        background-image: linear-gradient(rgb(0, 4, 255), rgb(0, 4, 255));
+    }
+}
+
+@keyframes rhombusColor2 {
+
+    0%,
+    20% {
+        background-image: linear-gradient(rgb(162, 72, 214), rgb(135, 0, 212));
+    }
+
+    30% {
+        background-image: linear-gradient(rgb(177, 116, 212), rgb(135, 0, 212));
+    }
+
+    50% {
+        background-image: linear-gradient(white, rgb(135, 0, 212));
+    }
+
+    75% {
+        background-image: linear-gradient(rgb(162, 72, 214), rgb(189, 161, 206));
+    }
+
+    100% {
+        background-image: linear-gradient(rgb(162, 72, 214), rgb(162, 72, 214));
+    }
 }
