@@ -35,6 +35,8 @@
     border: 1px solid rgb(0, 4, 255);
     margin: 1vw;
     margin-top: 2vw;
+    margin-left: 4vw;
+    margin-right: 3vw;
     padding: 0.4vh 0.8vw;
     float: left;
     font-family: 'Chakra Petch', sans-serif;
@@ -47,6 +49,8 @@
     border: 1px solid rgb(135, 0, 212);
     margin: 1vw;
     margin-top: 2vw;
+    margin-right: 4vw;
+    margin-left: 3vw;
     padding: 0.4vh 0.8vw;
     float: right;
     font-family: 'Chakra Petch', sans-serif;

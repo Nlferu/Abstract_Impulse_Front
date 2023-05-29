@@ -5,6 +5,7 @@
 .sc-kDDrLX {
     background: linear-gradient(to right bottom, #00003dea 1%, #000000ea 60%, #23003dea 99%) !important;
     box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255) !important;
+    border-radius: 0 !important;
 }
 
 .sc-iqcoie {
@@ -26,6 +27,7 @@
     font-size: 2vh !important;
     font-family: 'Gruppo', cursive !important;
     font-weight: bold !important;
+    background-color: transparent !important;
 }
 
 .sc-breuTD span {
@@ -42,3 +44,30 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
 .bsXekn:hover {
     background: black !important;
 }
+
+.sc-jSMfEi {
+    border-radius: 0 !important;
+    background: linear-gradient(to right bottom, #1818e0ea 1%, #000000ea 60%, #7e25c2ea 99%) !important;
+    box-shadow: inset 0 0 0, 0 0 0, 0 0 8px rgb(255, 255, 255) !important;
+}
+
+.sc-iBkjds {
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: inset 0 0 0, 0 0 0, 0 0 4px rgb(255, 255, 255) !important;
+}
+
+.sc-eCYdqJ {
+    background: linear-gradient(to right bottom, #00003dea 1%, #000000ea 60%, #23003dea 99%) !important;
+}
+
+.sc-hKMtZM {
+    color: #d1e8fc !important;
+}
+
+.sc-ftvSup {
+    color: #a9d7ff !important;
+    text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff;
+}
+
+/* color: #F0F8FF !important; */

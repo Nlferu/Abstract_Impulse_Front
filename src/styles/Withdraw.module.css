@@ -46,13 +46,18 @@
     margin-bottom: 10px;
 }
 
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
 .acceptButton {
     border: 1px solid rgb(0, 4, 255);
     margin: 1vw;
     margin-left: 7vw;
+    margin-right: 3vw;
     margin-top: 2vw;
     padding: 0.4vh 0.8vw;
-    float: left;
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     font-size: 2.5vh;
@@ -63,15 +68,15 @@
     border: 1px solid rgb(135, 0, 212);
     margin: 1vw;
     margin-right: 7vw;
+    margin-left: 3vw;
     margin-top: 2vw;
     padding: 0.4vh 0.8vw;
-    float: right;
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     font-size: 2.5vh;
     box-shadow: inset 0 0 20px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212);
-
 }
+
 
 .acceptButton:hover {
     transform: scale(1.2);
@@ -108,8 +113,8 @@
 .rhombus {
     position: relative;
     z-index: 1;
-    width: 3vw;
-    height: 7vh;
+    width: calc(2vw + (4vh - 40px) * 0.583);
+    height: calc(4vh + (2vw - 35px) * 1.143);
     min-width: 35px;
     min-height: 40px;
     background-color: transparent;
@@ -136,10 +141,10 @@
 .rhombus2 {
     position: relative;
     z-index: 2;
-    top: -1.2vh;
+    top: calc(max(-1vw, -1vh));
     /* Adjust the vertical position as needed */
-    width: 3vw;
-    height: 7vh;
+    width: calc(2vw + (4vh - 40px) * 0.583);
+    height: calc(4vh + (2vw - 35px) * 1.143);
     min-width: 35px;
     min-height: 40px;
     background-color: transparent;
@@ -240,11 +245,11 @@
 
     0%,
     20% {
-        background-image: linear-gradient(rgb(162, 72, 214), rgb(135, 0, 212));
+        background-image: linear-gradient(rgb(177, 116, 212), rgb(135, 0, 212));
     }
 
     30% {
-        background-image: linear-gradient(rgb(177, 116, 212), rgb(135, 0, 212));
+        background-image: linear-gradient(rgb(200, 182, 211), rgb(135, 0, 212));
     }
 
     50% {
@@ -252,7 +257,7 @@
     }
 
     75% {
-        background-image: linear-gradient(rgb(162, 72, 214), rgb(189, 161, 206));
+        background-image: linear-gradient(rgb(162, 72, 214), white);
     }
 
     100% {

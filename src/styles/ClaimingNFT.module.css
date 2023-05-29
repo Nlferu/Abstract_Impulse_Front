@@ -35,6 +35,8 @@
     border: 1px solid #F0F8FF;
     margin: 1vw;
     margin-top: 2vw;
+    margin-left: 4vw;
+    margin-right: 3vw;
     padding: 0.4vh 0.8vw;
     float: left;
     font-family: 'Chakra Petch', sans-serif;
@@ -46,6 +48,8 @@
 .cancelButton {
     border: 1px solid #F0F8FF;
     margin: 1vw;
+    margin-right: 4vw;
+    margin-left: 3vw;
     margin-top: 2vw;
     padding: 0.4vh 0.8vw;
     float: right;
