@@ -7,14 +7,15 @@ import React, { useState } from 'react'
 import { useNotification } from "web3uikit"
 
 
-export default function WithdrawModal({ isTransactionOpen }) {
+export default function WithdrawModal({ isTransactionOpen, bidToWithdraw }) {
 
-    const { chainId } = useMoralis()
+    const { chainId, isWeb3Enabled, account } = useMoralis()
     const chainString = chainId ? parseInt(chainId).toString() : ''
     const absImpAddress = chainString ? networkMapping[chainString].AbstractImpulseNFT[0] : ''
     const dispatch = useNotification()
     const { runContractFunction } = useWeb3Contract()
     const { failedWithdrawal, setFailedWithdrawal } = useState(true)
+    const bidAmount = bidToWithdraw[account].bidAmount ? bidToWithdraw[account].bidAmount : 0
 
     async function withdrawRejectedBids() {
 
@@ -67,26 +68,35 @@ export default function WithdrawModal({ isTransactionOpen }) {
     return (
         <div className={styles.modal}>
             <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>WITHDRAW BID</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label className={styles.blockLabel}>
-                        Would you like to withdraw your rejected bids now?
-                    </label>
-                    <label className={styles.blockLabel}>
-                        Your current unclaimed ETH balance is:
-                    </label>
-                </div>
-                <div className={styles.rhombus}>
-                </div>
-                <div className={styles.rhombus2}>
-                </div>
-                {failedWithdrawal && <p className={styles.error}>Your wallet has no rejected bids to withdraw.</p>}
-                <div className={styles.buttonContainer}>
-                    <button className={styles.acceptButton} type="submit" >Accept</button>
-                    <button className={styles.cancelButton} type="button" onClick={() => window.location.href = "/"}>Cancel</button>
-                </div>
-            </form>
+            {isWeb3Enabled ? (
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label className={styles.blockLabel}>
+                            Would you like to withdraw your rejected bids now?
+                        </label>
+                        <label className={styles.blockLabel}>
+                            Your current unclaimed ETH balance is:
+                        </label>
+                    </div>
+                    <div className={styles.amountIconContainer}>
+                        <div className={styles.rhombus}>
+                        </div>
+                        <div className={styles.rhombus2}>
+                        </div>
+                        <div className={styles.withdrawalAmountContainer}>
+                            <span className={styles.amountText}>{bidAmount / 10 ** 18}</span>
+                        </div>
+                    </div>
 
+                    {failedWithdrawal && <p className={styles.error}>Your wallet has no rejected bids to withdraw.</p>}
+                    <div className={styles.buttonContainer}>
+                        <button className={styles.acceptButton} type="submit" >Accept</button>
+                        <button className={styles.cancelButton} type="button" onClick={() => window.location.href = "/"}>Cancel</button>
+                    </div>
+                </form>
+            ) : (
+                <p className={styles.notConnected}>Connect your wallet to withdraw BID</p>
+            )}
         </div>
     )
 }

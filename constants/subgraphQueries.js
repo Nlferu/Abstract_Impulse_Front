@@ -30,6 +30,16 @@ const GET_ACTIVE_ITEMS = gql`
   nftWithdrawCompleteds(orderBy: tokenId) {
     tokenId
   }
+  nftAddedPendingBidsForWithdrawals(orderBy: blockTimestamp) {
+    bid
+    bidder
+    blockTimestamp
+  }
+  nftPendingBidsWithdrawals(orderBy: blockTimestamp) {
+    bid
+    bidder
+    blockTimestamp
+  }
 }
 `
 

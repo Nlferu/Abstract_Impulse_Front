@@ -22,6 +22,31 @@
     font-size: x-large;
 }
 
+.smartphoneVersion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: #F0F8FF;
+    font-size: 3.5vw;
+}
+
+.msgTxtTitle {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-weight: bold;
+}
+
+.msgTxt {
+    margin-left: 5%;
+    margin-right: 5%;
+}
 
 .modal {
     /* width: 60vw;
@@ -39,6 +64,13 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.notConnected {
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    margin-top: 3vh;
+    font-weight: bold;
+    font-size: 1.5vw;
 }
 
 .blockLabel {
@@ -91,7 +123,6 @@
     transition: all 0.2s ease-in-out;
 }
 
-
 .blockTitle {
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
@@ -110,6 +141,10 @@
     text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877), 0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255), 0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
 }
 
+.amountIconContainer {
+    position: relative;
+}
+
 .rhombus {
     position: relative;
     z-index: 1;
@@ -122,7 +157,7 @@
     clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
     display: block;
     animation: rotateRhombus 2s infinite;
-    margin-left: 10vw;
+    left: 35%;
     margin-top: 3.5vh;
 }
 
@@ -141,7 +176,7 @@
 .rhombus2 {
     position: relative;
     z-index: 2;
-    top: calc(max(-1vw, -1vh));
+    top: calc(max(-0.8vw, -0.8vh));
     /* Adjust the vertical position as needed */
     width: calc(2vw + (4vh - 40px) * 0.583);
     height: calc(4vh + (2vw - 35px) * 1.143);
@@ -152,7 +187,7 @@
     clip-path: polygon(50% 70%, 100% 0%, 50% 30%, 0% 0%);
     display: block;
     animation: rotateRhombus2 2s infinite;
-    margin-left: 10vw;
+    left: 35%;
 }
 
 .rhombus2::before {
@@ -263,4 +298,20 @@
     100% {
         background-image: linear-gradient(rgb(162, 72, 214), rgb(162, 72, 214));
     }
+}
+
+
+.withdrawalAmountContainer {
+    justify-content: center;
+}
+
+.amountText {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Adjust the font size as needed */
+    color: rgb(255, 255, 255);
+    /* Replace with your desired color */
+    font-weight: bold;
 }
