@@ -51,7 +51,8 @@
   align-items: center;
   background-color: black;
   color: #F0F8FF;
-  font-size: x-large;
+  font-family: 'Gruppo', cursive;
+  font-size: 2vh;
 }
 
 .smartphoneVersion {
@@ -191,7 +192,7 @@
   margin-left: 1vw;
   margin-right: 13vw;
   /* add this line */
-  padding: 1vh 2vw;
+  padding: 0.1vh 1vw;
   border: 2px solid transparent;
   color: #F0F8FF;
   text-align: center;
@@ -242,7 +243,7 @@
   margin-left: 1vh;
   margin-right: 13vw;
   /* add this line */
-  padding: 1vh 2vw;
+  padding: 0.1vh 1vw;
   border: 2px solid rgb(53, 48, 48);
   background-color: transparent;
   color: rgb(53, 48, 48);
