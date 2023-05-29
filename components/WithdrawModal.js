@@ -15,7 +15,7 @@ export default function WithdrawModal({ isTransactionOpen, bidToWithdraw }) {
     const dispatch = useNotification()
     const { runContractFunction } = useWeb3Contract()
     const { failedWithdrawal, setFailedWithdrawal } = useState(true)
-    const bidAmount = bidToWithdraw[account].bidAmount ? bidToWithdraw[account].bidAmount : 0
+    const bidAmount = bidToWithdraw && bidToWithdraw[account] && bidToWithdraw[account].bidAmount ? bidToWithdraw[account].bidAmount : 0
 
     async function withdrawRejectedBids() {
 

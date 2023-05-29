@@ -1,10 +1,10 @@
 import { useQuery } from "@apollo/client"
 import styles from '@/styles/Home.module.css'
 import { useState, useEffect } from 'react'
+import GET_ACTIVE_ITEMS from "../../constants/subgraphQueries"
 import NFTBox from "../../components/NFTBox"
 import BlockingLayer from "../../components/BlockingLayer"
 import BlackoutLayer from "../../components/BlackoutLayer"
-import GET_ACTIVE_ITEMS from "../../constants/subgraphQueries"
 import BiddingModal from "../../components/BiddingModal"
 import ClaimingNFT from "../../components/ClaimingNFT"
 

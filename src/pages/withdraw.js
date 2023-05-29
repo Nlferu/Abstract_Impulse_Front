@@ -69,8 +69,6 @@ export default function Withdraw() {
         }
     }
 
-
-
     return (
         <div className={styles.container}>
             {isTransactionOpen && (<BlackoutLayer />)}
