@@ -63,10 +63,14 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
 
 .sc-hKMtZM {
     color: #d1e8fc !important;
+    font-family: 'Gruppo', cursive !important;
+    font-size: 2vh !important;
 }
 
 .sc-ftvSup {
     color: #a9d7ff !important;
+    font-family: 'Gruppo', cursive !important;
+    font-size: 2vh !important;
     text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff;
 }
 
