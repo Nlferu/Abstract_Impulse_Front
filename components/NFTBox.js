@@ -26,8 +26,9 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     const [imageURI, setImageURI] = useState("")
     const [tokenName, setTokenName] = useState("")
     const [tokenDescription, setTokenDescription] = useState("")
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState('')
     const [isAuctionTimerZero, setIsAuctionTimerZero] = useState(Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0))
+    const [imageLoading, setImageLoading] = useState(true)
 
     let displayedAuctionTimer = Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0)
 
@@ -55,14 +56,14 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     useEffect(() => {
         if (bidPlaced) {
             if (bidPlaced.bidder !== account && isAuctionTimerZero !== 0) {
-                setStatus('rejected');
+                setStatus('rejected')
             } else if (bidPlaced.bidder !== account && isAuctionTimerZero === 0) {
-                setStatus('noWinClosed');
+                setStatus('noWinClosed')
             } else if (bidPlaced.bidder === account && isAuctionTimerZero === 0) {
-                setStatus('winClosed');
+                setStatus('winClosed')
             }
         }
-    }, [bidPlaced, account, isAuctionTimerZero]);
+    }, [bidPlaced, account, isAuctionTimerZero])
 
     const handlePlaceBid = () => {
         isBiddingModalOpen(true)
@@ -77,12 +78,14 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
             <div className={styles.content}>
                 <div className={styles.imageContainer}>
                     <Image
+                        className={imageLoading ? styles.imageLoading : ''}
                         loader={() => imageURI}
                         src={imageURI}
                         width={1200}
                         height={1200}
                         objectFit="contain"
                         alt="minted NFT"
+                        onLoad={() => setImageLoading(false)}
                     />
                     <div className={styles.soldOutContainer}>
                         {(status === 'winClosed' || status === 'noWinClosed') && (
@@ -179,5 +182,4 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
             </div>
         </div>
     )
-
 }

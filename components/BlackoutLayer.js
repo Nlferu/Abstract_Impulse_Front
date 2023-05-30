@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import styles from '@/styles/BlackoutLayer.module.css'
 
 const BlackoutLayer = ({ children }) => {
-    const [countdown, setCountdown] = useState(30);
+    const [countdown, setCountdown] = useState(30)
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCountdown(countdown => (countdown > 0 ? countdown - 1 : 0));
-        }, 1000);
+            setCountdown(countdown => (countdown > 0 ? countdown - 1 : 0))
+        }, 1000)
 
-        return () => clearInterval(interval);
-    }, []);
+        return () => clearInterval(interval)
+    }, [])
 
     return (
         <div className={styles.blackoutLayer}>
@@ -27,7 +27,7 @@ const BlackoutLayer = ({ children }) => {
                 </p>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default BlackoutLayer;
+export default BlackoutLayer

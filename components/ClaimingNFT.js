@@ -35,7 +35,7 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
         }
     }
 
-    const winningBidder = newOwnerAddress ? '' : (bidPlaced ? bidPlaced.bidder : '');
+    const winningBidder = newOwnerAddress ? '' : (bidPlaced ? bidPlaced.bidder : '')
 
     async function claimApprovedNFT() {
 

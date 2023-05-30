@@ -14,7 +14,7 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isClaimingModalOpen, setIsClaimingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
-  const [isDesktopView, setIsDesktopView] = useState(false);
+  const [isDesktopView, setIsDesktopView] = useState(false)
   const [currentCardIndex, setCurrentCardIndex] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedIndex = localStorage.getItem('currentCardIndex')
@@ -32,27 +32,29 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktopView(window.innerWidth > 900);
-    };
+      setIsDesktopView(window.innerWidth > 900)
+    }
 
+    // Detect if window is not undefined (browser environment)
     if (typeof window !== 'undefined') {
-      setIsDesktopView(window.innerWidth > 900);
-      window.addEventListener('resize', handleResize);
+      handleResize()
+      window.addEventListener('resize', handleResize)
 
       return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+        window.removeEventListener('resize', handleResize)
+      }
     }
-  }, []);
+  }, [])
 
   if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
+  if (isDesktopView === null) return null
   if (!isDesktopView) {
     return (
       <div className={styles.smartphoneVersion}>
         <p className={styles.msgTxtTitle}>Desktop version only, due to web3 dependencies.</p>
         <p className={styles.msgTxt}>Please use a wider desktop or a laptop view.</p>
       </div>
-    );
+    )
   }
   if (error) return `Error! ${error.message}`
 
@@ -108,15 +110,15 @@ export default function Home() {
     .map((entry) => ({ tokenId: entry[0], blockTimestamp: entry[1].blockTimestamp, time: entry[1].time }))
 
   const approvedNfts = data.nftWithdrawCompleteds.reduce((acc, nft) => {
-    acc[nft.tokenId] = true;
-    return acc;
-  }, []);
+    acc[nft.tokenId] = true
+    return acc
+  }, [])
   if (approvedNfts[currentCardIndex]) { } else { approvedNfts[currentCardIndex] = false }
 
   const claimedNfts = data.transfers.reduce((acc, nft) => {
-    acc[nft.tokenId] = true;
-    return acc;
-  }, []);
+    acc[nft.tokenId] = true
+    return acc
+  }, [])
   if (claimedNfts[currentCardIndex]) { } else { claimedNfts[currentCardIndex] = false }
 
   return (

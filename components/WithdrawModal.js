@@ -47,7 +47,7 @@ export default function WithdrawModal({ isTransactionOpen, bidToWithdraw }) {
         }, 5000)
         setTimeout(() => {
             window.location.href = "/"
-        }, 35000);
+        }, 35000)
     }
 
     async function handleBIDWithdrawError() {

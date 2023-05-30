@@ -17,7 +17,7 @@ export default function Withdraw() {
         }
 
         if (typeof window !== 'undefined') {
-            setIsDesktopView(window.innerWidth > 900)
+            handleResize()
             window.addEventListener('resize', handleResize)
 
             return () => {
@@ -27,6 +27,8 @@ export default function Withdraw() {
     }, [])
 
     if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
+
+    if (isDesktopView === null) return null
     if (!isDesktopView) {
         return (
             <div className={styles.smartphoneVersion}>
