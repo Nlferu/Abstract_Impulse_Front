@@ -27,8 +27,6 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
-
-
 export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI, auctionTimer, bidPlaced, isBiddingModalOpen, isClaimingModalOpen }) {
 
     const { isWeb3Enabled, account } = useMoralis()
@@ -42,21 +40,21 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     const [currentImages, setCurrentImages] = useState([])
     const intervalRef = useRef(null)
 
-    const [isImageLoadDelayed, setIsImageLoadDelayed] = useState(true); //testing
+    const [isImageLoadDelayed, setIsImageLoadDelayed] = useState(true)
 
     useEffect(() => {
         if (imageLoading) {
             intervalRef.current = setInterval(() => {
                 setCurrentImages((prevImages) => {
                     if (prevImages.length === loadingImages.length) {
-                        // All images have been loaded, so reset the array
-                        return [loadingImages[0]];
+
+                        return [loadingImages[0]]
                     } else {
-                        // Not all images have been loaded, so add the next image
-                        return [...prevImages, loadingImages[prevImages.length % loadingImages.length]];
+
+                        return [...prevImages, loadingImages[prevImages.length % loadingImages.length]]
                     }
-                });
-            }, 100) // Change image every 1 second (or whatever time you prefer)
+                })
+            }, 100)
         } else {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current)
@@ -64,7 +62,6 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
             }
         }
 
-        // Clean up function
         return () => {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current)
@@ -116,15 +113,12 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
         isClaimingModalOpen(true)
     }
 
-    // testing
     useEffect(() => {
         const timer = setTimeout(() => {
-            setIsImageLoadDelayed(false);
-        }, 20000);  // Delay for 20 seconds
-
-        // Clear the timer when the component is unmounted
-        return () => clearTimeout(timer);
-    }, []);
+            setIsImageLoadDelayed(false)
+        }, 400)
+        return () => clearTimeout(timer)
+    }, [])
 
     return (
         <div className={`${styles.container} ${styles.card}`}>
