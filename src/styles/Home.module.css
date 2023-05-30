@@ -260,3 +260,10 @@
 .imageLoading {
   visibility: hidden;
 }
+
+.loadingBrushesContainer {
+  height: 100vh;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}

@@ -1,9 +1,16 @@
 import styles from '@/styles/Home.module.css'
 import { useMoralis } from "react-moralis"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from "next/image"
 import { formatAge } from './AuctionTimer'
 import brush from '../public/BRUSH3.png'
+import l1 from '../public/1.png'
+import l2 from '../public/2.png'
+import l3 from '../public/3.png'
+import l4 from '../public/4.png'
+import l5 from '../public/5.png'
+import l6 from '../public/6.png'
+import l7 from '../public/7.png'
 
 const truncateStr = (fullStr, strLen) => {
     if (fullStr.length <= strLen) return fullStr
@@ -20,6 +27,8 @@ const truncateStr = (fullStr, strLen) => {
     )
 }
 
+
+
 export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI, auctionTimer, bidPlaced, isBiddingModalOpen, isClaimingModalOpen }) {
 
     const { isWeb3Enabled, account } = useMoralis()
@@ -29,6 +38,30 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     const [status, setStatus] = useState('')
     const [isAuctionTimerZero, setIsAuctionTimerZero] = useState(Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0))
     const [imageLoading, setImageLoading] = useState(true)
+    const loadingImages = [l1, l2, l3, l4, l5, l6, l7]
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const intervalRef = useRef(null)
+
+    useEffect(() => {
+        if (imageLoading) {
+            intervalRef.current = setInterval(() => {
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % loadingImages.length)
+            }, 100) // Change image every 1 second (or whatever time you prefer)
+        } else {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current)
+                intervalRef.current = null
+            }
+        }
+
+        // Clean up function
+        return () => {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current)
+                intervalRef.current = null
+            }
+        }
+    }, [imageLoading])
 
     let displayedAuctionTimer = Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0)
 
@@ -88,13 +121,24 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         onLoad={() => setImageLoading(false)}
                     />
                     <div className={styles.soldOutContainer}>
-                        {(status === 'winClosed' || status === 'noWinClosed') && (
+                        {(status === 'winClosed' || status === 'noWinClosed') && !imageLoading && (
                             <Image
                                 src={brush}
                                 width={1200}
                                 height={1200}
                                 objectFit="cover"
-                                alt="minted NFT"
+                                alt="sold out NFT"
+                            />
+                        )}
+                    </div>
+                    <div className={styles.loadingBrushesContainer}>
+                        {imageLoading && (
+                            <Image
+                                src={loadingImages[currentImageIndex]}
+                                width={1200}
+                                height={1200}
+                                objectFit="contain"
+                                alt="loading image"
                             />
                         )}
                     </div>
