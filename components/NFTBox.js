@@ -4,13 +4,13 @@ import { useState, useEffect, useRef } from 'react'
 import Image from "next/image"
 import { formatAge } from './AuctionTimer'
 import brush from '../public/BRUSH3.png'
-import l1 from '../public/1.png'
-import l2 from '../public/2.png'
+import l1 from '../public/4.png'
+import l2 from '../public/5.png'
 import l3 from '../public/3.png'
-import l4 from '../public/4.png'
-import l5 from '../public/5.png'
-import l6 from '../public/6.png'
-import l7 from '../public/7.png'
+import l4 from '../public/6.png'
+import l5 from '../public/2.png'
+import l6 from '../public/7.png'
+import l7 from '../public/1.png'
 
 const truncateStr = (fullStr, strLen) => {
     if (fullStr.length <= strLen) return fullStr
@@ -54,7 +54,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         return [...prevImages, loadingImages[prevImages.length % loadingImages.length]]
                     }
                 })
-            }, 100)
+            }, 150)
         } else {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current)
@@ -116,7 +116,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsImageLoadDelayed(false)
-        }, 400)
+        }, 450)
         return () => clearTimeout(timer)
     }, [])
 
