@@ -39,13 +39,23 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     const [isAuctionTimerZero, setIsAuctionTimerZero] = useState(Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0))
     const [imageLoading, setImageLoading] = useState(true)
     const loadingImages = [l1, l2, l3, l4, l5, l6, l7]
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [currentImages, setCurrentImages] = useState([])
     const intervalRef = useRef(null)
+
+    const [isImageLoadDelayed, setIsImageLoadDelayed] = useState(true); //testing
 
     useEffect(() => {
         if (imageLoading) {
             intervalRef.current = setInterval(() => {
-                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % loadingImages.length)
+                setCurrentImages((prevImages) => {
+                    if (prevImages.length === loadingImages.length) {
+                        // All images have been loaded, so reset the array
+                        return [loadingImages[0]];
+                    } else {
+                        // Not all images have been loaded, so add the next image
+                        return [...prevImages, loadingImages[prevImages.length % loadingImages.length]];
+                    }
+                });
             }, 100) // Change image every 1 second (or whatever time you prefer)
         } else {
             if (intervalRef.current) {
@@ -106,20 +116,32 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
         isClaimingModalOpen(true)
     }
 
+    // testing
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsImageLoadDelayed(false);
+        }, 20000);  // Delay for 20 seconds
+
+        // Clear the timer when the component is unmounted
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className={`${styles.container} ${styles.card}`}>
             <div className={styles.content}>
                 <div className={styles.imageContainer}>
-                    <Image
-                        className={imageLoading ? styles.imageLoading : ''}
-                        loader={() => imageURI}
-                        src={imageURI}
-                        width={1200}
-                        height={1200}
-                        objectFit="contain"
-                        alt="minted NFT"
-                        onLoad={() => setImageLoading(false)}
-                    />
+                    {!isImageLoadDelayed && (
+                        <Image
+                            className={imageLoading ? styles.imageLoading : ''}
+                            loader={() => imageURI}
+                            src={imageURI}
+                            width={1200}
+                            height={1200}
+                            objectFit="contain"
+                            alt="minted NFT"
+                            onLoad={() => setImageLoading(false)}
+                        />
+                    )}
                     <div className={styles.soldOutContainer}>
                         {(status === 'winClosed' || status === 'noWinClosed') && !imageLoading && (
                             <Image
@@ -132,15 +154,16 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         )}
                     </div>
                     <div className={styles.loadingBrushesContainer}>
-                        {imageLoading && (
+                        {imageLoading && currentImages.map((imgSrc, index) => (
                             <Image
-                                src={loadingImages[currentImageIndex]}
+                                key={index}
+                                src={imgSrc}
                                 width={1200}
                                 height={1200}
-                                objectFit="contain"
+                                objectFit="cover"
                                 alt="loading image"
                             />
-                        )}
+                        ))}
                     </div>
                 </div>
                 <div>
