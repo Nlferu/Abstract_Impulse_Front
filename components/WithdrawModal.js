@@ -131,7 +131,7 @@ export default function WithdrawModal({ isTransactionOpen, bidToWithdraw }) {
                     <div className={styles.captchaBox}>
                         <ReCAPTCHA
                             ref={recaptchaRef}
-                            sitekey='6LdtCV0mAAAAAI4W4P-5PLUJrmeXw8mEwwxQV9en'
+                            sitekey={RECAPTCHA_KEY}
                             onChange={handleRecaptcha}
                             theme='dark'
                         />
