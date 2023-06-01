@@ -1,12 +1,14 @@
 import styles from '@/styles/BiddingModal.module.css'
 import { useWeb3Contract, useMoralis } from "react-moralis"
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import networkMapping from "../constants/networkMapping.json"
 import absImpAbi from "../constants/AbstractImpulseNFT.json"
 import { useNotification } from "web3uikit"
+import ReCAPTCHA from "react-google-recaptcha"
 
 export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactionOpen }) {
 
+    const RECAPTCHA_KEY = process.env.RECAPTCHA_KEY
     const { chainId } = useMoralis()
     const chainString = chainId ? parseInt(chainId).toString() : ''
     const absImpAddress = chainString ? networkMapping[chainString].AbstractImpulseNFT[0] : ''
@@ -16,19 +18,27 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
     const [bidAmount, setBidAmount] = useState('')
     const [invalidBidAmount, setInvalidBidAmount] = useState(false)
     const [bidTooSmall, setBidTooSmall] = useState(false)
+    const [captchaError, setCaptchaError] = useState(false);
+    const [isVerified, setIsVerified] = useState(false)
+    const recaptchaRef = useRef();
 
     const handleCancel = () => {
         isBiddingModalOpen(false)
-
+        setIsVerified(false)
+        if (recaptchaRef.current) {
+            recaptchaRef.current.reset();
+        }
     }
 
     const handleBidAmountChange = (event) => {
         const { value } = event.target
         setBidAmount(value)
 
+
         if (!/^\d+(\.\d{1,2})?$/.test(value)) {
             setInvalidBidAmount(true)
         } else {
+            setBidTooSmall(false)
             setInvalidBidAmount(false)
         }
     }
@@ -49,14 +59,24 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
             params: placeBid,
             onError: () => handleBidError(),
             onSuccess: () => handleBidSuccess(),
-            onError: (error) => setBidTooSmall(true),
+            onError: (error) => {
+                setBidTooSmall(true)
+                setIsVerified(false)
+                recaptchaRef.current.reset()
+            }
         })
 
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        placeNFTBid()
+
+        if (isVerified) {
+            placeNFTBid()
+            setCaptchaError(false)
+        } else {
+            setCaptchaError(true)
+        }
     }
 
     async function handleBidSuccess() {
@@ -84,11 +104,17 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
         })
     }
 
+    const handleRecaptcha = (value) => {
+        setIsVerified(value ? true : false)
+        setCaptchaError(value ? false : true)
+        setBidTooSmall(value ? false : true)
+    }
+
     return (
         <div className={styles.modal}>
             <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>AUCTION BIDDING</h1>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className={styles.bidAmount}>
                     Bid Amount (ETH):
                     <input className={styles.inputBidding} type="number" step="0.01" min="0.1" placeholder=" min. 0.1 " value={bidAmount} onChange={handleBidAmountChange} />
                 </label>
@@ -100,6 +126,16 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
                         <p className={styles.error}>Please check the highest bid and try again.</p>
                     </div>
                 )}
+                {captchaError && <p className={styles.errorTop}>Please complete the captcha before submitting.</p>}
+                <div className={styles.captchaBox}>
+                    <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={RECAPTCHA_KEY}
+                        onChange={handleRecaptcha}
+                        theme='dark'
+                    />
+                </div>
+
                 <div className={styles.buttonContainer}>
                     <button className={styles.acceptButton} type="submit" >Accept</button>
                     <button className={styles.cancelButton} type="button" onClick={handleCancel}>Cancel</button>

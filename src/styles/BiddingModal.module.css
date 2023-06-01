@@ -15,6 +15,12 @@
     font-size: 3vh;
 }
 
+.bidAmount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .inputBidding {
     border: 1px solid #F0F8FF;
     background-color: transparent;
@@ -95,4 +101,11 @@
 
 .glowTextEffect {
     text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877), 0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255), 0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
+}
+
+.captchaBox {
+    margin-top: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

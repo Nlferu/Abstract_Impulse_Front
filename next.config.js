@@ -1,6 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+require("dotenv").config()
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+module.exports = {
+  reactStrictMode: false,
+  env: {
+    RECAPTCHA_KEY: process.env.RECAPTCHA_KEY,
+  },
+}
