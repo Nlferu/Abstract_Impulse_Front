@@ -130,7 +130,7 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
                 <div className={styles.captchaBox}>
                     <ReCAPTCHA
                         ref={recaptchaRef}
-                        sitekey={RECAPTCHA_KEY}
+                        sitekey='6LeG3lwmAAAAAEhJz_uT_sHpCy1TGsE0wspLoUYS'
                         onChange={handleRecaptcha}
                         theme='dark'
                     />
