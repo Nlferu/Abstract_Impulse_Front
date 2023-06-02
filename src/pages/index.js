@@ -15,14 +15,28 @@ export default function Home() {
   const [isClaimingModalOpen, setIsClaimingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
   const [isDesktopView, setIsDesktopView] = useState(false)
+  const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([4])
+
+  const getFirstValidIndex = () => {
+    let index = 0;
+    while (disabledCardsIndexes.includes(index)) {
+      index++;
+    }
+    return index;
+  }
+
   const [currentCardIndex, setCurrentCardIndex] = useState(() => {
     if (typeof window !== 'undefined') {
-      const savedIndex = localStorage.getItem('currentCardIndex')
-      return savedIndex !== null ? Number(savedIndex) : 0
+      const savedIndex = localStorage.getItem('currentCardIndex');
+      if (savedIndex !== null && !disabledCardsIndexes.includes(Number(savedIndex))) {
+        return Number(savedIndex);
+      } else {
+        return getFirstValidIndex();
+      }
     } else {
-      return 0
+      return getFirstValidIndex();
     }
-  })
+  });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -61,16 +75,25 @@ export default function Home() {
   const hasNFTs = data.nftMinteds.length > 0
 
   const handleNextCard = () => {
-    setCurrentCardIndex(currentCardIndex === data.nftMinteds.length - 1 ? 0 : currentCardIndex + 1)
+    let newIndex = currentCardIndex
+    do {
+      newIndex = (newIndex + 1) % data.nftMinteds.length
+    } while (disabledCardsIndexes.includes(newIndex))
+    setCurrentCardIndex(newIndex)
   }
   const handlePrevCard = () => {
-    setCurrentCardIndex(currentCardIndex === 0 ? data.nftMinteds.length - 1 : currentCardIndex - 1)
+    let newIndex = currentCardIndex
+    do {
+      newIndex = (newIndex - 1 + data.nftMinteds.length) % data.nftMinteds.length
+    } while (disabledCardsIndexes.includes(newIndex))
+    setCurrentCardIndex(newIndex)
   }
 
-  const bullets = hasNFTs ? Array.from({ length: data.nftMinteds.length }).map((_, i) => (
+  const bullets = hasNFTs ? data.nftMinteds.map((_, i) => (
     <div
       key={i}
       className={styles.bullet + (i === currentCardIndex ? ' ' + styles.active : '')}
+      style={disabledCardsIndexes.includes(i) ? { display: 'none' } : {}}
       onClick={() => setCurrentCardIndex(i)}
     />
   )) : null
@@ -120,6 +143,8 @@ export default function Home() {
     return acc
   }, [])
   if (claimedNfts[currentCardIndex]) { } else { claimedNfts[currentCardIndex] = false }
+
+  if (disabledCardsIndexes.includes(currentCardIndex)) return null
 
   return (
     <div className={styles.container}>
