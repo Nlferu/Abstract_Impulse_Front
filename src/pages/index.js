@@ -15,7 +15,7 @@ export default function Home() {
   const [isClaimingModalOpen, setIsClaimingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
   const [isDesktopView, setIsDesktopView] = useState(false)
-  const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([4])
+  const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([])
 
   const getFirstValidIndex = () => {
     let index = 0;

@@ -96,18 +96,31 @@
 }
 
 .imageContainer {
-  height: 100vh;
   flex: 1;
+  height: 100vh;
+  width: 40vw;
   position: relative;
   overflow: hidden;
 }
-
 
 .soldOutContainer {
   height: 100vh;
   flex: 1;
   position: relative;
   overflow: hidden;
+}
+
+.imageContainer .firstImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  height: max-content;
+  max-width: 97%;
+  max-height: 80%;
+  object-fit: contain;
+  box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
 }
 
 .imageContainer img {
@@ -118,10 +131,7 @@
   width: 100vw;
   height: 80vh;
   object-fit: contain;
-  padding: 1vh;
 }
-
-
 
 .soldOutContainer img {
   position: absolute;
