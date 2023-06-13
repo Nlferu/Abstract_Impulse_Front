@@ -40,6 +40,7 @@
     padding-left: 1vw;
     font-weight: bold;
     font-size: calc(min(3vh, 3vw));
+    width: 35%;
 }
 
 .navObj {
