@@ -9,34 +9,9 @@ import GET_ACTIVE_ITEMS from "../../constants/subgraphQueries"
 export default function Withdraw() {
     const { loading, error, data } = useQuery(GET_ACTIVE_ITEMS)
     const [isTransactionOpen, setIsTransactionOpen] = useState(false)
-    const [isDesktopView, setIsDesktopView] = useState(false)
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsDesktopView(window.innerWidth > 900)
-        }
-
-        if (typeof window !== 'undefined') {
-            handleResize()
-            window.addEventListener('resize', handleResize)
-
-            return () => {
-                window.removeEventListener('resize', handleResize)
-            }
-        }
-    }, [])
 
     if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
-
-    if (isDesktopView === null) return null
-    if (!isDesktopView) {
-        return (
-            <div className={styles.smartphoneVersion}>
-                <p className={styles.msgTxtTitle}>Desktop version only, due to web3 dependencies.</p>
-                <p className={styles.msgTxt}>Please use a wider desktop or a laptop view.</p>
-            </div>
-        )
-    }
     if (error) return `Error! ${error.message}`
 
     const nftUnclaimedBids = data.nftAddedPendingBidsForWithdrawals

@@ -45,17 +45,25 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
     background: black !important;
 }
 
+/* balance and wallet address box */
 .sc-jSMfEi {
     border-radius: 0 !important;
     background: linear-gradient(to right bottom, #1818e0ea 1%, #000000ea 60%, #7e25c2ea 99%) !important;
     box-shadow: inset 0 0 0, 0 0 0, 0 0 8px rgb(255, 255, 255) !important;
-
+    height: calc(min(5vh, 5vw)) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-right: calc(min(1vh, 1vw)) !important;
 }
 
+/* wallet address box */
 .sc-iBkjds {
     border-radius: 0 !important;
     background: transparent !important;
     box-shadow: inset 0 0 0, 0 0 0, 0 0 4px rgb(255, 255, 255) !important;
+    height: calc(min(2vh, 2vw)) !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 /* box */
@@ -68,21 +76,25 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
     padding: calc(min(1vh, 1vw)) !important;
 }
 
+/* balance */
 .sc-hKMtZM {
     color: #d1e8fc !important;
     font-family: 'Gruppo', cursive !important;
-    font-size: calc(min(2vh, 2vw));
+    font-size: calc(min(2vh, 2vw)) !important;
+    margin: calc(min(1vh, 1vw)) !important;
+    text-align: center !important;
 }
 
 .sc-ftvSup {
     color: #a9d7ff !important;
     font-family: 'Gruppo', cursive !important;
-    font-size: calc(min(2vh, 2vw));
-    text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff;
-    text-align: center;
-    display: block;
-    width: 100%;
+    font-size: calc(min(2vh, 2vw)) !important;
+    text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff !important;
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
     line-height: 0 !important;
+    margin: 0 !important;
 }
 
 
@@ -107,6 +119,5 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
 /* color: #F0F8FF !important; */
 
 .sc-dkzDqf {
-    height: 2vh;
-    width: 2vw;
+    display: none !important;
 }

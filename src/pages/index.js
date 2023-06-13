@@ -14,7 +14,6 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isClaimingModalOpen, setIsClaimingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
-  const [isDesktopView, setIsDesktopView] = useState(false)
   const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([])
 
   const getFirstValidIndex = () => {
@@ -44,32 +43,8 @@ export default function Home() {
     }
   }, [currentCardIndex])
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktopView(window.innerWidth > 900)
-    }
-
-    // Detect if window is not undefined (browser environment)
-    if (typeof window !== 'undefined') {
-      handleResize()
-      window.addEventListener('resize', handleResize)
-
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    }
-  }, [])
 
   if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
-  if (isDesktopView === null) return null
-  if (!isDesktopView) {
-    return (
-      <div className={styles.smartphoneVersion}>
-        <p className={styles.msgTxtTitle}>Desktop version only, due to web3 dependencies.</p>
-        <p className={styles.msgTxt}>Please use a wider desktop or a laptop view.</p>
-      </div>
-    )
-  }
   if (error) return `Error! ${error.message}`
 
   const hasNFTs = data.nftMinteds.length > 0
