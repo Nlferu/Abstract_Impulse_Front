@@ -6,15 +6,32 @@ import NFTBox from "../../components/NFTBox"
 import BlockingLayer from "../../components/BlockingLayer"
 import BlackoutLayer from "../../components/BlackoutLayer"
 import BiddingModal from "../../components/BiddingModal"
-import ClaimingNFT from "../../components/ClaimingNFT"
 
 export default function Home() {
 
   const { loading, error, data } = useQuery(GET_ACTIVE_ITEMS)
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
-  const [isClaimingModalOpen, setIsClaimingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
+  const [isDesktopView, setIsDesktopView] = useState(false)
   const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktopView(window.innerWidth > 600)
+    }
+
+    // Detect if window is not undefined (browser environment)
+    if (typeof window !== 'undefined') {
+      handleResize()
+      window.addEventListener('resize', handleResize)
+
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
+    }
+  }, [])
+
+  if (isDesktopView === null) return null
 
   const getFirstValidIndex = () => {
     let index = 0;
@@ -135,7 +152,6 @@ export default function Home() {
             approvedNfts={approvedNfts[currentCardIndex]}
             auctionTimer={highestBlockTimestamp[currentCardIndex]}
             isBiddingModalOpen={setIsBiddingModalOpen}
-            isClaimingModalOpen={setIsClaimingModalOpen}
           />
           {isTransactionOpen && (<BlackoutLayer />)}
           {isBiddingModalOpen && (
@@ -145,18 +161,6 @@ export default function Home() {
                 key={data.nftMinteds[currentCardIndex].tokenId}
                 tokenId={data.nftMinteds[currentCardIndex].tokenId}
                 isBiddingModalOpen={setIsBiddingModalOpen}
-                isTransactionOpen={setIsTransactionOpen}
-              />
-            </>
-          )}
-          {isClaimingModalOpen && (
-            <>
-              <BlockingLayer />
-              <ClaimingNFT
-                key={data.nftMinteds[currentCardIndex].tokenId}
-                mintedItem={data.nftMinteds[currentCardIndex]}
-                bidPlaced={highestBids[currentCardIndex]}
-                isClaimingModalOpen={setIsClaimingModalOpen}
                 isTransactionOpen={setIsTransactionOpen}
               />
             </>
