@@ -24,7 +24,7 @@
 .sc-breuTD {
     color: #F0F8FF !important;
     font-weight: normal !important;
-    font-size: 2vh !important;
+    font-size: calc(min(2vh, 2vw)) !important;
     font-family: 'Gruppo', cursive !important;
     font-weight: bold !important;
     background-color: transparent !important;
@@ -61,24 +61,30 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
 /* box */
 .sc-eCYdqJ {
     background: linear-gradient(to right bottom, #00003dea 1%, #000000ea 60%, #23003dea 99%) !important;
+    height: auto !important;
 }
 
 .sc-gKXOVf {
-    padding: 0.5vh !important;
+    padding: calc(min(1vh, 1vw)) !important;
 }
 
 .sc-hKMtZM {
     color: #d1e8fc !important;
     font-family: 'Gruppo', cursive !important;
-    font-size: 2vh !important;
+    font-size: calc(min(2vh, 2vw));
 }
 
 .sc-ftvSup {
     color: #a9d7ff !important;
     font-family: 'Gruppo', cursive !important;
-    font-size: 2vh !important;
+    font-size: calc(min(2vh, 2vw));
     text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    line-height: 0 !important;
 }
+
 
 /* update box */
 .sc-jhzXDd {
@@ -89,18 +95,18 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
 
 .sc-KfMfS {
     font-family: 'Gruppo', cursive !important;
-    font-size: 2vh !important;
+    font-size: calc(min(2vh, 2vw)) !important;
 }
 
 .sc-cHPgQl {
     color: #d1e8fc !important;
     font-family: 'Gruppo', cursive !important;
-    font-size: 1.5vh !important;
+    font-size: calc(min(1.5vh, 1.5vw)) !important;
 }
 
 /* color: #F0F8FF !important; */
 
 .sc-dkzDqf {
     height: 2vh;
-    width: 2vh;
+    width: 2vw;
 }
