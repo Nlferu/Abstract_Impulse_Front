@@ -9,7 +9,7 @@
 }
 
 .sc-iqcoie {
-    color: #F0F8FF !important;
+    color: #005fb3 !important;
     font-weight: normal !important;
     font-family: 'Gruppo', cursive !important;
     font-weight: bold !important;
@@ -56,11 +56,15 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
     border-radius: 0 !important;
     background: transparent !important;
     box-shadow: inset 0 0 0, 0 0 0, 0 0 4px rgb(255, 255, 255) !important;
-
 }
 
+/* box */
 .sc-eCYdqJ {
     background: linear-gradient(to right bottom, #00003dea 1%, #000000ea 60%, #23003dea 99%) !important;
+}
+
+.sc-gKXOVf {
+    padding: 0.5vh !important;
 }
 
 .sc-hKMtZM {
