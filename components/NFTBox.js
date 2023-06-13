@@ -51,7 +51,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         return [...prevImages, loadingImages[prevImages.length % loadingImages.length]]
                     }
                 })
-            }, 150)
+            }, 250)
         } else {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current)
