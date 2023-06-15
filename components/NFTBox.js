@@ -158,86 +158,100 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                     </div>
                 </div>
                 <div>
-                    <div className={`${styles.description} ${styles.card}`}>
-                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>NFT DETAILS</h1>
-                        <p>#{tokenId} "{tokenName}"</p>
-                        <p>{tokenDescription}</p>
+                    <div className={styles.nftDetails}>
+                        <div className={`${styles.description} ${styles.card}`}>
+                            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>NFT DETAILS</h1>
+                            <p>#{tokenId} "{tokenName}"</p>
+                            <p>{tokenDescription}</p>
+                        </div>
                     </div>
-                    <div className={`${styles.description} ${styles.cardTwo}`}>
-                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>AUCTION DETAILS</h1>
-                        {isAuctionTimerZero == 0 ? (
-                            <div>
-                                <p>Auction for this NFT has ended!</p>
-                            </div>
-                        ) : (
-                            <div>
-                                <p>Auction ends in {formatAge(displayedAuctionTimer)}</p>
-                            </div>
-                        )}
-                        {bidPlaced ? (
-                            <div>
-                                <p>Leading Bidder: {truncateStr(bidPlaced.bidder, 15)}</p>
-                                <p>Highest Bid: ETH {bidPlaced.amount / 10 ** 18}</p>
-                            </div>
-                        ) : (
-                            isAuctionTimerZero == 0 ? (
+                    <div className={styles.auctionDetails}>
+                        <div className={`${styles.description} ${styles.cardTwo}`}>
+                            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>AUCTION DETAILS</h1>
+                            {isAuctionTimerZero == 0 ? (
                                 <div>
-                                    <p>No bid placed - auction renewal possible</p>
+                                    <p>Auction for this NFT has ended!</p>
                                 </div>
                             ) : (
                                 <div>
-                                    <p>No bids were placed yet</p>
+                                    <p>Auction ends in {formatAge(displayedAuctionTimer)}</p>
                                 </div>
-                            )
-                        )}
-                        {isWeb3Enabled ? (
-                            <div className={styles.cardThree}>
-                                {status !== 'winClosed' && (
-                                    <button className={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0 ? styles.disabledButton : styles.button} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0}>
-                                        PLACE BID
-                                    </button>
-                                )}
-                                {status === 'rejected' && (
+                            )}
+                            {bidPlaced ? (
+                                <div>
+                                    <p>Leading Bidder: {truncateStr(bidPlaced.bidder, 15)}</p>
+                                    <p>Highest Bid: ETH {bidPlaced.amount / 10 ** 18}</p>
+                                </div>
+                            ) : (
+                                isAuctionTimerZero == 0 ? (
                                     <div>
-                                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
-                                        <p>You are not the leading bidder.</p>
-                                        <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
+                                        <p>No bid placed - auction renewal possible</p>
                                     </div>
-                                )}
-                                {status === 'noWinClosed' && (
+                                ) : (
                                     <div>
-                                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
-                                        <p>Looks like you didn't win this auction.</p>
-                                        <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
-                                        <p>You can still try your luck in another auction.</p>
+                                        <p>No bids were placed yet</p>
                                     </div>
-                                )}
-                                {status === 'winClosed' && (
-                                    <div>
-                                        <button className={approvedNfts && !claimedNfts ? styles.button : styles.disabledButton} onClick={handleClaimNFT} disabled={!approvedNfts || claimedNfts}>
-                                            CLAIM NFT
-                                        </button>
-                                        <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
-                                        <p>Congratulations!</p>
-                                        <p>Looks like you won this auction!</p>
-                                        {approvedNfts && !claimedNfts && (
-                                            <p>Now you are able to claim your NFT.</p>
-                                        )}
-                                        {!approvedNfts && !claimedNfts && (
-                                            <p>You will be able to claim your NFT within 48h.</p>
-                                        )}
-                                        {approvedNfts && claimedNfts && (
-                                            <p>You have already claimed your NFT.</p>
+                                )
+                            )}
+                        </div>
+                    </div>
+                    <div className={styles.statusUpdate}>
+                        <div className={`${styles.description} ${styles.cardThree}`}>
+                            {isWeb3Enabled ? (
+                                <div>
+                                    <div className={styles.buttonz}>
+                                        {status !== 'winClosed' && (
+                                            <button className={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0 ? styles.disabledButton : styles.button} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0}>
+                                                PLACE BID
+                                            </button>
                                         )}
                                     </div>
-                                )}
-                            </div>
-                        ) : (
-                            <p className={styles.cardThree}>Connect your wallet to place BID</p>
-                        )}
+                                    {status === 'rejected' && (
+                                        <div>
+                                            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
+                                            <p>You are not the leading bidder.</p>
+                                            <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
+                                        </div>
+                                    )}
+                                    {status === 'noWinClosed' && (
+                                        <div>
+                                            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
+                                            <p>Looks like you didn't win this auction.</p>
+                                            <p>Place the new highest bid or withdraw your rejected bids <a className={styles.hyperlinkWithdrawal} href="/withdraw">here</a>.</p>
+                                            <p>You can still try your luck in another auction.</p>
+                                        </div>
+                                    )}
+                                    {status === 'winClosed' && (
+                                        <div>
+                                            <div className={styles.buttonz}>
+                                                <button className={approvedNfts && !claimedNfts ? styles.button : styles.disabledButton} onClick={handleClaimNFT} disabled={!approvedNfts || claimedNfts}>
+                                                    CLAIM NFT
+                                                </button>
+                                            </div>
+                                            <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>STATUS UPDATE</h1>
+                                            <p>Congratulations!</p>
+                                            <p>Looks like you won this auction!</p>
+                                            {approvedNfts && !claimedNfts && (
+                                                <p>Now you are able to claim your NFT.</p>
+                                            )}
+                                            {!approvedNfts && !claimedNfts && (
+                                                <p>You will be able to claim your NFT within 48h.</p>
+                                            )}
+                                            {approvedNfts && claimedNfts && (
+                                                <p>You have already claimed your NFT.</p>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div className={styles.cardThree}>
+                                    <p>Connect your wallet to place BID</p>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

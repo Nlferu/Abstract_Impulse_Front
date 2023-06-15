@@ -32,14 +32,13 @@
 }
 
 
-
 .headerOne {
     font-family: 'Press Start 2P', cursive;
     padding-top: 2vh;
     padding-bottom: 2vh;
     padding-left: 1vw;
     font-weight: bold;
-    font-size: calc(min(3vh, 3vw));
+    font-size: calc(min(2vh, 2vw));
     width: 33%;
 }
 
@@ -96,4 +95,20 @@
 
 .menuButton {
     padding-right: 3vw;
+}
+
+@media screen and (max-width: 600px) {
+    .connButton button {
+        height: calc(min(6vh, 6vw)) !important;
+    }
+
+    .connButton button span {
+        font-size: calc(min(4vh, 4vw)) !important;
+
+    }
+
+    .headerOne {
+        font-size: calc(min(5vh, 5vw));
+    }
+
 }

@@ -54,6 +54,7 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
     padding: 0 !important;
     margin: 0 !important;
     padding-right: calc(min(1vh, 1vw)) !important;
+    padding-left: calc(min(1vh, 1vw)) !important;
 }
 
 /* wallet address box */
@@ -81,7 +82,8 @@ div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
     color: #d1e8fc !important;
     font-family: 'Gruppo', cursive !important;
     font-size: calc(min(2vh, 2vw)) !important;
-    margin: calc(min(1vh, 1vw)) !important;
+    margin: 0 !important;
+    padding-right: calc(min(1vh, 1vw)) !important;
     text-align: center !important;
 }
 
