@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client"
 import styles from '@/styles/Home.module.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
+import { useSwipeable } from 'react-swipeable'
 import GET_ACTIVE_ITEMS from "../../constants/subgraphQueries"
 import NFTBox from "../../components/NFTBox"
 import BlockingLayer from "../../components/BlockingLayer"
@@ -15,44 +16,46 @@ export default function Home() {
   const [isDesktopView, setIsDesktopView] = useState(false)
   const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([])
 
-  useEffect(() => {
-    const handleResize = () => {
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => isDesktopView === false && handleNextCard(),
+    onSwipedRight: () => isDesktopView === false && handlePrevCard(),
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  })
+
+  useLayoutEffect(() => {
+    function updateSize() {
       setIsDesktopView(window.innerWidth > 600)
     }
 
-    // Detect if window is not undefined (browser environment)
-    if (typeof window !== 'undefined') {
-      handleResize()
-      window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', updateSize)
+    updateSize() // Call this function immediately to update state with initial window size.
 
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    }
+    return () => window.removeEventListener('resize', updateSize)
   }, [])
 
   if (isDesktopView === null) return null
 
   const getFirstValidIndex = () => {
-    let index = 0;
+    let index = 0
     while (disabledCardsIndexes.includes(index)) {
-      index++;
+      index++
     }
-    return index;
+    return index
   }
 
   const [currentCardIndex, setCurrentCardIndex] = useState(() => {
     if (typeof window !== 'undefined') {
-      const savedIndex = localStorage.getItem('currentCardIndex');
+      const savedIndex = localStorage.getItem('currentCardIndex')
       if (savedIndex !== null && !disabledCardsIndexes.includes(Number(savedIndex))) {
-        return Number(savedIndex);
+        return Number(savedIndex)
       } else {
-        return getFirstValidIndex();
+        return getFirstValidIndex()
       }
     } else {
-      return getFirstValidIndex();
+      return getFirstValidIndex()
     }
-  });
+  })
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -139,7 +142,7 @@ export default function Home() {
   if (disabledCardsIndexes.includes(currentCardIndex)) return null
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} {...swipeHandlers}>
       {hasNFTs ? (
         <div className={styles.cardContainer}>
           <NFTBox
@@ -167,9 +170,8 @@ export default function Home() {
           )}
         </div>
       ) : (<div className={styles.loadingPage}>No NFT has been minted yet!</div>)}
-
-      <div className={styles.arrow + ' ' + styles.left} onClick={handlePrevCard}>{'<'}</div>
-      <div className={styles.arrow + ' ' + styles.right} onClick={handleNextCard}>{'>'}</div>
+      {isDesktopView && <div className={styles.arrow + ' ' + styles.left} onClick={handlePrevCard}>{'<'}</div>}
+      {isDesktopView && <div className={styles.arrow + ' ' + styles.right} onClick={handleNextCard}>{'>'}</div>}
       {hasNFTs ? (
         <div className={styles.bulletsContainer}>{bullets}</div>
       ) : (<div className={styles.loadingPage}>No NFT has been minted yet!</div>)}

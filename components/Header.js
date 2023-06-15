@@ -1,27 +1,21 @@
 import { ConnectButton } from "web3uikit"
 import Link from "next/link"
 import styles from '@/styles/Header.module.css'
-import { useState, useEffect } from "react"
+import { useState, useEffect, useLayoutEffect } from "react"
 import MenuButton from './MenuButton'
 
-
 export default function Header() {
-    const [isDesktopView, setIsDesktopView] = useState(false)
+    const [isDesktopView, setIsDesktopView] = useState(null)
 
-    useEffect(() => {
-        const handleResize = () => {
+    useLayoutEffect(() => {
+        function updateSize() {
             setIsDesktopView(window.innerWidth > 600)
         }
 
-        // Detect if window is not undefined (browser environment)
-        if (typeof window !== 'undefined') {
-            handleResize()
-            window.addEventListener('resize', handleResize)
+        window.addEventListener('resize', updateSize)
+        updateSize() // Call this function immediately to update state with initial window size.
 
-            return () => {
-                window.removeEventListener('resize', handleResize)
-            }
-        }
+        return () => window.removeEventListener('resize', updateSize)
     }, [])
 
     if (isDesktopView === null) return null
@@ -48,7 +42,6 @@ export default function Header() {
                         <ConnectButton
                             moralisAuth={false}
                         />
-
                     </div>
                     {!isDesktopView && (
                         <div className={styles.menuButton}>
