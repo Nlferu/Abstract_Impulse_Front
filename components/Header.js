@@ -45,10 +45,13 @@ export default function Header() {
                         </div>
                     )}
                     <div className={styles.connButton}>
-                        <ConnectButton moralisAuth={false} />
+                        <ConnectButton
+                            moralisAuth={false}
+                        />
+
                     </div>
                     {!isDesktopView && (
-                        <div>
+                        <div className={styles.menuButton}>
                             <MenuButton
                                 key={setIsDesktopView}
                                 isSmartphoneViewEnabled={setIsDesktopView}

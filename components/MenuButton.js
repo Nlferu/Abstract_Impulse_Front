@@ -8,6 +8,8 @@ export default function MenuButton(isSmartphoneViewEnabled) {
             <Image
                 key={menu}
                 src={menu}
+                width={40}
+                height={40}
                 objectFit="cover"
                 alt="menu icon"
             />
