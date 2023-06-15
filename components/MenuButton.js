@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styles from '@/styles/Menu.module.css'
 import menu from '../public/menu.png'
+import close from '../public/close.png'
 import Image from "next/image"
 import Link from "next/link"
 
@@ -16,14 +17,14 @@ export default function MenuButton(isSmartphoneViewEnabled) {
     }
 
     return (
-        <div>
+        <div className={styles.menuButton}>
             <Image
-                key={menu}
-                src={menu}
+                key={isModalOpen ? 'close' : 'menu'}
+                src={isModalOpen ? close : menu}
                 width={40}
                 height={40}
                 objectFit="cover"
-                alt="menu icon"
+                alt={isModalOpen ? 'close icon' : 'menu icon'}
                 onClick={handleMenuList}
             />
 

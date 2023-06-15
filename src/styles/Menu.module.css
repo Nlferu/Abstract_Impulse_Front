@@ -1,12 +1,13 @@
+.menuButton {
+    position: relative;
+}
+
 .modal {
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    left: -25vw;
+    width: 35vw;
+    top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +31,7 @@
     margin: 10px 0;
     border-bottom: 1px solid rgb(28, 17, 179);
     font-family: 'Gruppo', cursive !important;
-    font-size: calc(min(5vh, 5vw)) !important;
+    font-size: calc(min(4vh, 4vw)) !important;
 }
 
 .homeButton:last-child {
