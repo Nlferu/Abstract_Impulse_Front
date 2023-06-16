@@ -55,7 +55,7 @@
     font-family: 'Sofia Sans Condensed', sans-serif;
     margin-top: 3vh;
     font-weight: bold;
-    font-size: calc(min(1.5vh, 1.5vw));
+    font-size: calc(min(2vh, 2vw));
 }
 
 .blockLabel {
@@ -112,7 +112,7 @@
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
     margin-bottom: 2.5vh;
-    font-size: 3vh;
+    font-size: calc(min(3vh, 3vw));
 }
 
 .error {
@@ -305,4 +305,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .modal {
+        width: 80vw;
+    }
+
+    .blockTitle {
+        font-size: calc(min(8vh, 8vw));
+    }
+
+    .blockLabel {
+        font-size: calc(min(4vh, 4vw));
+    }
+
+    .amountText {
+        font-size: calc(min(4vh, 4vw));
+        padding-left: 20px;
+    }
+
+    .notConnected {
+        font-size: calc(min(3.2vh, 3.2vw));
+    }
+
+    .cancelButton {
+        font-size: calc(min(5vh, 5vw));
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .acceptButton {
+        font-size: calc(min(5vh, 5vw));
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
 }

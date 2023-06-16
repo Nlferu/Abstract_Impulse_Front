@@ -278,9 +278,9 @@
     position: absolute;
     display: flex;
     flex-wrap: nowrap;
-    left: 5vw;
+    left: 10vw;
     right: 5vw;
-    top: 70vh;
+    top: 55vh;
     width: 30vw;
   }
 
@@ -288,9 +288,9 @@
     position: absolute;
     display: flex;
     flex-wrap: nowrap;
-    left: 35vw;
+    left: 40vw;
     right: 5vw;
-    top: 70vh;
+    top: 55vh;
     width: 30vw;
   }
 
@@ -298,20 +298,13 @@
     position: absolute;
     display: flex;
     flex-wrap: nowrap;
-    left: 65vw;
+    left: 70vw;
     right: 5vw;
-    top: 67vh;
+    top: 52vh;
     width: 30vw;
   }
 
-  .buttonz {
-    position: absolute;
-    display: flex;
-    flex-wrap: nowrap;
-    right: 52vw;
-    top: 12vh;
-    width: 30vw;
-  }
+  .buttonz {}
 
   /* .description {
     font-family: 'Sofia Sans Condensed', sans-serif;
@@ -337,7 +330,7 @@
 
   .imageContainer .firstImage {
     position: absolute;
-    top: 40%;
+    top: 50%;
     /* start from where the header ends */
     left: 50%;
     transform: translate(-50%, -50%);
@@ -350,24 +343,60 @@
     box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
   }
 
-
-
   .imageContainer {
     width: 100%;
   }
 
   .soldOutContainer img {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 80vh;
   }
 
   .loadingBrushesContainer img {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
+  body.swiped-up .content {
+    display: none !important;
+  }
+
+  .bulletsContainer {
+    display: none;
+  }
+
+  .swipeUp {
+    position: absolute;
+    width: 80vw;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .firstResize {
+    width: 50vw !important;
+    top: 35% !important;
+  }
+
+  .secondResize {
+    width: 50vw !important;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .thirdResize {
+    width: 50vw !important;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

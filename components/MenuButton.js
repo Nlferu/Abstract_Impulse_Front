@@ -24,7 +24,7 @@ export default function MenuButton(isSmartphoneViewEnabled) {
     return (
         <div className={styles.menuButton}>
             <div
-                className={`${styles.hamburgerMenu} ${isOpen ? styles.open : ''}`}
+                className={`${styles.hamburgerMenu} ${isOpen && isModalOpen ? styles.open : ''}`}
                 onClick={() => { toggleMenu(); handleMenuList(); }}
             >
                 <div></div>

@@ -14,11 +14,14 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
   const [isDesktopView, setIsDesktopView] = useState(false)
+  const [swipedUp, setSwipedUp] = useState(false);
   const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([])
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => isDesktopView === false && handleNextCard(),
     onSwipedRight: () => isDesktopView === false && handlePrevCard(),
+    onSwipedUp: () => isDesktopView === false && setSwipedUp(true),
+    onSwipedDown: () => isDesktopView === false && setSwipedUp(false),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   })
@@ -26,6 +29,7 @@ export default function Home() {
   useLayoutEffect(() => {
     function updateSize() {
       setIsDesktopView(window.innerWidth > 600)
+      setSwipedUp(window.innerWidth > 600)
     }
 
     window.addEventListener('resize', updateSize)
@@ -155,6 +159,8 @@ export default function Home() {
             approvedNfts={approvedNfts[currentCardIndex]}
             auctionTimer={highestBlockTimestamp[currentCardIndex]}
             isBiddingModalOpen={setIsBiddingModalOpen}
+            swipedUp={swipedUp}
+            isDesktopView={isDesktopView}
           />
           {isTransactionOpen && (<BlackoutLayer />)}
           {isBiddingModalOpen && (
