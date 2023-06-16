@@ -7,6 +7,7 @@ import Link from "next/link"
 
 export default function MenuButton(isSmartphoneViewEnabled) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleMenuList = () => {
         setIsModalOpen(!isModalOpen);
@@ -16,17 +17,20 @@ export default function MenuButton(isSmartphoneViewEnabled) {
         setIsModalOpen(false);
     }
 
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div className={styles.menuButton}>
-            <Image
-                key={isModalOpen ? 'close' : 'menu'}
-                src={isModalOpen ? close : menu}
-                width={40}
-                height={40}
-                objectFit="cover"
-                alt={isModalOpen ? 'close icon' : 'menu icon'}
-                onClick={handleMenuList}
-            />
+            <div
+                className={`${styles.hamburgerMenu} ${isOpen ? styles.open : ''}`}
+                onClick={() => { toggleMenu(); handleMenuList(); }}
+            >
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
 
             {isModalOpen && (
                 <div className={styles.modal}>

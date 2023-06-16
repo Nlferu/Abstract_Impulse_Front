@@ -9,10 +9,11 @@
 }
 
 .sc-iqcoie {
-    color: #005fb3 !important;
+    color: #a9d7ff !important;
     font-weight: normal !important;
     font-family: 'Gruppo', cursive !important;
     font-weight: bold !important;
+    text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff !important;
 }
 
 .sc-crXcEl svg {

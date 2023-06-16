@@ -2,6 +2,37 @@
     position: relative;
 }
 
+.hamburgerMenu {
+    width: calc(min(8vh, 8vw));
+    height: calc(min(6vh, 6vw));
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.hamburgerMenu div {
+    width: 100%;
+    height: 3px;
+    background-color: #F0F8FF;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.hamburgerMenu.open div:nth-child(1) {
+    transform: rotate(45deg) translate(calc(min(1.2vh, 1.2vw)), calc(min(1.2vh, 1.2vw)));
+}
+
+.hamburgerMenu.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburgerMenu.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(calc(min(1.6vh, 1.6vw)), calc(-1 * min(1.6vh, 1.6vw)));
+}
+
 .modal {
     position: absolute;
     z-index: 1;
@@ -11,7 +42,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: slideIn 0.4s ease-in;
 }
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 
 .modal div {
     background: linear-gradient(to right bottom, #00003d 1%, #000000 60%, #23003d 99%);

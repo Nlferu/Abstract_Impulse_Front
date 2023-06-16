@@ -3,6 +3,7 @@ import Link from "next/link"
 import styles from '@/styles/Header.module.css'
 import { useState, useEffect, useLayoutEffect } from "react"
 import MenuButton from './MenuButton'
+import { Web3Button } from '@web3modal/react'
 
 export default function Header() {
     const [isDesktopView, setIsDesktopView] = useState(null)
@@ -36,13 +37,14 @@ export default function Header() {
                             <Link href="/about" className={styles.homeButton}>
                                 <span>About</span>
                             </Link>
+                            <div className={styles.connButton}>
+                                <ConnectButton
+                                    moralisAuth={false}
+                                />
+                            </div>
                         </div>
                     )}
-                    <div className={styles.connButton}>
-                        <ConnectButton
-                            moralisAuth={false}
-                        />
-                    </div>
+                    <Web3Button />
                     {!isDesktopView && (
                         <div className={styles.menuButton}>
                             <MenuButton
