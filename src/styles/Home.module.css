@@ -399,4 +399,23 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .pulsatingText {
+    animation: pulse 2s infinite;
+  }
+
 }
