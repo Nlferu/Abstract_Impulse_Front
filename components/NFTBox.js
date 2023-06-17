@@ -119,7 +119,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
 
     return (
         <div className={`${styles.container} ${styles.card}`}>
-            <div className={styles.content}>
+            <div className={`${styles.content} ${swipedUp && !isDesktopView ? styles.resizedContent : ''}`}>
                 <div className={styles.imageContainer}>
                     {!isImageLoadDelayed && (
                         <Image
