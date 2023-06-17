@@ -7,7 +7,7 @@
 }
 
 .navigationBar {
-    padding: 1vw;
+    padding: 2vw;
     border-bottom-width: 0;
     height: calc(min(10vh, 20vw));
     display: flex;
@@ -34,9 +34,6 @@
 
 .headerOne {
     font-family: 'Press Start 2P', cursive;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-    padding-left: 1vw;
     font-weight: bold;
     font-size: calc(min(2vh, 2vw));
     width: 33%;

@@ -322,10 +322,11 @@
 
   .content {
     width: 100vw;
+    height: 100vh;
     padding-left: 0;
     padding-right: 0;
-    margin-top: calc(min(10vh, 20vw));
-    margin-bottom: calc(min(10vh, 20vw));
+    padding-top: calc(min(10vh, 20vw));
+    padding-bottom: calc(min(10vh, 20vw));
     display: absolute;
     align-items: center;
     display: flex;
@@ -370,15 +371,19 @@
   }
 
   .resizedContent {
-    height: 40vh;
+    height: 50vh;
     position: absolute;
     top: 0;
   }
 
-  .firstResize {}
+  .firstResize {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   .secondResize {
-    width: 50vw;
+    width: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

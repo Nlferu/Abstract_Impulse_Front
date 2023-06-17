@@ -39,6 +39,8 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
 
     const [isImageLoadDelayed, setIsImageLoadDelayed] = useState(true)
 
+
+
     useEffect(() => {
         if (imageLoading) {
             intervalRef.current = setInterval(() => {
@@ -68,6 +70,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     }, [imageLoading])
 
     let displayedAuctionTimer = Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0)
+    let auctionTime = formatAge(displayedAuctionTimer)
 
     async function updateUI() {
         const tokenURI = setTokenURI.uri
@@ -175,7 +178,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                     </div>
                                 ) : (
                                     <div>
-                                        <p>Auction ends in {formatAge(displayedAuctionTimer)}</p>
+                                        <p>Auction ends in {auctionTime}</p>
                                     </div>
                                 )}
                                 {bidPlaced ? (
