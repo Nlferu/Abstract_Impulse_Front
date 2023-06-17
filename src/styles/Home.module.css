@@ -107,7 +107,7 @@
   width: max-content;
   height: max-content;
   max-width: 97%;
-  max-height: 97%;
+  max-height: 95%;
   object-fit: contain;
   box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
 }
@@ -266,6 +266,24 @@
   overflow: hidden;
 }
 
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.pulsatingText {
+  animation: pulse 2s infinite;
+}
+
 
 @media screen and (max-width: 600px) {
 
@@ -283,6 +301,7 @@
     left: 10vw;
     right: 5vw;
     width: 30vw;
+    padding-top: 3vh;
   }
 
   .auctionDetails {
@@ -291,8 +310,8 @@
     flex-wrap: nowrap;
     left: 40vw;
     right: 5vw;
-
     width: 30vw;
+    padding-top: 3vh;
   }
 
   .statusUpdate {
@@ -301,7 +320,6 @@
     flex-wrap: nowrap;
     left: 70vw;
     right: 5vw;
-
     width: 30vw;
   }
 
@@ -364,7 +382,7 @@
   .swipeUp {
     position: absolute;
     width: 80vw;
-    bottom: 5%;
+    bottom: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -391,30 +409,13 @@
   }
 
   .thirdResize {
-    width: 100vw !important;
-    height: 40vh !important;
+    width: 50% !important;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  @keyframes pulse {
-    0% {
-      opacity: 1;
-    }
 
-    50% {
-      opacity: 0.5;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .pulsatingText {
-    animation: pulse 2s infinite;
-  }
 
 }

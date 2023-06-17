@@ -10,7 +10,6 @@
     flex-flow: column nowrap;
     justify-content: space-around;
     cursor: pointer;
-    z-index: 999;
 }
 
 .hamburgerMenu div {
