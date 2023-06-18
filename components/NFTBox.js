@@ -126,7 +126,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                 <div className={styles.imageContainer}>
                     {!isImageLoadDelayed && (
                         <Image
-                            className={`${imageLoading ? `${styles.imageLoading} ${styles.firstImage}` : `${styles.firstImage}`} ${swipedUp && !isDesktopView ? styles.firstResize : ''}`}
+                            className={`${imageLoading ? `${styles.imageLoading}` : `${styles.firstImage}`} ${swipedUp && !isDesktopView ? styles.firstResize : ''}`}
                             loader={() => imageURI}
                             src={imageURI}
                             width={1200}
