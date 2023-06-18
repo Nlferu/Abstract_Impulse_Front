@@ -142,7 +142,7 @@ export default function WithdrawModal({ isTransactionOpen, bidToWithdraw }) {
                     </div>
                 </form>
             ) : (
-                <p className={styles.notConnected}>Connect your wallet to withdraw BID</p>
+                <p className={styles.notConnected}>CONNECT WALLET TO WITHDRAW BID</p>
             )}
         </div>
     )

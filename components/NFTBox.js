@@ -257,11 +257,12 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         </div>
                     </div>
                 ) : (
-                    <div className={`${styles.blockTitle} ${styles.glowTextEffect} ${styles.swipeUp} ${styles.pulsatingText}`}>
-                        <p>SWIPE UP FOR NFT AUCTION DETAILS</p>
+                    <div>
+                        <div className={`${styles.description} ${styles.card}`}>
+                            <p className={`${styles.blockTitle} ${styles.glowTextEffect} ${styles.pulsatingText} ${styles.swipeUp}`}>SWIPE UP FOR NFT AUCTION DETAILS</p>
+                        </div>
                     </div>
-                )
-                }
+                )}
             </div >
         </div >
     )

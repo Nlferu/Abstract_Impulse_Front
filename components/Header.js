@@ -23,7 +23,9 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <nav className={styles.navigationBar}>
-                <h1 className={styles.headerOne}>ABSTRACT IMPULSE NFT</h1>
+                <Link href="/">
+                    <h1 className={styles.headerOne}>ABSTRACT IMPULSE NFT</h1>
+                </Link>
                 <div className={styles.navObj}>
                     {isDesktopView && (
                         <div>

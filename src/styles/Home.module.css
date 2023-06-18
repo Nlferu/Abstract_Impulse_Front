@@ -85,7 +85,6 @@
 }
 
 .imageContainer {
-
   height: 80vh;
   width: 80vw;
   position: relative;
@@ -380,12 +379,16 @@
   }
 
   .swipeUp {
+
+    position: absolute !important;
+    width: max-content !important;
+    left: 17vw !important;
+    padding: 0 !important;
     position: absolute;
-    width: 80vw;
-    bottom: 20%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: center !important;
   }
 
   .resizedContent {
