@@ -126,7 +126,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                 <div className={styles.imageContainer}>
                     {!isImageLoadDelayed && (
                         <Image
-                            className={`${imageLoading ? `${styles.imageLoading}` : `${styles.firstImage}`} ${swipedUp && !isDesktopView ? styles.firstResize : ''}`}
+                            className={`${imageLoading ? styles.imageLoading : styles.firstImage} ${swipedUp && !isDesktopView ? styles.firstResize : ''}`}
                             loader={() => imageURI}
                             src={imageURI}
                             width={1200}
@@ -136,7 +136,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                             onLoad={() => setImageLoading(false)}
                         />
                     )}
-                    <div className={`${imageLoading ? `${styles.imageLoading} ${styles.soldOutContainer}` : `${styles.soldOutContainer}`} ${swipedUp && !isDesktopView ? styles.secondResize : ''}`}>
+                    <div className={`${imageLoading ? styles.imageLoading : styles.soldOutContainer} ${swipedUp && !isDesktopView ? styles.secondResize : ''}`}>
                         {(status === 'winClosed' || status === 'noWinClosed') && !imageLoading && (
                             <Image
                                 src={brush}
