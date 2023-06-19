@@ -251,7 +251,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                         )}
                                     </div>
                                 ) : (
-                                    <div className={`${styles.blockTitle} ${styles.glowTextEffect} ${styles.cardThree} ${styles.pulsatingText}`}>
+                                    <div className={` ${styles.glowTextEffect} ${styles.cardThree} ${styles.pulsatingText}`}>
                                         <p>CONNECT WALLET TO PLACE BID</p>
                                     </div>
                                 )}
