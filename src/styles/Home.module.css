@@ -108,8 +108,9 @@
   max-width: 97%;
   max-height: 95%;
   object-fit: contain;
-  box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
 }
+
+
 
 .imageContainer img {
   position: absolute;
@@ -119,6 +120,7 @@
   width: 100vw;
   height: 80vh;
   object-fit: contain;
+  box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
 }
 
 .soldOutContainer img {
@@ -385,7 +387,7 @@
     left: 17vw !important;
     padding: 0 !important;
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center !important;

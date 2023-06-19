@@ -129,8 +129,8 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                             className={`${imageLoading ? styles.imageLoading : styles.firstImage} ${swipedUp && !isDesktopView ? styles.firstResize : ''}`}
                             loader={() => imageURI}
                             src={imageURI}
-                            width={1200}
-                            height={1200}
+                            width={4000}
+                            height={4000}
                             objectFit="contain"
                             alt="minted NFT"
                             onLoad={() => setImageLoading(false)}
@@ -140,8 +140,8 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                         {(status === 'winClosed' || status === 'noWinClosed') && !imageLoading && (
                             <Image
                                 src={brush}
-                                width={1200}
-                                height={1200}
+                                width={4000}
+                                height={4000}
                                 objectFit="cover"
                                 alt="sold out NFT"
                             />
@@ -152,8 +152,8 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                             <Image
                                 key={index}
                                 src={imgSrc}
-                                width={1200}
-                                height={1200}
+                                width={4000}
+                                height={4000}
                                 objectFit="cover"
                                 alt="loading image"
                             />
