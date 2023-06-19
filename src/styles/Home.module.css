@@ -343,8 +343,9 @@
 
 
   .content {
+    position: fixed; 
+    height: 100%;
     width: 100vw;
-    height: calc(100dvh - calc(100dvh - 100%));
     padding-left: 0;
     padding-right: 0;
     padding-top: calc(min(10dvh, 20vw));
