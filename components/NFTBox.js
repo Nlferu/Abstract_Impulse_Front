@@ -206,7 +206,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                             <div className={`${styles.description} ${styles.cardThree}`}>
                                 {isWeb3Enabled ? (
                                     <div>
-                                        <div className={styles.buttonz}>
+                                        <div>
                                             {status !== 'winClosed' && (
                                                 <button className={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0 ? styles.disabledButton : styles.button} onClick={handlePlaceBid} disabled={status === 'noWinClosed' || status === 'winClosed' || isAuctionTimerZero === 0}>
                                                     PLACE BID
@@ -230,7 +230,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                                         )}
                                         {status === 'winClosed' && (
                                             <div>
-                                                <div className={styles.buttonz}>
+                                                <div>
                                                     <button className={approvedNfts && !claimedNfts ? styles.button : styles.disabledButton} onClick={handleClaimNFT} disabled={!approvedNfts || claimedNfts}>
                                                         CLAIM NFT
                                                     </button>
