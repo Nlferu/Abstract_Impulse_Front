@@ -343,8 +343,8 @@
 
 
   .content {
-    width: 100svw;
-    height: 100svh;
+    width: 100vw;
+    height: calc(100vh - calc(100vh - 100%));
     padding-left: 0;
     padding-right: 0;
     padding-top: calc(min(10vh, 20vw));
