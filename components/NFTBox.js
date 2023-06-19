@@ -124,24 +124,26 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
         <div className={`${styles.container} ${styles.card}`}>
             <div className={`${styles.content} ${swipedUp && !isDesktopView ? styles.resizedContent : ''}`}>
                 <div className={styles.imageContainer}>
-                    {!isImageLoadDelayed && (
-                        <Image
-                            className={`${imageLoading ? styles.imageLoading : styles.firstImage} ${swipedUp && !isDesktopView ? styles.firstResize : ''}`}
-                            loader={() => imageURI}
-                            src={imageURI}
-                            width={4000}
-                            height={4000}
-                            objectFit="contain"
-                            alt="minted NFT"
-                            onLoad={() => setImageLoading(false)}
-                        />
-                    )}
+                    <div className={styles.NFTContainer}>
+                        {!isImageLoadDelayed && (
+                            <Image
+                                className={`${imageLoading ? styles.imageLoading : styles.firstImage} ${swipedUp && !isDesktopView ? styles.firstResize : ''}`}
+                                loader={() => imageURI}
+                                src={imageURI}
+                                width={1200}
+                                height={1200}
+                                objectFit="contain"
+                                alt="minted NFT"
+                                onLoad={() => setImageLoading(false)}
+                            />
+                        )}
+                    </div>
                     <div className={`${imageLoading ? styles.imageLoading : styles.soldOutContainer} ${swipedUp && !isDesktopView ? styles.secondResize : ''}`}>
                         {(status === 'winClosed' || status === 'noWinClosed') && !imageLoading && (
                             <Image
                                 src={brush}
-                                width={4000}
-                                height={4000}
+                                width={1200}
+                                height={1200}
                                 objectFit="cover"
                                 alt="sold out NFT"
                             />
@@ -152,8 +154,8 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                             <Image
                                 key={index}
                                 src={imgSrc}
-                                width={4000}
-                                height={4000}
+                                width={1200}
+                                height={1200}
                                 objectFit="cover"
                                 alt="loading image"
                             />

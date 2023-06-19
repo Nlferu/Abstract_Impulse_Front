@@ -23,13 +23,13 @@
   bottom: 2.5vh;
   left: 50%;
   transform: translateX(-50%);
-  padding: 2vh;
+  /* padding: 2vh; */
 }
 
 .bullet {
-  width: 10px;
-  height: 10px;
-  margin: 0 10px;
+  width: 1vh;
+  height: 1vh;
+  margin: 0 1vh;
   border-radius: 50%;
   background-color: gray;
   cursor: pointer;
@@ -111,6 +111,9 @@
 }
 
 
+.NFTContainer img {
+  box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
+}
 
 .imageContainer img {
   position: absolute;
@@ -120,7 +123,7 @@
   width: 100vw;
   height: 80vh;
   object-fit: contain;
-  box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
+  
 }
 
 .soldOutContainer img {
@@ -340,8 +343,8 @@
 
 
   .content {
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
     padding-left: 0;
     padding-right: 0;
     padding-top: calc(min(10vh, 20vw));
@@ -377,7 +380,7 @@
   }
 
   .bulletsContainer {
-    display: none;
+    /* display: none; */
   }
 
   .swipeUp {
