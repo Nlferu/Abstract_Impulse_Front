@@ -292,7 +292,7 @@
 @media screen and (max-width: 600px) {
 
   .description {
-    font-size: calc(min(3.5svh, 3.5vw));
+    font-size: calc(min(3.5lvh, 3.5vw));
     width: 30vw;
     margin-right: 5vw;
     /* display: none; */
@@ -305,7 +305,7 @@
     left: 10vw;
     right: 5vw;
     width: 30vw;
-    padding-top: 3svh;
+    padding-top: 3lvh;
   }
 
   .auctionDetails {
@@ -315,7 +315,7 @@
     left: 40vw;
     right: 5vw;
     width: 30vw;
-    padding-top: 3svh;
+    padding-top: 3lvh;
   }
 
   .statusUpdate {
@@ -329,11 +329,11 @@
 
   .content {
     width: 100vw;
-    height: 100svh;
+    height: 100lvh;
     padding-left: 0;
     padding-right: 0;
-    padding-top: calc(min(10svh, 20vw));
-    padding-bottom: calc(min(10svh, 20vw));
+    padding-top: calc(min(10lvh, 20vw));
+    padding-bottom: calc(min(10lvh, 20vw));
     display: absolute;
     align-items: center;
     display: flex;
@@ -346,9 +346,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100vw;
-    height: 100svh;
-    padding-top: 10svh;
-    padding-bottom: 10svh;
+    height: 100lvh;
+    padding-top: 10lvh;
+    padding-bottom: 10lvh;
   }
 
   .loadingBrushesContainer img {
@@ -378,7 +378,7 @@
   }
 
   .resizedContent {
-    height: 50svh;
+    height: 50lvh;
     position: absolute;
     top: 0;
   }
