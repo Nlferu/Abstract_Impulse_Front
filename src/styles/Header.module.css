@@ -2,6 +2,7 @@
     position: fixed;
     z-index: 1;
     width: 100%;
+    height: calc(min(10vh, 20vw));
     color: #F0F8FF;
     background-color: transparent;
 }

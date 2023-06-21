@@ -270,7 +270,7 @@
   overflow: hidden;
 }
 
-@keyframes pulse {
+@keyframes pulseStatic {
   0% {
     opacity: 1;
   }
@@ -285,14 +285,14 @@
 }
 
 .pulsatingText {
-  animation: pulse 2s infinite;
+  animation: pulseStatic 2s infinite;
 }
 
 
 @media screen and (max-width: 600px) {
 
   .description {
-    font-size: calc(min(3.5lvh, 3.5vw));
+    font-size: calc(min(3.5svh, 3.5vw));
     width: 30vw;
     margin-right: 5vw;
     /* display: none; */
@@ -305,7 +305,7 @@
     left: 10vw;
     right: 5vw;
     width: 30vw;
-    padding-top: 3lvh;
+    padding-top: 3svh;
   }
 
   .auctionDetails {
@@ -315,7 +315,7 @@
     left: 40vw;
     right: 5vw;
     width: 30vw;
-    padding-top: 3lvh;
+    padding-top: 3svh;
   }
 
   .statusUpdate {
@@ -329,12 +329,11 @@
 
   .content {
     width: 100vw;
-    height: 100lvh;
+    height: 100svh;
     padding-left: 0;
     padding-right: 0;
-    padding-top: calc(min(10lvh, 20vw));
-    padding-bottom: calc(min(10lvh, 20vw));
-    display: absolute;
+    padding-top: calc(min(10svh, 20vw));
+    padding-bottom: calc(min(10svh, 20vw));
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -346,9 +345,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100vw;
-    height: 100lvh;
-    padding-top: 10lvh;
-    padding-bottom: 10lvh;
+    height: 100svh;
+    padding-top: 10svh;
+    padding-bottom: 10svh;
   }
 
   .loadingBrushesContainer img {
@@ -378,7 +377,7 @@
   }
 
   .resizedContent {
-    height: 50lvh;
+    height: 50svh;
     position: absolute;
     top: 0;
   }
