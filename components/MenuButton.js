@@ -1,31 +1,28 @@
 import { useState } from 'react'
 import styles from '@/styles/Menu.module.css'
-import menu from '../public/menu.png'
-import close from '../public/close.png'
-import Image from "next/image"
 import Link from "next/link"
 
 export default function MenuButton(isSmartphoneViewEnabled) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     const handleMenuList = () => {
-        setIsModalOpen(!isModalOpen);
+        setIsModalOpen(!isModalOpen)
     }
 
     const handleClose = () => {
-        setIsModalOpen(false);
+        setIsModalOpen(false)
     }
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+        setIsOpen(!isOpen)
+    }
 
     return (
         <div className={styles.menuButton}>
             <div
                 className={`${styles.hamburgerMenu} ${isOpen && isModalOpen ? styles.open : ''}`}
-                onClick={() => { toggleMenu(); handleMenuList(); }}
+                onClick={() => { toggleMenu(), handleMenuList() }}
             >
                 <div></div>
                 <div></div>

@@ -18,15 +18,15 @@ export default function BiddingModal({ tokenId, isBiddingModalOpen, isTransactio
     const [bidAmount, setBidAmount] = useState('')
     const [invalidBidAmount, setInvalidBidAmount] = useState(false)
     const [bidTooSmall, setBidTooSmall] = useState(false)
-    const [captchaError, setCaptchaError] = useState(false);
+    const [captchaError, setCaptchaError] = useState(false)
     const [isVerified, setIsVerified] = useState(false)
-    const recaptchaRef = useRef();
+    const recaptchaRef = useRef()
 
     const handleCancel = () => {
         isBiddingModalOpen(false)
         setIsVerified(false)
         if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
+            recaptchaRef.current.reset()
         }
     }
 

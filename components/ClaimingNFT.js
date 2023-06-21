@@ -20,16 +20,16 @@ export default function ClaimingModal({ mintedItem, bidPlaced, isClaimingModalOp
     const dispatch = useNotification()
     const { runContractFunction } = useWeb3Contract()
     const [wrongAddress, setWrongAddress] = useState(false)
-    const [captchaError, setCaptchaError] = useState(false);
+    const [captchaError, setCaptchaError] = useState(false)
     const [isVerified, setIsVerified] = useState(false)
-    const recaptchaRef = useRef();
+    const recaptchaRef = useRef()
 
 
     const handleCancel = () => {
         isClaimingModalOpen(false)
         setIsVerified(false)
         if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
+            recaptchaRef.current.reset()
         }
     }
 

@@ -1,23 +1,50 @@
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: black;
     color: white;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(to right bottom, #00003d 1%, #000000 60%, #23003d 99%);
+    height: 100svh;
+    width: 100svw;
+    background: linear-gradient(to right bottom,
+            #00003d 1%,
+            #000000 60%,
+            #23003d 99%);
+    padding-top: calc(min(10ssvh, 20ssvw));
 }
 
 .blockTitle {
     font-family: 'Chakra Petch', sans-serif;
     text-align: center;
-    margin-bottom: 2.5vh;
-    font-size: calc(min(3vh, 3vw));
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding-top: calc(min(10svh, 20svw));
+    margin-bottom: 2.5svh;
+    font-size: calc(min(3svh, 3svw));
 }
 
 .glowTextEffect {
-    text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877), 0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255), 0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
+    text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877),
+        0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255),
+        0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255),
+        0 0 150px rgb(0, 130, 255);
+}
+
+.videoContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2svh;
+    margin-bottom: 2svh;
+    max-width: 100%;
+}
+
+.videoContainer iframe {
+    width: 100%;
+    /* Added */
+    height: 100%;
+    /* Added */
+}
+
+@media screen and (max-width: 600px) {
+    .blockTitle {
+        font-size: calc(min(8svh, 8svw));
+    }
 }

@@ -14,7 +14,7 @@ export default function Home() {
   const [isBiddingModalOpen, setIsBiddingModalOpen] = useState(false)
   const [isTransactionOpen, setIsTransactionOpen] = useState(false)
   const [isDesktopView, setIsDesktopView] = useState(false)
-  const [swipedUp, setSwipedUp] = useState(false);
+  const [swipedUp, setSwipedUp] = useState(false)
   const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([])
 
   const swipeHandlers = useSwipeable({
