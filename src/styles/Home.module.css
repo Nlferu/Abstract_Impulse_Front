@@ -33,7 +33,7 @@
   border-radius: 50%;
   background-color: gray;
   cursor: pointer;
-  margin-left: 1vw;
+  margin-left: 1svw;
 }
 
 .bullet.active {
@@ -67,7 +67,7 @@
 }
 
 .container {
-  width: 100vw;
+  width: 100svw;
   height: 100svh;
   display: flex;
   align-items: center;
@@ -76,9 +76,9 @@
 }
 
 .content {
-  width: 100vw;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  width: 100svw;
+  padding-left: 5svw;
+  padding-right: 5svw;
   display: flex;
   align-items: center;
   height: 90svh;
@@ -86,7 +86,7 @@
 
 .imageContainer {
   height: 80svh;
-  width: 80vw;
+  width: 80svw;
   position: relative;
   overflow: hidden;
 }
@@ -112,7 +112,7 @@
 
 
 .NFTContainer img {
-  box-shadow: inset 0 0 0, 0 0 1vw rgb(255, 255, 255);
+  box-shadow: inset 0 0 0, 0 0 1svw rgb(255, 255, 255);
 }
 
 .imageContainer img {
@@ -120,7 +120,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 100svw;
   height: 80svh;
   object-fit: contain;
 
@@ -131,7 +131,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 100svw;
   height: 100svh;
   padding-top: 10svh;
   padding-bottom: 10svh;
@@ -145,14 +145,14 @@
 
 .description {
   font-family: 'Sofia Sans Condensed', sans-serif;
-  margin-left: 1vw;
+  margin-left: 1svw;
   margin-bottom: 1svh;
-  margin-right: 5vw;
+  margin-right: 5svw;
   opacity: 0;
   transform: translateX(-50px);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-  width: 20vw;
-  font-size: calc(min(2.5svh, 2.5vw));
+  width: 20svw;
+  font-size: calc(min(2.5svh, 2.5svw));
   /* line-height: 3.5svh; */
 }
 
@@ -192,10 +192,10 @@
   margin: 0 auto;
   float: left;
   margin-bottom: 3svh;
-  margin-left: 1vw;
+  margin-left: 1svw;
   margin-right: 100%;
   /* add this line */
-  padding: 1svh 1vw;
+  padding: 1svh 1svw;
   border: 2px solid transparent;
   color: #F0F8FF;
   text-align: center;
@@ -246,7 +246,7 @@
   margin-left: 1svh;
   margin-right: 100%;
   /* add this line */
-  padding: 1svh 1vw;
+  padding: 1svh 1svw;
   border: 2px solid rgb(53, 48, 48);
   background-color: transparent;
   color: rgb(53, 48, 48);
@@ -292,9 +292,9 @@
 @media screen and (max-width: 600px) {
 
   .description {
-    font-size: calc(min(3.5svh, 3.5vw));
-    width: 30vw;
-    margin-right: 5vw;
+    font-size: calc(min(3.5svh, 3.5svw));
+    width: 30svw;
+    margin-right: 5svw;
     /* display: none; */
   }
 
@@ -302,9 +302,9 @@
     position: absolute;
     display: flex;
     flex-wrap: nowrap;
-    left: 10vw;
-    right: 5vw;
-    width: 30vw;
+    left: 10svw;
+    right: 5svw;
+    width: 30svw;
     padding-top: 3svh;
   }
 
@@ -312,9 +312,9 @@
     position: absolute;
     display: flex;
     flex-wrap: nowrap;
-    left: 40vw;
-    right: 5vw;
-    width: 30vw;
+    left: 40svw;
+    right: 5svw;
+    width: 30svw;
     padding-top: 3svh;
   }
 
@@ -322,18 +322,18 @@
     position: absolute;
     display: flex;
     flex-wrap: nowrap;
-    left: 70vw;
-    right: 5vw;
-    width: 30vw;
+    left: 70svw;
+    right: 5svw;
+    width: 30svw;
   }
 
   .content {
-    width: 100vw;
+    width: 100svw;
     height: 100svh;
     padding-left: 0;
     padding-right: 0;
-    padding-top: calc(min(10svh, 20vw));
-    padding-bottom: calc(min(10svh, 20vw));
+    padding-top: calc(min(10svh, 20svw));
+    padding-bottom: calc(min(10svh, 20svw));
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -344,8 +344,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 80svh;
+    width: 100svw;
+    height: 100svh;
     padding-top: 10svh;
     padding-bottom: 10svh;
   }
@@ -355,8 +355,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 80svh;
+    width: 100svw;
+    height: 100svh;
     padding-top: 10svh;
     padding-bottom: 10svh;
   }
@@ -369,7 +369,7 @@
 
     position: absolute !important;
     width: max-content !important;
-    left: 17vw !important;
+    left: 17svw !important;
     padding: 0 !important;
     position: absolute;
     top: 0;
@@ -392,15 +392,12 @@
   }
 
   .secondResize {
+    width: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .thirdResize {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  .thirdResize {}
 
 }
