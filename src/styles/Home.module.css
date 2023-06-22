@@ -366,7 +366,6 @@
   }
 
   .swipeUp {
-
     position: absolute !important;
     width: max-content !important;
     left: 17svw !important;
@@ -392,12 +391,13 @@
   }
 
   .secondResize {
-    width: 50%;
+    height: 30svh !important;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
   .thirdResize {}
+
 
 }
