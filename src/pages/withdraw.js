@@ -4,15 +4,29 @@ import { useState, useEffect } from 'react'
 import WithdrawModal from "../../components/WithdrawModal"
 import BlackoutLayer from "../../components/BlackoutLayer"
 import GET_ACTIVE_ITEMS from "../../constants/subgraphQueries"
+import { useRouter } from 'next/router';
+import UAParser from 'ua-parser-js';
+
 
 
 export default function Withdraw() {
     const { loading, error, data } = useQuery(GET_ACTIVE_ITEMS)
     const [isTransactionOpen, setIsTransactionOpen] = useState(false)
-
+    const router = useRouter();
 
     if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
     if (error) return `Error! ${error.message}`
+
+    useEffect(() => {
+        const parser = new UAParser();
+        const result = parser.getResult();
+        const browserName = result.browser.name;
+
+        if (browserName !== 'Chrome') {
+            router.push('/unsupported');
+        }
+    }, []);
+
 
     const nftUnclaimedBids = data.nftAddedPendingBidsForWithdrawals
     const nftClaimedBids = data.nftPendingBidsWithdrawals

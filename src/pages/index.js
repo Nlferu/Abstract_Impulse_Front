@@ -7,6 +7,8 @@ import NFTBox from "../../components/NFTBox"
 import BlockingLayer from "../../components/BlockingLayer"
 import BlackoutLayer from "../../components/BlackoutLayer"
 import BiddingModal from "../../components/BiddingModal"
+import { useRouter } from 'next/router';
+import UAParser from 'ua-parser-js';
 
 export default function Home() {
 
@@ -16,6 +18,7 @@ export default function Home() {
   const [isDesktopView, setIsDesktopView] = useState(false)
   const [swipedUp, setSwipedUp] = useState(false)
   const [disabledCardsIndexes, setDisabledCardsIndexes] = useState([])
+  const router = useRouter();
 
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => isDesktopView === false && handleNextCard(),
@@ -37,6 +40,16 @@ export default function Home() {
 
     return () => window.removeEventListener('resize', updateSize)
   }, [])
+
+  useEffect(() => {
+    const parser = new UAParser();
+    const result = parser.getResult();
+    const browserName = result.browser.name;
+
+    if (browserName !== 'Chrome') {
+      router.push('/unsupported');
+    }
+  }, []);
 
   if (isDesktopView === null) return null
 
