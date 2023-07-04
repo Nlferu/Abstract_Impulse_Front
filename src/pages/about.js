@@ -24,8 +24,8 @@ export default function About() {
                 </h1>
                 <div className={styles.videoContainer}>
                     <iframe
-                        width="900"
-                        height="600"
+                        width="560"
+                        height="315"
                         src="https://www.youtube.com/embed/we-mm6V6H00"
                         title="YouTube Video"
                         frameborder="0"

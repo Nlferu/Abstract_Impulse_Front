@@ -6,7 +6,7 @@
     color: white;
     height: auto;
     min-height: 100svh;
-    width: 100%;
+    width: auto;
     background: linear-gradient(to right bottom,
             #00003d 1%,
             #000000 60%,
