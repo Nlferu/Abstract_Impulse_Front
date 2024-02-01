@@ -6,14 +6,12 @@ import BlackoutLayer from "../../components/BlackoutLayer"
 import GET_ACTIVE_ITEMS from "../../constants/subgraphQueries"
 
 
-
 export default function Withdraw() {
     const { loading, error, data } = useQuery(GET_ACTIVE_ITEMS)
     const [isTransactionOpen, setIsTransactionOpen] = useState(false)
 
     if (loading) return (<div className={styles.loadingPage}>Loading... Please wait.</div>)
     if (error) return `Error! ${error.message}`
-
 
     const nftUnclaimedBids = data.nftAddedPendingBidsForWithdrawals
     const nftClaimedBids = data.nftPendingBidsWithdrawals
