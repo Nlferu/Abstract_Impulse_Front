@@ -8,7 +8,6 @@ import l1 from '../public/1.png'
 import l2 from '../public/2.png'
 import l3 from '../public/3.png'
 import l4 from '../public/4.png'
-import l5 from '../public/5.png'
 
 const truncateStr = (fullStr, strLen) => {
     if (fullStr.length <= strLen) return fullStr
@@ -34,7 +33,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     const [status, setStatus] = useState('')
     const [isAuctionTimerZero, setIsAuctionTimerZero] = useState(Math.max(auctionTimer.blockTimestamp * 1000 + auctionTimer.time * 1000 - Date.now(), 0))
     const [imageLoading, setImageLoading] = useState(true)
-    const loadingImages = [l5, l1, l2, l3, l4]
+    const loadingImages = [l1, l2, l3, l4]
     const [currentImages, setCurrentImages] = useState([])
     const intervalRef = useRef(null)
 
@@ -117,7 +116,7 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsImageLoadDelayed(false)
-        }, 6500)
+        }, 450)
         return () => clearTimeout(timer)
     }, [])
 
@@ -154,7 +153,6 @@ export default function NFTBox({ tokenId, claimedNfts, approvedNfts, setTokenURI
                     <div className={`${styles.loadingBrushesContainer} ${swipedUp && !isDesktopView ? styles.thirdResize : ''}`}>
                         {imageLoading && currentImages.map((imgSrc, index) => (
                             <Image
-                                className={styles.opacityEffect}
                                 key={index}
                                 src={imgSrc}
                                 width={4000}

@@ -269,20 +269,6 @@
   overflow: hidden;
 }
 
-.opacityEffect {
-  animation: revealBrush 0.4s;
-}
-
-@keyframes revealBrush {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes pulseStatic {
   0% {
     opacity: 1;
