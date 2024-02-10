@@ -1,6 +1,5 @@
-import styles from "@/styles/About.module.css";
 import Image from "next/image";
-import Jessica from "../../public/Jessica.JPG";
+import styles from "@/styles/About.module.css";
 
 export default function About() {
   return (
@@ -17,7 +16,14 @@ export default function About() {
             through the material, colors, and abstraction.
           </p>
           <div className={styles.image}>
-            <Image src={Jessica} />
+            <Image
+              src="/Jessica.jpg"
+              alt="Jessica"
+              height="900"
+              width="900"
+              quality="95"
+              priority={true}
+            />
           </div>
         </div>
       </div>
