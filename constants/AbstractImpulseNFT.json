@@ -11,11 +11,6 @@
     },
     {
         "type": "error",
-        "name": "Abstract__AuctionDurationTooShort",
-        "inputs": []
-    },
-    {
-        "type": "error",
         "name": "Abstract__AuctionFinishedForThisNFT",
         "inputs": []
     },
@@ -42,6 +37,11 @@
     {
         "type": "error",
         "name": "Abstract__NoBidReceivedForThisNFT",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "Abstract__NotContractOwner",
         "inputs": []
     },
     {
@@ -275,6 +275,11 @@
             },
             {
                 "type": "uint256",
+                "name": "price",
+                "indexed": true
+            },
+            {
+                "type": "uint256",
                 "name": "tokenId",
                 "indexed": true
             }
@@ -337,23 +342,6 @@
             {
                 "type": "uint256",
                 "name": "tokenId",
-                "indexed": true
-            }
-        ]
-    },
-    {
-        "type": "event",
-        "anonymous": false,
-        "name": "OwnershipTransferred",
-        "inputs": [
-            {
-                "type": "address",
-                "name": "previousOwner",
-                "indexed": true
-            },
-            {
-                "type": "address",
-                "name": "newOwner",
                 "indexed": true
             }
         ]
@@ -449,78 +437,6 @@
     },
     {
         "type": "function",
-        "name": "getHighestBid",
-        "constant": true,
-        "stateMutability": "view",
-        "payable": false,
-        "inputs": [
-            {
-                "type": "uint256",
-                "name": "tokenId"
-            }
-        ],
-        "outputs": [
-            {
-                "type": "uint256"
-            }
-        ]
-    },
-    {
-        "type": "function",
-        "name": "getHighestBidder",
-        "constant": true,
-        "stateMutability": "view",
-        "payable": false,
-        "inputs": [
-            {
-                "type": "uint256",
-                "name": "tokenId"
-            }
-        ],
-        "outputs": [
-            {
-                "type": "address"
-            }
-        ]
-    },
-    {
-        "type": "function",
-        "name": "getPendingReturns",
-        "constant": true,
-        "stateMutability": "view",
-        "payable": false,
-        "inputs": [
-            {
-                "type": "address",
-                "name": "bidder"
-            }
-        ],
-        "outputs": [
-            {
-                "type": "uint256"
-            }
-        ]
-    },
-    {
-        "type": "function",
-        "name": "getTime",
-        "constant": true,
-        "stateMutability": "view",
-        "payable": false,
-        "inputs": [
-            {
-                "type": "uint256",
-                "name": "tokenId"
-            }
-        ],
-        "outputs": [
-            {
-                "type": "uint256"
-            }
-        ]
-    },
-    {
-        "type": "function",
         "name": "isApprovedForAll",
         "constant": true,
         "stateMutability": "view",
@@ -573,19 +489,6 @@
     },
     {
         "type": "function",
-        "name": "owner",
-        "constant": true,
-        "stateMutability": "view",
-        "payable": false,
-        "inputs": [],
-        "outputs": [
-            {
-                "type": "address"
-            }
-        ]
-    },
-    {
-        "type": "function",
         "name": "ownerOf",
         "constant": true,
         "stateMutability": "view",
@@ -627,14 +530,6 @@
                 "name": "tokenId"
             }
         ],
-        "outputs": []
-    },
-    {
-        "type": "function",
-        "name": "renounceOwnership",
-        "constant": false,
-        "payable": false,
-        "inputs": [],
         "outputs": []
     },
     {
@@ -781,19 +676,6 @@
             {
                 "type": "uint256",
                 "name": "tokenId"
-            }
-        ],
-        "outputs": []
-    },
-    {
-        "type": "function",
-        "name": "transferOwnership",
-        "constant": false,
-        "payable": false,
-        "inputs": [
-            {
-                "type": "address",
-                "name": "newOwner"
             }
         ],
         "outputs": []
