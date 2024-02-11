@@ -1,7 +1,7 @@
 import { ConnectButton } from "web3uikit";
 import Link from "next/link";
 import styles from "@/styles/Header.module.css";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import MenuButton from "./MenuButton";
 
 export default function Header() {
@@ -22,6 +22,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
+      <div className="fixed bg-transparent backdrop-blur-[5px] top-0 h-[6rem] w-full z-[-999]"></div>
       <nav className={styles.navigationBar}>
         <Link href="/">
           <h1 className={styles.headerOne}>ABSTRACT IMPULSE NFT</h1>
