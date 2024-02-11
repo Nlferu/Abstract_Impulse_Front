@@ -1,360 +1,379 @@
 .container {
-    display: flex;
-    align-items: center;
-    background-color: black;
-    color: white;
-    height: 100svh;
-    width: 100svw;
-    background: linear-gradient(to right bottom, #00003d 1%, #000000 60%, #23003d 99%);
+  display: flex;
+  align-items: center;
+  background-color: black;
+  color: white;
+  height: 100svh;
+  width: 100svw;
+  background: linear-gradient(
+    to right bottom,
+    #00003d 1%,
+    #000000 60%,
+    #23003d 99%
+  );
 }
 
 .loadingPage {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    font-size: x-large;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-size: x-large;
 }
 
 .msgTxtTitle {
-    margin-left: 5%;
-    margin-right: 5%;
-    font-weight: bold;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-weight: bold;
 }
 
 .msgTxt {
-    margin-left: 5%;
-    margin-right: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .modal {
-    /* width: 60svw;
+  /* width: 60svw;
     height: 60svh; */
-    font-family: 'Sofia Sans Condensed', sans-serif;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: transparent;
-    padding: 2svh;
-    font-size: calc(min(2svh, 2svw));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  padding: 2svh;
+  font-size: calc(min(2svh, 2svw));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 @keyframes pulse {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    50% {
-        opacity: 0.5;
-    }
+  50% {
+    opacity: 0.5;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 .notConnected {
-    font-family: 'Chakra Petch', sans-serif;
-    margin-top: 3svh;
-    font-size: calc(min(2svh, 2svw));
-    text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877), 0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255), 0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
-    animation: pulse 2s infinite;
+  font-family: "Chakra Petch", sans-serif;
+  margin-top: 3svh;
+  font-size: calc(min(2svh, 2svw));
+  text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877),
+    0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255),
+    0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255),
+    0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
+  animation: pulse 2s infinite;
 }
 
 .blockLabel {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .buttonContainer {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .acceptButton {
-    border: 1px solid rgb(0, 4, 255);
-    margin: 1svw;
-    margin-left: 7svw;
-    margin-right: 3svw;
-    margin-top: 2svw;
-    padding: 0.4svh 0.8svw;
-    font-family: 'Chakra Petch', sans-serif;
-    text-align: center;
-    font-size: calc(min(2.5svh, 2.5svw));
-    box-shadow: inset 0 0 20px rgb(0, 4, 255), 0 0 10px rgb(0, 4, 255), 0 0 10px rgb(0, 4, 255);
+  border: 1px solid rgb(0, 4, 255);
+  margin: 1svw;
+  margin-left: 7svw;
+  margin-right: 3svw;
+  margin-top: 2svw;
+  padding: 0.4svh 0.8svw;
+  font-family: "Chakra Petch", sans-serif;
+  text-align: center;
+  font-size: calc(min(2.5svh, 2.5svw));
+  box-shadow: inset 0 0 20px rgb(0, 4, 255), 0 0 10px rgb(0, 4, 255),
+    0 0 10px rgb(0, 4, 255);
 }
 
 .cancelButton {
-    border: 1px solid rgb(135, 0, 212);
-    margin: 1svw;
-    margin-right: 7svw;
-    margin-left: 3svw;
-    margin-top: 2svw;
-    padding: 0.4svh 0.8svw;
-    font-family: 'Chakra Petch', sans-serif;
-    text-align: center;
-    font-size: calc(min(2.5svh, 2.5svw));
-    box-shadow: inset 0 0 20px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212);
+  border: 1px solid rgb(135, 0, 212);
+  margin: 1svw;
+  margin-right: 7svw;
+  margin-left: 3svw;
+  margin-top: 2svw;
+  padding: 0.4svh 0.8svw;
+  font-family: "Chakra Petch", sans-serif;
+  text-align: center;
+  font-size: calc(min(2.5svh, 2.5svw));
+  box-shadow: inset 0 0 20px rgb(135, 0, 212), 0 0 10px rgb(135, 0, 212),
+    0 0 10px rgb(135, 0, 212);
 }
 
-
 .acceptButton:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .cancelButton:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .acceptButton,
 .cancelButton {
-    transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .blockTitle {
-    font-family: 'Chakra Petch', sans-serif;
-    text-align: center;
-    margin-bottom: 2.5svh;
-    font-size: calc(min(3svh, 3svw));
+  font-family: "Chakra Petch", sans-serif;
+  text-align: center;
+  margin-bottom: 2.5svh;
+  font-size: calc(min(3svh, 3svw));
 }
 
 .error {
-    text-align: center;
-    color: red;
-    margin: 1svh;
-    font-size: calc(min(2svh, 2svw));
+  text-align: center;
+  color: red;
+  margin: 1svh;
+  font-size: calc(min(2svh, 2svw));
 }
 
 .glowTextEffect {
-    text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877), 0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255), 0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
+  text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877),
+    0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255),
+    0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255),
+    0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
 }
 
 .amountIconContainer {
-    position: relative;
+  position: relative;
 }
 
 .rhombus {
-    position: relative;
-    z-index: 1;
-    width: calc(2svw + (4svh - 40px) * 0.583);
-    height: calc(4svh + (2svw - 35px) * 1.143);
-    min-width: 35px;
-    min-height: 40px;
-    background-color: transparent;
-    /* Replace with your desired color */
-    clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
-    display: block;
-    animation: rotateRhombus 2s infinite;
-    left: 35%;
-    margin-top: 3.5svh;
+  position: relative;
+  z-index: 1;
+  width: calc(2svw + (4svh - 40px) * 0.583);
+  height: calc(4svh + (2svw - 35px) * 1.143);
+  min-width: 35px;
+  min-height: 40px;
+  background-color: transparent;
+  /* Replace with your desired color */
+  clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+  display: block;
+  animation: rotateRhombus 2s infinite;
+  left: 45%;
+  margin-top: 3.5svh;
 }
 
 .rhombus::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    /* background-image: linear-gradient(white, rgb(0, 4, 255)); */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    animation: rhombusColor 2s infinite;
+  content: "";
+  width: 100%;
+  height: 100%;
+  /* background-image: linear-gradient(white, rgb(0, 4, 255)); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: rhombusColor 2s infinite;
 }
 
 .rhombus2 {
-    position: relative;
-    z-index: 2;
-    top: calc(max(-0.8svw, -0.8svh));
-    /* Adjust the vertical position as needed */
-    width: calc(2svw + (4svh - 40px) * 0.583);
-    height: calc(4svh + (2svw - 35px) * 1.143);
-    min-width: 35px;
-    min-height: 40px;
-    background-color: transparent;
-    /* Replace with your desired color */
-    clip-path: polygon(50% 70%, 100% 0%, 50% 30%, 0% 0%);
-    display: block;
-    animation: rotateRhombus2 2s infinite;
-    left: 35%;
+  position: relative;
+  z-index: 2;
+  top: calc(max(-0.8svw, -0.8svh));
+  /* Adjust the vertical position as needed */
+  width: calc(2svw + (4svh - 40px) * 0.583);
+  height: calc(4svh + (2svw - 35px) * 1.143);
+  min-width: 35px;
+  min-height: 40px;
+  background-color: transparent;
+  /* Replace with your desired color */
+  clip-path: polygon(50% 70%, 100% 0%, 50% 30%, 0% 0%);
+  display: block;
+  animation: rotateRhombus2 2s infinite;
+  left: 45%;
+  margin-bottom: 2.5svh;
 }
 
 .rhombus2::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    /* background-image: linear-gradient(rgb(135, 0, 212), white); */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    animation: rhombusColor2 2s infinite;
+  content: "";
+  width: 100%;
+  height: 100%;
+  /* background-image: linear-gradient(rgb(135, 0, 212), white); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: rhombusColor2 2s infinite;
 }
 
 @keyframes rotateRhombus {
+  0%,
+  20% {
+    clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
+  }
 
-    0%,
-    20% {
-        clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
-    }
+  30% {
+    clip-path: polygon(50% 15%, 95% 70%, 50% 100%, 5% 70%);
+  }
 
-    30% {
-        clip-path: polygon(50% 15%, 95% 70%, 50% 100%, 5% 70%);
-    }
+  50% {
+    clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
+  }
 
+  75% {
+    clip-path: polygon(50% 15%, 95% 70%, 50% 100%, 5% 70%);
+  }
 
-    50% {
-        clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
-    }
-
-    75% {
-        clip-path: polygon(50% 15%, 95% 70%, 50% 100%, 5% 70%);
-    }
-
-    100% {
-        clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
-    }
+  100% {
+    clip-path: polygon(50% 10%, 100% 70%, 50% 95%, 0% 70%);
+  }
 }
 
 @keyframes rotateRhombus2 {
+  0%,
+  20% {
+    clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
+  }
 
-    0%,
-    20% {
-        clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
-    }
+  30% {
+    clip-path: polygon(50% 65%, 95% 0%, 50% 30%, 5% 0%);
+  }
 
-    30% {
-        clip-path: polygon(50% 65%, 95% 0%, 50% 30%, 5% 0%);
-    }
+  50% {
+    clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
+  }
 
-    50% {
-        clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
-    }
+  75% {
+    clip-path: polygon(50% 65%, 95% 0%, 50% 30%, 5% 0%);
+  }
 
-    75% {
-        clip-path: polygon(50% 65%, 95% 0%, 50% 30%, 5% 0%);
-    }
-
-    100% {
-        clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
-    }
+  100% {
+    clip-path: polygon(50% 70%, 100% 0%, 50% 25%, 0% 0%);
+  }
 }
 
-
 @keyframes rhombusColor {
+  0%,
+  20% {
+    background-image: linear-gradient(white, rgb(0, 4, 255));
+  }
 
-    0%,
-    20% {
-        background-image: linear-gradient(white, rgb(0, 4, 255));
-    }
+  30% {
+    background-image: linear-gradient(rgb(0, 4, 255), white);
+  }
 
-    30% {
-        background-image: linear-gradient(rgb(0, 4, 255), white);
-    }
+  50% {
+    background-image: linear-gradient(rgb(0, 4, 255), rgb(180, 167, 252));
+  }
 
-    50% {
-        background-image: linear-gradient(rgb(0, 4, 255), rgb(180, 167, 252));
-    }
+  75% {
+    background-image: linear-gradient(rgb(0, 4, 255), rgb(57, 23, 247));
+  }
 
-    75% {
-        background-image: linear-gradient(rgb(0, 4, 255), rgb(57, 23, 247));
-    }
-
-    100% {
-        background-image: linear-gradient(rgb(0, 4, 255), rgb(0, 4, 255));
-    }
+  100% {
+    background-image: linear-gradient(rgb(0, 4, 255), rgb(0, 4, 255));
+  }
 }
 
 @keyframes rhombusColor2 {
+  0%,
+  20% {
+    background-image: linear-gradient(rgb(177, 116, 212), rgb(135, 0, 212));
+  }
 
-    0%,
-    20% {
-        background-image: linear-gradient(rgb(177, 116, 212), rgb(135, 0, 212));
-    }
+  30% {
+    background-image: linear-gradient(rgb(200, 182, 211), rgb(135, 0, 212));
+  }
 
-    30% {
-        background-image: linear-gradient(rgb(200, 182, 211), rgb(135, 0, 212));
-    }
+  50% {
+    background-image: linear-gradient(white, rgb(135, 0, 212));
+  }
 
-    50% {
-        background-image: linear-gradient(white, rgb(135, 0, 212));
-    }
+  75% {
+    background-image: linear-gradient(rgb(162, 72, 214), white);
+  }
 
-    75% {
-        background-image: linear-gradient(rgb(162, 72, 214), white);
-    }
-
-    100% {
-        background-image: linear-gradient(rgb(162, 72, 214), rgb(162, 72, 214));
-    }
+  100% {
+    background-image: linear-gradient(rgb(162, 72, 214), rgb(162, 72, 214));
+  }
 }
 
-
 .withdrawalAmountContainer {
-    justify-content: center;
+  justify-content: center;
 }
 
 .amountText {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Adjust the font size as needed */
-    color: rgb(255, 255, 255);
-    /* Replace with your desired color */
-    font-weight: bold;
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  /* Adjust the font size as needed */
+  color: rgb(255, 255, 255);
+  /* Replace with your desired color */
+  font-weight: bold;
 }
 
 .captchaBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 @media screen and (max-width: 600px) {
+  .modal {
+    width: 80svw;
+  }
 
-    .modal {
-        width: 80svw;
-    }
+  .blockTitle {
+    font-size: calc(min(8svh, 8svw));
+  }
 
-    .blockTitle {
-        font-size: calc(min(8svh, 8svw));
-    }
+  .blockLabel {
+    font-size: calc(min(4svh, 4svw));
+  }
 
-    .blockLabel {
-        font-size: calc(min(4svh, 4svw));
-    }
+  .amountText {
+    font-size: calc(min(4svh, 4svw));
+    padding-left: 20px;
+  }
 
-    .amountText {
-        font-size: calc(min(4svh, 4svw));
-        padding-left: 20px;
-    }
+  .notConnected {
+    font-size: calc(min(4svh, 4svw));
+  }
 
-    .notConnected {
-        font-size: calc(min(4svh, 4svw));
-    }
+  .cancelButton {
+    font-size: calc(min(5svh, 5svw));
+    margin-left: 10svw;
+    margin-right: 20svw;
+  }
 
-    .cancelButton {
-        font-size: calc(min(5svh, 5svw));
-        margin-left: 5svw;
-        margin-right: 5svw;
-    }
+  .acceptButton {
+    font-size: calc(min(5svh, 5svw));
+    margin-left: 20svw;
+    margin-right: 10svw;
+  }
 
-    .acceptButton {
-        font-size: calc(min(5svh, 5svw));
-        margin-left: 5svw;
-        margin-right: 5svw;
-    }
+  .buttonContainer {
+    margin-top: 4svh;
+  }
+
+  .rhombus,
+  .rhombus2 {
+    left: 40%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .amountText {
+    left: 60%;
+  }
 }
