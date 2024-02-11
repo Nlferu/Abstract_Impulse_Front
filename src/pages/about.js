@@ -17,10 +17,10 @@ export default function About() {
           </p>
           <div className={styles.image}>
             <Image
-              src="/jessica.jpg"
+              src="/jess.jpg"
               alt="Jessica"
-              height="900"
-              width="900"
+              height="600"
+              width="600"
               quality="95"
               priority={true}
             />
