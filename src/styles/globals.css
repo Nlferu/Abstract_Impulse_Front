@@ -3,124 +3,172 @@
 @tailwind utilities;
 
 .sc-kDDrLX {
-    background: linear-gradient(to right bottom, #00003dea 1%, #000000ea 60%, #23003dea 99%) !important;
-    box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255) !important;
-    border-radius: 0 !important;
+  background: linear-gradient(
+    to right bottom,
+    #00003dea 1%,
+    #000000ea 60%,
+    #23003dea 99%
+  ) !important;
+  box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255) !important;
+  border-radius: 5px !important;
 }
 
 .sc-iqcoie {
-    color: #a9d7ff !important;
-    font-weight: normal !important;
-    font-family: 'Gruppo', cursive !important;
-    font-weight: bold !important;
-    text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff !important;
+  color: #a9d7ff !important;
+  font-weight: normal !important;
+  font-family: "Gruppo", cursive !important;
+  font-weight: bold !important;
+  text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff !important;
 }
 
 .sc-crXcEl svg {
-    fill: #F0F8FF;
+  fill: #f0f8ff;
 }
 
-
-
 .sc-breuTD {
-    color: #F0F8FF !important;
-    font-weight: normal !important;
-    font-size: calc(min(2vh, 2vw)) !important;
-    font-family: 'Gruppo', cursive !important;
-    font-weight: bold !important;
-    background-color: transparent !important;
+  color: #f0f8ff !important;
+  font-weight: normal !important;
+  font-size: calc(min(2vh, 2vw)) !important;
+  font-family: "Gruppo", cursive !important;
+  font-weight: bold !important;
+  background-color: transparent !important;
 }
 
 .sc-breuTD span {
-    color: #F0F8FF !important;
-    font-weight: normal !important;
-    font-family: 'Gruppo', cursive !important;
-    font-weight: bold !important;
+  color: #f0f8ff !important;
+  font-weight: normal !important;
+  font-family: "Gruppo", cursive !important;
+  font-weight: bold !important;
 }
 
 div[data-testid="test-wallet-modal-logo-MathWallet"].sc-hAZoDl.cpdFBG {
-    background-color: rgb(255, 255, 255) !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 
 .bsXekn:hover {
-    background: black !important;
+  background: black !important;
 }
 
 /* balance and wallet address box */
 .sc-jSMfEi {
-    border-radius: 0 !important;
-    background: linear-gradient(to right bottom, #1818e0ea 1%, #000000ea 60%, #7e25c2ea 99%) !important;
-    box-shadow: inset 0 0 0, 0 0 0, 0 0 8px rgb(255, 255, 255) !important;
-    height: calc(min(5vh, 5vw)) !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    padding-right: calc(min(1vh, 1vw)) !important;
-    padding-left: calc(min(1vh, 1vw)) !important;
+  border-radius: 5px !important;
+  background: linear-gradient(
+    to right bottom,
+    #1818e0ea 1%,
+    #000000ea 60%,
+    #7e25c2ea 99%
+  ) !important;
+  box-shadow: inset 0 0 0, 0 0 0, 0 0 8px rgb(255, 255, 255) !important;
+  height: 3rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  padding-right: calc(min(1vh, 1vw)) !important;
+  padding-left: calc(min(1vh, 1vw)) !important;
 }
 
 /* wallet address box */
 .sc-iBkjds {
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: inset 0 0 0, 0 0 0, 0 0 4px rgb(255, 255, 255) !important;
-    height: calc(min(2vh, 2vw)) !important;
-    padding: 0 !important;
-    margin: 0 !important;
+  border-radius: 5px !important;
+  background: transparent !important;
+  box-shadow: inset 0 0 0, 0 0 0, 0 0 4px rgb(255, 255, 255) !important;
+  height: 1.5rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* box */
 .sc-eCYdqJ {
-    background: linear-gradient(to right bottom, #00003dea 1%, #000000ea 60%, #23003dea 99%) !important;
-    height: auto !important;
+  background: linear-gradient(
+    to right bottom,
+    #00003dea 1%,
+    #000000ea 60%,
+    #23003dea 99%
+  ) !important;
+  height: auto !important;
 }
 
 .sc-gKXOVf {
-    padding: calc(min(1vh, 1vw)) !important;
+  padding: calc(min(1vh, 1vw)) !important;
 }
 
 /* balance */
 .sc-hKMtZM {
-    color: #d1e8fc !important;
-    font-family: 'Gruppo', cursive !important;
-    font-size: calc(min(2vh, 2vw)) !important;
-    margin: 0 !important;
-    padding-right: calc(min(1vh, 1vw)) !important;
-    text-align: center !important;
+  color: #d1e8fc !important;
+  font-family: "Gruppo", cursive !important;
+  font-size: 1.15rem !important;
+  margin: 0 !important;
+  padding-right: calc(min(1vh, 1vw)) !important;
+  text-align: center !important;
 }
 
 .sc-ftvSup {
-    color: #a9d7ff !important;
-    font-family: 'Gruppo', cursive !important;
-    font-size: calc(min(2vh, 2vw)) !important;
-    text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff !important;
-    text-align: center !important;
-    display: block !important;
-    width: 100% !important;
-    line-height: 0 !important;
-    margin: 0 !important;
+  color: #a9d7ff !important;
+  font-family: "Gruppo", cursive !important;
+  font-size: 1.15rem !important;
+  text-shadow: 0 0 5px #5f92ff, 0 0 10px #5f92ff, 0 0 15px #5f92ff !important;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  line-height: 0 !important;
+  margin: 0 !important;
 }
-
 
 /* update box */
 .sc-jhzXDd {
-    border-radius: 0 !important;
-    background: linear-gradient(to right bottom, #1818e0ea 1%, #000000ea 60%, #7e25c2ea 99%) !important;
-    box-shadow: inset 0 0 0, 0 0 0, 0 0 8px rgb(255, 255, 255) !important;
+  border-radius: 5px !important;
+  background: linear-gradient(
+    to right bottom,
+    #1818e0ea 1%,
+    #000000ea 60%,
+    #7e25c2ea 99%
+  ) !important;
+  box-shadow: inset 0 0 0, 0 0 0, 0 0 8px rgb(255, 255, 255) !important;
 }
 
 .sc-KfMfS {
-    font-family: 'Gruppo', cursive !important;
-    font-size: calc(min(2vh, 2vw)) !important;
+  font-family: "Gruppo", cursive !important;
+  font-size: calc(min(2vh, 2vw)) !important;
 }
 
 .sc-cHPgQl {
-    color: #d1e8fc !important;
-    font-family: 'Gruppo', cursive !important;
-    font-size: calc(min(1.5vh, 1.5vw)) !important;
+  color: #d1e8fc !important;
+  font-family: "Gruppo", cursive !important;
+  font-size: calc(min(1.5vh, 1.5vw)) !important;
 }
 
 /* color: #F0F8FF !important; */
 
 .sc-dkzDqf {
-    display: none !important;
+  display: none !important;
+}
+
+html ::-webkit-scrollbar-track {
+  background: rgba(12, 9, 9, 1);
+}
+
+/* Scroll Bar Width */
+::-webkit-scrollbar {
+  width: 0.35rem;
+}
+
+/* Scroll Bar Handle Color */
+html ::-webkit-scrollbar-thumb {
+  background: rgb(150, 150, 150);
+  border-radius: 0.2rem;
+}
+
+/* Handle on hover */
+html ::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+@media screen and (max-width: 600px) {
+  .sc-jSMfEi {
+    height: 2.3rem !important;
+  }
+
+  .sc-hKMtZM,
+  .sc-ftvSup {
+    font-size: 0.8rem !important;
+  }
 }
