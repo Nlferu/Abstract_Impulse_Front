@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import styles from "@/styles/Home.module.css";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import GET_ACTIVE_ITEMS from "../../constants/subgraphQueries";
 import NFTBox from "../../components/NFTBox";
