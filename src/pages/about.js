@@ -17,7 +17,7 @@ export default function About() {
           </p>
           <div className={styles.image}>
             <Image
-              src="/Jessica.jpg"
+              src="/jessica.jpg"
               alt="Jessica"
               height="900"
               width="900"
@@ -33,13 +33,13 @@ export default function About() {
         </h1>
         <div className={styles.videoContainer}>
           <iframe
-            width="560"
-            height="315"
+            width="760"
+            height="450"
             src="https://www.youtube.com/embed/we-mm6V6H00"
             title="YouTube Video"
             frameborder="0"
             allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>
