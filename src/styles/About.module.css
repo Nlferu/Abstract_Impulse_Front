@@ -1,73 +1,78 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    background-color: black;
-    color: white;
-    height: auto;
-    min-height: 100svh;
-    width: auto;
-    background: linear-gradient(to right bottom,
-            #00003d 1%,
-            #000000 60%,
-            #23003d 99%);
-    padding-top: calc(min(10ssvh, 20ssvw));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  color: white;
+  height: auto;
+  min-height: 100svh;
+  width: auto;
+  background: linear-gradient(
+    to right bottom,
+    #00003d 1%,
+    #000000 60%,
+    #23003d 99%
+  );
+  padding-top: calc(min(10ssvh, 20ssvw));
 }
 
 .blockContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 50svw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 50svw;
+  margin-top: 3svh;
+  margin-bottom: 5svh;
 }
 
 .image {
-    width: 100%;
-    height: auto;
-    box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255);
+  width: 100%;
+  height: auto;
+  box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255);
+  margin-top: 4svh;
 }
 
 .blockTitle {
-    font-family: 'Chakra Petch', sans-serif;
-    text-align: center;
-    padding-top: calc(min(10svh, 20svw));
-    margin-bottom: 2.5svh;
-    font-size: calc(min(3svh, 3svw));
+  font-family: "Chakra Petch", sans-serif;
+  text-align: center;
+  padding-top: calc(min(10svh, 20svw));
+  margin-bottom: 2.5svh;
+  font-size: calc(min(3svh, 3svw));
 }
 
 .sticky {
-    position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
 }
 
 .description {
-    font-family: 'Sofia Sans Condensed', sans-serif;
-    margin-left: 3svw;
-    margin-bottom: 1svh;
-    margin-right: 3svw;
-    width: 45svw;
-    font-size: calc(min(2.5svh, 2.5svw));
+  font-family: "Sofia Sans Condensed", sans-serif;
+  margin-left: 3svw;
+  margin-bottom: 1svh;
+  margin-right: 3svw;
+  width: 45svw;
+  font-size: calc(min(2.5svh, 2.5svw));
+  text-align: center;
 }
 
 .glowTextEffect {
-    text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877),
-        0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255),
-        0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255), 0 0 100px rgb(0, 102, 255),
-        0 0 150px rgb(0, 130, 255);
+  text-shadow: 0 0 10px #fff, 0 0 20px rgba(255, 255, 255, 0.877),
+    0 0 30px rgba(255, 255, 255, 0.747), 0 0 40px rgb(0, 60, 255),
+    0 0 70px rgb(0, 74, 255), 0 0 80px rgb(0, 88, 255),
+    0 0 100px rgb(0, 102, 255), 0 0 150px rgb(0, 130, 255);
 }
 
 .videoContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 2svh;
-    margin-bottom: 2svh;
-    max-width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2svh;
+  max-width: 100%;
+  margin-bottom: 7rem;
 }
 
-
 @media screen and (max-width: 600px) {
-    .blockTitle {
-        font-size: calc(min(8svh, 8svw));
-    }
+  .blockTitle {
+    font-size: calc(min(8svh, 8svw));
+  }
 }
