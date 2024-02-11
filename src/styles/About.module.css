@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: black;
   color: white;
   height: auto;
@@ -20,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100%;
   width: 50svw;
   margin-top: 3svh;
@@ -27,10 +29,15 @@
 }
 
 .image {
-  width: 100%;
+  max-width: 90%;
   height: auto;
   box-shadow: inset 0 0 0, 0 0 0, 0 0 20px rgb(255, 255, 255);
   margin-top: 4svh;
+  display: flex;
+  items-align: center;
+  justify-content: center;
+  object-fit: fill;
+  align-self: center;
 }
 
 .blockTitle {
@@ -54,6 +61,9 @@
   width: 45svw;
   font-size: calc(min(2.5svh, 2.5svw));
   text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .glowTextEffect {
@@ -74,5 +84,10 @@
 @media screen and (max-width: 600px) {
   .blockTitle {
     font-size: calc(min(8svh, 8svw));
+  }
+
+  .description {
+    font-size: 1.5rem;
+    width: 80svw;
   }
 }
