@@ -106,16 +106,6 @@
   }
 }
 
-@media screen and (max-width: 450px) {
-  .imageContainer {
-    top: 1rem;
-    height: 80svh;
-    width: 80svw;
-    position: relative;
-    overflow: hidden;
-  }
-}
-
 .soldOutContainer {
   height: 80svh;
   flex: 1;
