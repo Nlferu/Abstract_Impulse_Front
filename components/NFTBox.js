@@ -193,7 +193,7 @@ export default function NFTBox({
         </div>
         {swipedUp ? (
           <div className="">
-            <div className={`${styles.nftDetails} mt-[10rem]`}>
+            <div className={`${styles.nftDetails} mt-[5rem]`}>
               <div className={`${styles.description} ${styles.card}`}>
                 <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>
                   NFT DETAILS
@@ -204,7 +204,7 @@ export default function NFTBox({
                 <p>{tokenDescription}</p>
               </div>
             </div>
-            <div className={`${styles.auctionDetails} mt-[10rem]`}>
+            <div className={`${styles.auctionDetails} mt-[5rem]`}>
               <div className={`${styles.description} ${styles.cardTwo}`}>
                 <h1 className={`${styles.blockTitle} ${styles.glowTextEffect}`}>
                   AUCTION DETAILS
@@ -235,7 +235,7 @@ export default function NFTBox({
               </div>
             </div>
 
-            <div className={`${styles.statusUpdate} mt-[10rem]`}>
+            <div className={`${styles.statusUpdate} mt-[5rem]`}>
               <div className={`${styles.description} ${styles.cardThree}`}>
                 {isWeb3Enabled ? (
                   <div>
